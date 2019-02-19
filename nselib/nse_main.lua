@@ -2,6 +2,8 @@ local coroutine = require "coroutine"
 local yield = coroutine.yield
 local wrap = coroutine.wrap
 local create = coroutine.create
+local resume = coroutine.resume
+local status = coroutine.status
 
 local package = require "package"
 local string = require "string"
@@ -51,6 +53,7 @@ function Thread:resume()
 	
 	print("in nse_main.lua resume\n")
 
+
 	local ok,r1 = resume(self.co)
 	local status = status(self.co)
 
@@ -81,7 +84,7 @@ end
 
 function Script:new_thread()
 	local function main()
-		yield(ACTION_STRTING)
+		yield(ACTION_STARTING)
 
 		local status,err = pcall(self.nse)
 		print(err)
