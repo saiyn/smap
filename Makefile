@@ -17,7 +17,8 @@ OBJS= main.o		\
      nse_main.o		\
      nse_utility.o	\
      Target.o		\
-     util.o
+     util.o		\
+     nse_nsock_tmp.o
 
 
 

@@ -15,9 +15,7 @@
 #define NSE_BASE		"NSE_BASE"
 #define NSE_WAITING_TO_RUNNING	"NSE_WAITING_TO_RUNNING"
 
-
-#if 0
-
+extern int luaopen_nsock(lua_State *L);
 
 static void set_nmap_libraries(lua_State *L)
 {
@@ -39,6 +37,7 @@ static void set_nmap_libraries(lua_State *L)
 
 }
 
+#if 0
 
 static void open_cnse(lua_State *L)
 {
@@ -62,7 +61,7 @@ static int init_main(lua_State *L)
 
 
 	luaL_openlibs(L);
-	//set_nmap_libraries(L);
+	set_nmap_libraries(L);
 
 	
 

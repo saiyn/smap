@@ -16,8 +16,8 @@ print("saiyn:in nse_main.lua\n")
 
 
 
---local socket = require "nsock"
---local loop = socket.loop
+local socket = require "nsock"
+local loop = socket.loop
 
 
 do 
@@ -58,6 +58,7 @@ function Thread:resume()
 	local status = status(self.co)
 
 	print("after nse_main.lua resume\n")
+	print(status)
 
 	if ok and r1 == ACTION_STARTING then
 		print("r1 == action_starting\n")
@@ -67,6 +68,7 @@ function Thread:resume()
 		return false
 	elseif status == "suspended" then
 		if r1 == NSE_YIELD_VALUE then
+			print("r1 == NSE_YIELD_VALUE")
 			return true
 		else
 			print("saiyn:suspend happen wrong\n")
@@ -76,6 +78,8 @@ function Thread:resume()
 		print("saiyn: thread dead\n")
 	end
 end
+
+
 
 function Thread:__index(key)
 	return Thread[key] or self.script[key]
@@ -162,16 +166,26 @@ local function run(threads_iter, hosts)
 
 	_R[YIELD] = function(co)
 		yielded_base[co] = current
+
+		print("in _R[YIELD]")
+
+		print(co)
+
 		return NSE_YIELD_VALUE
 	end
 
 	_R[WAITING_TO_RUNNING] = function(co, ...)
 		local base = yielded_base[co] or all[co]
+
+		print("in R[WATING_TO_RUNNING]")
+		print(co)
+
 		if base then
 			co = base.co
 			if waiting[co] then
 				pending[co],waiting[co] = waiting[co], nil
 				pending[co],args = pack(...)
+				print("put waiting into pending")
 			end
 		end
 	end
@@ -198,15 +212,19 @@ local function run(threads_iter, hosts)
 
 			if thread:resume() then
 				waiting[co] = thread
+				print("put thread into waiting")
+				print(co)
 			else
 				all[co] = nil
 			end
 		end
 
---		loop()
+		loop()
 		
 		for co,thread in pairs(pending) do
 			pending[co],running[co] = nil,thread
+
+			print("put thread from pending into running")
 		end
 	end
 end

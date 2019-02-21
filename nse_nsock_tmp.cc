@@ -1,3 +1,4 @@
+#include <unistd.h>
 #include "nse_utility.h"
 #include "nse_main.h"
 
@@ -12,6 +13,8 @@ static int l_send(lua_State *L)
 
 	cnt = 3;
 
+	printf("in l_send: %s\n", string);
+
 	return nse_yield(L);
 }
 
@@ -21,6 +24,7 @@ static int l_loop(lua_State *L)
 {
 	if(cnt){
 		while(cnt--){
+			printf("sleeping...\n");
 			sleep(1);
 		}
 		
@@ -37,7 +41,7 @@ LUALIB_API int luaopen_nsock(lua_State *L)
 	static const luaL_Reg l_nsock[] = {
 		{"send", l_send},
 		{"loop", l_loop},
-		{"NULL", "NULL"}
+		{NULL, NULL}
 	};
 
 
