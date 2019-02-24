@@ -16,8 +16,8 @@ print("saiyn:in nse_main.lua\n")
 
 
 
---local socket = require "nsock"
---local loop = socket.loop
+local socket = require "nsock"
+local loop = socket.loop
 
 
 do 
@@ -203,7 +203,7 @@ local function run(threads_iter, hosts)
 			end
 		end
 
---		loop()
+		loop(50)
 		
 		for co,thread in pairs(pending) do
 			pending[co],running[co] = nil,thread

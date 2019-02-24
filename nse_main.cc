@@ -16,7 +16,7 @@
 #define NSE_WAITING_TO_RUNNING	"NSE_WAITING_TO_RUNNING"
 
 
-#if 0
+extern int luaopen_nsock(lua_State *L);
 
 
 static void set_nmap_libraries(lua_State *L)
@@ -40,6 +40,8 @@ static void set_nmap_libraries(lua_State *L)
 }
 
 
+#if 0
+
 static void open_cnse(lua_State *L)
 {
 	static const luaL_Reg nse[] = {
@@ -62,7 +64,7 @@ static int init_main(lua_State *L)
 
 
 	luaL_openlibs(L);
-	//set_nmap_libraries(L);
+	set_nmap_libraries(L);
 
 	
 
@@ -185,13 +187,20 @@ int nse_yield(lua_State *L)
 }
 
 
-int nse_restore(lua_State *L)
+int nse_restore(lua_State *L, int number)
 {
-	lua_getfield(L, LUA_REGISTRYINDEX, NSE_WAITING_TO_RUNNING);
+	luaL_checkstack(L, 5, "nse_restore: stack overflow");
+
 
 	lua_pushthread(L);
+
+	lua_getfield(L, LUA_REGISTRYINDEX, NSE_WAITING_TO_RUNNING);
+
+	lua_insert(L, -(number + 2));
+	lua_insert(L, -(number + 1));
 	
-	lua_call(L,1,0);
+	if(lua_pcall(L,number + 1,0, 0) != 0)
+		printf("%s: waiting to running error - %s", __func__, lua_tostring(L, -1));
 }
 
 void script_scan(std::vector<Target *> &targets)

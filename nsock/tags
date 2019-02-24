@@ -1,0 +1,882 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+AR	src/Makefile	/^AR = ar$/;"	m
+AssertEqual	tests/test-common.h	34;"	d
+AssertNonNull	tests/test-common.h	33;"	d
+AssertStrEqual	tests/test-common.h	35;"	d
+BOLDGREEN	tests/tests_main.c	14;"	d	file:
+BOLDRED	tests/tests_main.c	13;"	d	file:
+CC	examples/Makefile	/^CC = gcc$/;"	m
+CC	src/Makefile	/^CC = gcc$/;"	m
+CC	tests/Makefile	/^CC 	= gcc$/;"	m
+CCOPT	examples/Makefile	/^CCOPT =$/;"	m
+CCOPT	src/Makefile	/^CCOPT =$/;"	m
+CFLAGS	examples/Makefile	/^CFLAGS =  -I\/usr\/local\/include -Wall -g $(CCOPT) $(DEFS) $(INCLS)$/;"	m
+CFLAGS	src/Makefile	/^CFLAGS = -g -O2 -Wall  $(CCOPT)$/;"	m
+CFLAGS	tests/Makefile	/^CFLAGS	= -g -O2 -Wall $/;"	m
+CIPHERS_FAST	src/nsock_ssl.c	79;"	d	file:
+CIPHERS_SECURE	src/nsock_ssl.c	74;"	d	file:
+CPPFLAGS	src/Makefile	/^CPPFLAGS = -I..\/..\/libpcap  -I..\/..\/nbase $(DEFS) $(INCLS)$/;"	m
+CPPFLAGS	tests/Makefile	/^CPPFLAGS = -I..\/..\/libpcap  -I..\/..\/nbase -I..\/include$/;"	m
+DEFAULT_PROXY_PORT_HTTP	src/proxy_http.c	65;"	d	file:
+DEFAULT_PROXY_PORT_SOCKS4	src/proxy_socks4.c	66;"	d	file:
+DEFS	examples/Makefile	/^DEFS =$/;"	m
+DEFS	src/Makefile	/^DEFS = -DHAVE_CONFIG_H -DNSOCK_VERSION=\\"$(NSOCK_VERSION)\\"$/;"	m
+DEPS	src/Makefile	/^DEPS =	error.h filespace.h gh_list.h nsock_internal.h netutils.h nsock_pcap.h \\$/;"	m
+DTLS_client_method	src/configure	/^DTLS_client_method()$/;"	f
+ELT_COUNT	tests/ghlists.c	15;"	d	file:
+ENGINE_EPOLL	src/nsock_engines.c	75;"	d	file:
+ENGINE_EPOLL	src/nsock_engines.c	77;"	d	file:
+ENGINE_IOCP	src/nsock_engines.c	68;"	d	file:
+ENGINE_IOCP	src/nsock_engines.c	70;"	d	file:
+ENGINE_KQUEUE	src/nsock_engines.c	82;"	d	file:
+ENGINE_KQUEUE	src/nsock_engines.c	84;"	d	file:
+ENGINE_POLL	src/nsock_engines.c	89;"	d	file:
+ENGINE_POLL	src/nsock_engines.c	91;"	d	file:
+ENGINE_SELECT	src/nsock_engines.c	96;"	d	file:
+EPOLLRDHUP	src/engine_epoll.c	80;"	d	file:
+EPOLL_R_FLAGS	src/engine_epoll.c	75;"	d	file:
+EPOLL_W_FLAGS	src/engine_epoll.c	76;"	d	file:
+EPOLL_X_FLAGS	src/engine_epoll.c	82;"	d	file:
+ERROR_H	src/error.h	59;"	d
+EV_EXCEPT	src/nsock_internal.h	135;"	d
+EV_LIST_INIT_SIZE	src/engine_poll.c	85;"	d	file:
+EV_NONE	src/nsock_internal.h	132;"	d
+EV_READ	src/nsock_internal.h	133;"	d
+EV_SETFLAG	src/engine_kqueue.c	188;"	d	file:
+EV_WRITE	src/nsock_internal.h	134;"	d
+EXE	tests/Makefile	/^EXE = tests_main$/;"	m
+FILESPACE_H	src/filespace.h	59;"	d
+FS_INITSIZE_DEFAULT	src/filespace.c	63;"	d	file:
+GH_HEAP_GUARD	src/gh_heap.h	87;"	d
+GH_HEAP_H	src/gh_heap.h	58;"	d
+GH_LIST_H	src/gh_list.h	58;"	d
+GH_LIST_MAGIC	src/gh_list.h	72;"	d
+GH_LIST_PARANOID	src/gh_list.h	73;"	d
+GH_SLOTS	src/gh_heap.c	69;"	d	file:
+GlobalLTD	tests/logs.c	/^static struct log_test_data *GlobalLTD;$/;"	v	typeref:struct:log_test_data	file:
+HAVE_EPOLL	include/nsock_config.h	89;"	d
+HAVE_IOCP	include/nsock_winconfig.h	71;"	d
+HAVE_NETDB_H	include/nsock_config.h	82;"	d
+HAVE_PCAP	include/nsock_config.h	61;"	d
+HAVE_PCAP	include/nsock_winconfig.h	63;"	d
+HAVE_PCAP_SET_IMMEDIATE_MODE	include/nsock_config.h	93;"	d
+HAVE_POLL	include/nsock_config.h	90;"	d
+HAVE_POLL	include/nsock_winconfig.h	70;"	d
+HAVE_SYS_IOCTL_H	include/nsock_config.h	77;"	d
+HAVE_SYS_UN_H	include/nsock_config.h	80;"	d
+HEAP_COUNT	tests/ghheaps.c	12;"	d	file:
+INCLS	examples/Makefile	/^INCLS = -I..\/include -I$(NBASEDIR)$/;"	m
+INCLS	src/Makefile	/^INCLS = -I..\/include$/;"	m
+INITIAL_EV_COUNT	src/engine_epoll.c	73;"	d	file:
+INITIAL_EV_COUNT	src/engine_kqueue.c	75;"	d	file:
+INSTALL	src/Makefile	/^INSTALL = $(SHTOOL) install$/;"	m
+IN_RANGE	src/nsock_proxy.c	62;"	d	file:
+IOD_PROCESSED	src/nsock_internal.h	265;"	d
+IOD_PROPCLR	src/nsock_internal.h	268;"	d
+IOD_PROPGET	src/nsock_internal.h	269;"	d
+IOD_PROPSET	src/nsock_internal.h	267;"	d
+IOD_REGISTERED	src/nsock_internal.h	264;"	d
+IPPROTO_SCTP	src/nsock_internal.h	107;"	d
+LDFLAGS	examples/Makefile	/^LDFLAGS =$/;"	m
+LDFLAGS	tests/Makefile	/^LDFLAGS	= -L..\/..\/libpcap  -L..\/..\/nbase$/;"	m
+LIBS	tests/Makefile	/^LIBS	=  ..\/..\/libpcap\/libpcap.a -ldl $/;"	m
+LINUX	include/nsock_config.h	63;"	d
+LIST_COUNT	tests/ghlists.c	14;"	d	file:
+MAKEDEPEND	src/Makefile	/^MAKEDEPEND = @MAKEDEPEND@$/;"	m
+NBASEDIR	examples/Makefile	/^NBASEDIR=..\/..\/nbase$/;"	m
+NBASEDIR	src/Makefile	/^NBASEDIR=..\/..\/nbase$/;"	m
+NBASEDIR	tests/Makefile	/^NBASEDIR=..\/..\/nbase$/;"	m
+NBASELIB	examples/Makefile	/^NBASELIB=$(NBASEDIR)\/libnbase.a$/;"	m
+NBASELIB	tests/Makefile	/^NBASELIB=$(NBASEDIR)\/libnbase.a$/;"	m
+NDEBUG	include/nsock.h	62;"	d
+NETUTILS_H	src/netutils.h	59;"	d
+NORETURN	src/error.h	78;"	d
+NORETURN	src/error.h	80;"	d
+NORETURN	src/error.h	82;"	d
+NSE_STATUS_CANCELLED	include/nsock.h	/^  NSE_STATUS_CANCELLED, \/* Someone cancelled the event. (by calling nsock_event_cancel()). *\/$/;"	e	enum:nse_status
+NSE_STATUS_EOF	include/nsock.h	/^  NSE_STATUS_EOF,       \/* We got EOF and NO DATA -- if we got data first,$/;"	e	enum:nse_status
+NSE_STATUS_ERROR	include/nsock.h	/^  NSE_STATUS_ERROR,     \/* Uh-oh!  Problem, check the nse_errorcode() *\/$/;"	e	enum:nse_status
+NSE_STATUS_KILL	include/nsock.h	/^  NSE_STATUS_KILL,      \/* The event has been killed, this generally means the$/;"	e	enum:nse_status
+NSE_STATUS_NONE	include/nsock.h	/^  NSE_STATUS_NONE = 0,  \/* User should never see this *\/$/;"	e	enum:nse_status
+NSE_STATUS_PROXYERROR	include/nsock.h	/^  NSE_STATUS_PROXYERROR$/;"	e	enum:nse_status
+NSE_STATUS_SUCCESS	include/nsock.h	/^  NSE_STATUS_SUCCESS,   \/* Everything went A-OK! *\/$/;"	e	enum:nse_status
+NSE_STATUS_TIMEOUT	include/nsock.h	/^  NSE_STATUS_TIMEOUT,   \/* The async call surpassed the timeout you specified *\/$/;"	e	enum:nse_status
+NSE_TYPE_CONNECT	include/nsock.h	/^  NSE_TYPE_CONNECT = 0,$/;"	e	enum:nse_type
+NSE_TYPE_CONNECT_SSL	include/nsock.h	/^  NSE_TYPE_CONNECT_SSL = 1,$/;"	e	enum:nse_type
+NSE_TYPE_MAX	include/nsock.h	/^  NSE_TYPE_MAX = 6,$/;"	e	enum:nse_type
+NSE_TYPE_PCAP_READ	include/nsock.h	/^  NSE_TYPE_PCAP_READ = 5,$/;"	e	enum:nse_type
+NSE_TYPE_READ	include/nsock.h	/^  NSE_TYPE_READ = 2,$/;"	e	enum:nse_type
+NSE_TYPE_TIMER	include/nsock.h	/^  NSE_TYPE_TIMER = 4,$/;"	e	enum:nse_type
+NSE_TYPE_WRITE	include/nsock.h	/^  NSE_TYPE_WRITE = 3,$/;"	e	enum:nse_type
+NSIOD_STATE_CONNECTED_TCP	src/nsock_internal.h	/^  NSIOD_STATE_CONNECTED_TCP,$/;"	e	enum:iod_state
+NSIOD_STATE_CONNECTED_UDP	src/nsock_internal.h	/^  NSIOD_STATE_CONNECTED_UDP$/;"	e	enum:iod_state
+NSIOD_STATE_DELETED	src/nsock_internal.h	/^  NSIOD_STATE_DELETED,$/;"	e	enum:iod_state
+NSIOD_STATE_INITIAL	src/nsock_internal.h	/^  NSIOD_STATE_INITIAL,$/;"	e	enum:iod_state
+NSIOD_STATE_UNKNOWN	src/nsock_internal.h	/^  NSIOD_STATE_UNKNOWN,$/;"	e	enum:iod_state
+NSOCKLIB	examples/Makefile	/^NSOCKLIB=..\/src\/libnsock.a$/;"	m
+NSOCKLIB	tests/Makefile	/^NSOCKLIB=..\/src\/libnsock.a$/;"	m
+NSOCKTESTDIR	src/Makefile	/^NSOCKTESTDIR=..\/tests$/;"	m
+NSOCK_H	include/nsock.h	59;"	d
+NSOCK_INTERNAL_H	src/nsock_internal.h	60;"	d
+NSOCK_LOG_DBG	include/nsock.h	/^  NSOCK_LOG_DBG,$/;"	e	enum:__anon1
+NSOCK_LOG_DBG_ALL	include/nsock.h	/^  NSOCK_LOG_DBG_ALL,$/;"	e	enum:__anon1
+NSOCK_LOG_ERROR	include/nsock.h	/^  NSOCK_LOG_ERROR,$/;"	e	enum:__anon1
+NSOCK_LOG_H	src/nsock_log.h	59;"	d
+NSOCK_LOG_INFO	include/nsock.h	/^  NSOCK_LOG_INFO,$/;"	e	enum:__anon1
+NSOCK_LOG_NONE	include/nsock.h	/^  NSOCK_LOG_NONE$/;"	e	enum:__anon1
+NSOCK_LOG_WRAP	src/nsock_log.h	67;"	d
+NSOCK_LOOP_ERROR	include/nsock.h	/^  NSOCK_LOOP_ERROR,$/;"	e	enum:nsock_loopstatus
+NSOCK_LOOP_NOEVENTS	include/nsock.h	/^  NSOCK_LOOP_NOEVENTS = 2,$/;"	e	enum:nsock_loopstatus
+NSOCK_LOOP_QUIT	include/nsock.h	/^  NSOCK_LOOP_QUIT$/;"	e	enum:nsock_loopstatus
+NSOCK_LOOP_TIMEOUT	include/nsock.h	/^  NSOCK_LOOP_TIMEOUT,$/;"	e	enum:nsock_loopstatus
+NSOCK_PCAP_H	src/nsock_pcap.h	59;"	d
+NSOCK_PENDING_ERROR	include/nsock.h	/^  NSOCK_PENDING_ERROR,$/;"	e	enum:nsock_del_mode
+NSOCK_PENDING_NOTIFY	include/nsock.h	/^  NSOCK_PENDING_NOTIFY,$/;"	e	enum:nsock_del_mode
+NSOCK_PENDING_SILENT	include/nsock.h	/^  NSOCK_PENDING_SILENT,$/;"	e	enum:nsock_del_mode
+NSOCK_PROXY_H	src/nsock_proxy.h	58;"	d
+NSOCK_READ	src/nsock_internal.h	/^  NSOCK_READ$/;"	e	enum:nsock_read_types
+NSOCK_READBYTES	src/nsock_internal.h	/^  NSOCK_READBYTES,$/;"	e	enum:nsock_read_types
+NSOCK_READLINES	src/nsock_internal.h	/^  NSOCK_READLINES,$/;"	e	enum:nsock_read_types
+NSOCK_READ_CHUNK_SIZE	include/nsock.h	99;"	d
+NSOCK_SSL_H	src/nsock_ssl.h	61;"	d
+NSOCK_SSL_MAX_SPEED	include/nsock.h	248;"	d
+NSOCK_VERSION	src/Makefile	/^NSOCK_VERSION = 0.02$/;"	m
+NSOCK_WINCONFIG_H	include/nsock_winconfig.h	60;"	d
+NUM_EVT_TYPES	src/nsock_iod.c	174;"	d	file:
+NsockLogLevel	src/nsock_log.c	/^nsock_loglevel_t    NsockLogLevel = NSOCK_LOG_ERROR;$/;"	v
+NsockLogger	src/nsock_log.c	/^nsock_logger_t      NsockLogger   = nsock_stderr_logger;$/;"	v
+OBJ	tests/Makefile	/^OBJ = $(SRC:.c=.o)$/;"	m
+OBJS	src/Makefile	/^OBJS =	error.o filespace.o gh_heap.o nsock_connect.o nsock_core.o \\$/;"	m
+OPENSSLLIB	examples/Makefile	/^OPENSSLLIB=-lssl -lpcap -lcrypto$/;"	m
+PCAPBASEDIR	examples/Makefile	/^PCAPBASEDIR=..\/..\/libpcap$/;"	m
+PCAPLIB	examples/Makefile	/^PCAPLIB=$(PCAPBASEDIR)\/libpcap.a$/;"	m
+PCAP_BSD_SELECT_HACK	src/nsock_pcap.h	122;"	d
+PCAP_CAN_DO_SELECT	src/nsock_pcap.h	90;"	d
+PCAP_FAILURE_EXPL_MESSAGE	src/nsock_pcap.c	91;"	d	file:
+PCAP_NETMASK_UNKNOWN	src/nsock_pcap.c	86;"	d	file:
+PCAP_OPEN_MAX_RETRIES	src/nsock_pcap.c	89;"	d	file:
+PCAP_POLL_INTERVAL	src/nsock_pcap.h	101;"	d
+PCAP_RECV_TIMEVAL_VALID	src/nsock_pcap.h	129;"	d
+PEER_STR_LEN	src/netutils.c	141;"	d	file:
+PEER_STR_LEN	src/netutils.c	143;"	d	file:
+POLLFD	src/engine_poll.c	89;"	d	file:
+POLLFD	src/engine_poll.c	92;"	d	file:
+POLL_R_FLAGS	src/engine_poll.c	96;"	d	file:
+POLL_R_FLAGS	src/engine_poll.c	98;"	d	file:
+POLL_W_FLAGS	src/engine_poll.c	101;"	d	file:
+POLL_X_FLAGS	src/engine_poll.c	103;"	d	file:
+POLL_X_FLAGS	src/engine_poll.c	106;"	d	file:
+PORT_TCP	tests/test-common.h	20;"	d
+PORT_TCPSSL	tests/test-common.h	21;"	d
+PORT_UDP	tests/test-common.h	19;"	d
+PROXY_STATE_HTTP_TCP_CONNECTED	src/nsock_proxy.h	/^  PROXY_STATE_HTTP_TCP_CONNECTED,$/;"	e	enum:nsock_proxy_state
+PROXY_STATE_HTTP_TUNNEL_ESTABLISHED	src/nsock_proxy.h	/^  PROXY_STATE_HTTP_TUNNEL_ESTABLISHED,$/;"	e	enum:nsock_proxy_state
+PROXY_STATE_INITIAL	src/nsock_proxy.h	/^  PROXY_STATE_INITIAL,$/;"	e	enum:nsock_proxy_state
+PROXY_STATE_SOCKS4_TCP_CONNECTED	src/nsock_proxy.h	/^  PROXY_STATE_SOCKS4_TCP_CONNECTED,$/;"	e	enum:nsock_proxy_state
+PROXY_STATE_SOCKS4_TUNNEL_ESTABLISHED	src/nsock_proxy.h	/^  PROXY_STATE_SOCKS4_TUNNEL_ESTABLISHED,$/;"	e	enum:nsock_proxy_state
+PROXY_TYPE_COUNT	src/nsock_proxy.h	/^  PROXY_TYPE_COUNT,$/;"	e	enum:nsock_proxy_type
+PROXY_TYPE_HTTP	src/nsock_proxy.h	/^  PROXY_TYPE_HTTP = 0,$/;"	e	enum:nsock_proxy_type
+PROXY_TYPE_SOCKS4	src/nsock_proxy.h	/^  PROXY_TYPE_SOCKS4,$/;"	e	enum:nsock_proxy_type
+Poll	src/engine_poll.c	88;"	d	file:
+Poll	src/engine_poll.c	91;"	d	file:
+ProxyBackends	src/nsock_proxy.c	/^static const struct proxy_spec *ProxyBackends[] = {$/;"	v	typeref:struct:proxy_spec	file:
+ProxyOpsHttp	src/proxy_http.c	/^static const struct proxy_op ProxyOpsHttp = {$/;"	v	typeref:struct:proxy_op	file:
+ProxyOpsSocks4	src/proxy_socks4.c	/^static const struct proxy_op ProxyOpsSocks4 = {$/;"	v	typeref:struct:proxy_op	file:
+ProxySpecHttp	src/proxy_http.c	/^const struct proxy_spec ProxySpecHttp = {$/;"	v	typeref:struct:proxy_spec
+ProxySpecSocks4	src/proxy_socks4.c	/^const struct proxy_spec ProxySpecSocks4 = {$/;"	v	typeref:struct:proxy_spec
+RANLIB	src/Makefile	/^RANLIB = ranlib$/;"	m
+READ_BUFFER_SZ	src/nsock_internal.h	112;"	d
+RESET	tests/tests_main.c	12;"	d	file:
+RM	examples/Makefile	/^RM = rm -f$/;"	m
+RPMTDIR	src/Makefile	/^RPMTDIR=$(HOME)\/rpmdir$/;"	m
+SHTOOL	src/Makefile	/^SHTOOL = .\/shtool$/;"	m
+SRC	tests/Makefile	/^SRC = tests_main.c \\$/;"	m
+SRCS	src/Makefile	/^SRCS = 	error.c filespace.c gh_heap.c nsock_connect.c nsock_core.c \\$/;"	m
+STATIC	src/Makefile	/^STATIC =$/;"	m
+SUN_LEN	include/nsock.h	86;"	d
+TARGET	src/Makefile	/^TARGET = libnsock.a$/;"	m
+TARGETS	examples/Makefile	/^TARGETS = nsock_test_timers nsock_telnet$/;"	m
+TEST_FAILED	tests/tests_main.c	15;"	d	file:
+TEST_FAILED	tests/tests_main.c	19;"	d	file:
+TEST_OK	tests/tests_main.c	16;"	d	file:
+TEST_OK	tests/tests_main.c	20;"	d	file:
+TIMERS_BUFFLEN	tests/timer.c	9;"	d	file:
+TYPE_CODE_NUM_BITS	include/nsock.h	314;"	d
+TestCancelSSL	tests/cancel.c	/^const struct test_case TestCancelSSL = {$/;"	v	typeref:struct:test_case
+TestCancelTCP	tests/cancel.c	/^const struct test_case TestCancelTCP = {$/;"	v	typeref:struct:test_case
+TestCancelUDP	tests/cancel.c	/^const struct test_case TestCancelUDP = {$/;"	v	typeref:struct:test_case
+TestCases	tests/tests_main.c	/^static const struct test_case *TestCases[] = {$/;"	v	typeref:struct:test_case	file:
+TestConnectFailure	tests/connect.c	/^const struct test_case TestConnectFailure = {$/;"	v	typeref:struct:test_case
+TestConnectTCP	tests/connect.c	/^const struct test_case TestConnectTCP = {$/;"	v	typeref:struct:test_case
+TestErrLevels	tests/logs.c	/^const struct test_case TestErrLevels = {$/;"	v	typeref:struct:test_case
+TestGHHeaps	tests/ghheaps.c	/^const struct test_case TestGHHeaps = {$/;"	v	typeref:struct:test_case
+TestGHLists	tests/ghlists.c	/^const struct test_case TestGHLists = {$/;"	v	typeref:struct:test_case
+TestHeapOrdering	tests/ghheaps.c	/^const struct test_case TestHeapOrdering = {$/;"	v	typeref:struct:test_case
+TestLogLevels	tests/logs.c	/^const struct test_case TestLogLevels = {$/;"	v	typeref:struct:test_case
+TestPoolUserData	tests/basic.c	/^const struct test_case TestPoolUserData = {$/;"	v	typeref:struct:test_case
+TestTimer	tests/timer.c	/^const struct test_case TestTimer = {$/;"	v	typeref:struct:test_case
+_AIX	src/nsock_pcap.c	70;"	d	file:
+_AIX	src/nsock_pcap.c	72;"	d	file:
+_GNU_SOURCE	src/engine_poll.c	59;"	d	file:
+_GNU_SOURCE	src/nsock_log.c	58;"	d	file:
+_GNU_SOURCE	src/proxy_http.c	57;"	d	file:
+_GNU_SOURCE	src/proxy_socks4.c	57;"	d	file:
+__ASSERT_BASE	tests/test-common.h	24;"	d
+__TEST_COMMON_H	tests/test-common.h	8;"	d
+__nsock_log_internal	src/nsock_log.c	/^void __nsock_log_internal(nsock_loglevel_t loglevel, const char *file, int line,$/;"	f
+_flags	src/nsock_internal.h	/^  char _flags;$/;"	m	struct:niod
+ac_fn_c_check_func	src/configure	/^ac_fn_c_check_func ()$/;"	f
+ac_fn_c_check_header_compile	src/configure	/^ac_fn_c_check_header_compile ()$/;"	f
+ac_fn_c_check_header_mongrel	src/configure	/^ac_fn_c_check_header_mongrel ()$/;"	f
+ac_fn_c_try_compile	src/configure	/^ac_fn_c_try_compile ()$/;"	f
+ac_fn_c_try_cpp	src/configure	/^ac_fn_c_try_cpp ()$/;"	f
+ac_fn_c_try_link	src/configure	/^ac_fn_c_try_link ()$/;"	f
+ac_fn_c_try_run	src/configure	/^ac_fn_c_try_run ()$/;"	f
+active_eovs	src/engine_iocp.c	/^  gh_list_t active_eovs;$/;"	m	struct:iocp_engine_info	file:
+active_iods	src/nsock_internal.h	/^  gh_list_t active_iods;$/;"	m	struct:npool
+add_timer	tests/timer.c	/^static void add_timer(struct timer_test_data *ttd, int timeout) {$/;"	f	file:
+address	src/proxy_socks4.c	/^    uint32_t address;$/;"	m	struct:socks4_data	file:
+as_fn_append	src/config.status	/^  as_fn_append ()$/;"	f
+as_fn_append	src/configure	/^  as_fn_append ()$/;"	f
+as_fn_arith	src/config.status	/^  as_fn_arith ()$/;"	f
+as_fn_arith	src/configure	/^  as_fn_arith ()$/;"	f
+as_fn_error	src/config.status	/^as_fn_error ()$/;"	f
+as_fn_error	src/configure	/^as_fn_error ()$/;"	f
+as_fn_executable_p	src/config.status	/^as_fn_executable_p ()$/;"	f
+as_fn_executable_p	src/configure	/^as_fn_executable_p ()$/;"	f
+as_fn_exit	src/config.status	/^as_fn_exit ()$/;"	f
+as_fn_exit	src/configure	/^as_fn_exit ()$/;"	f
+as_fn_failure	src/configure	/^as_fn_failure () { as_fn_return 1; }$/;"	f
+as_fn_mkdir_p	src/config.status	/^as_fn_mkdir_p ()$/;"	f
+as_fn_mkdir_p	src/configure	/^as_fn_mkdir_p ()$/;"	f
+as_fn_ret_failure	src/configure	/^as_fn_ret_failure () { return 1; }$/;"	f
+as_fn_ret_success	src/configure	/^as_fn_ret_success () { return 0; }$/;"	f
+as_fn_set_status	src/config.status	/^as_fn_set_status ()$/;"	f
+as_fn_set_status	src/configure	/^as_fn_set_status ()$/;"	f
+as_fn_success	src/configure	/^as_fn_success () { as_fn_return 0; }$/;"	f
+as_fn_unset	src/config.status	/^as_fn_unset ()$/;"	f
+as_fn_unset	src/configure	/^as_fn_unset ()$/;"	f
+available_engines	src/nsock_engines.c	/^static struct io_engine *available_engines[] = {$/;"	v	typeref:struct:io_engine	file:
+basic_setup	tests/basic.c	/^static int basic_setup(void **tdata) {$/;"	f	file:
+basic_teardown	tests/basic.c	/^static int basic_teardown(void *tdata) {$/;"	f	file:
+basic_test_data	tests/basic.c	/^struct basic_test_data {$/;"	s	file:
+basic_test_data	tests/cancel.c	/^struct basic_test_data {$/;"	s	file:
+basic_udata	tests/basic.c	/^static int basic_udata(void *tdata) {$/;"	f	file:
+bindir	src/Makefile	/^bindir = ${exec_prefix}\/bin$/;"	m
+broadcast	src/nsock_internal.h	/^  int broadcast;$/;"	m	struct:npool
+call_connect_overlapped	src/engine_iocp.c	/^static void call_connect_overlapped(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+call_read_overlapped	src/engine_iocp.c	/^static void call_read_overlapped(struct nevent *nse) {$/;"	f	file:
+call_write_overlapped	src/engine_iocp.c	/^static void call_write_overlapped(struct nevent *nse) {$/;"	f	file:
+cancel_handler	tests/cancel.c	/^static void cancel_handler(nsock_pool nsp, nsock_event nse, void *udata) {$/;"	f	file:
+cancel_setup	tests/cancel.c	/^static int cancel_setup(void **tdata) {$/;"	f	file:
+cancel_ssl_run	tests/cancel.c	/^static int cancel_ssl_run(void *tdata) {$/;"	f	file:
+cancel_tcp_run	tests/cancel.c	/^static int cancel_tcp_run(void *tdata) {$/;"	f	file:
+cancel_teardown	tests/cancel.c	/^static int cancel_teardown(void *tdata) {$/;"	f	file:
+cancel_udp_run	tests/cancel.c	/^static int cancel_udp_run(void *tdata) {$/;"	f	file:
+capacity	src/engine_iocp.c	/^  unsigned long capacity;$/;"	m	struct:iocp_engine_info	file:
+capacity	src/engine_poll.c	/^  int capacity;$/;"	m	struct:poll_engine_info	file:
+caplen	src/nsock_pcap.h	/^  int caplen;$/;"	m	struct:__anon3
+check_errlevel	tests/logs.c	/^static int check_errlevel(struct log_test_data *ltd, nsock_loglevel_t level) {$/;"	f	file:
+check_loglevel	tests/logs.c	/^static int check_loglevel(struct log_test_data *ltd, nsock_loglevel_t level) {$/;"	f	file:
+cleanup_all	tests/run_tests.sh	/^cleanup_all() {$/;"	f
+cmp_op	src/gh_heap.h	/^  gh_heap_cmp_t cmp_op;$/;"	m	struct:gh_heap
+connect_events	src/nsock_internal.h	/^  gh_list_t connect_events;$/;"	m	struct:npool
+connect_handler	tests/connect.c	/^static void connect_handler(nsock_pool nsp, nsock_event nse, void *udata) {$/;"	f	file:
+connect_result	tests/connect.c	/^  int connect_result;$/;"	m	struct:connect_test_data	file:
+connect_setup	tests/connect.c	/^static int connect_setup(void **tdata) {$/;"	f	file:
+connect_tcp	tests/connect.c	/^static int connect_tcp(void *tdata) {$/;"	f	file:
+connect_tcp_failure	tests/connect.c	/^static int connect_tcp_failure(void *tdata) {$/;"	f	file:
+connect_teardown	tests/connect.c	/^static int connect_teardown(void *tdata) {$/;"	f	file:
+connect_test_data	tests/connect.c	/^struct connect_test_data {$/;"	s	file:
+container_of	src/gh_heap.h	76;"	d
+count	src/gh_heap.h	/^  unsigned int count;$/;"	m	struct:gh_heap
+count	src/gh_list.h	/^  unsigned int count;$/;"	m	struct:gh_list
+current_alloc	src/filespace.h	/^  int current_alloc;$/;"	m	struct:filespace
+current_level	tests/logs.c	/^  nsock_loglevel_t current_level;$/;"	m	struct:log_test_data	file:
+current_size	src/filespace.h	/^  int current_size;$/;"	m	struct:filespace
+datalink	src/nsock_pcap.h	/^  int datalink;$/;"	m	struct:__anon2
+datarootdir	src/Makefile	/^datarootdir = ${prefix}\/share$/;"	m
+delnode	tests/ghlists.c	/^static void delnode(gh_lnode_t *lnode) {$/;"	f	file:
+dest	src/nsock_internal.h	/^  struct sockaddr_storage dest;$/;"	m	struct:writeinfo	typeref:struct:writeinfo::sockaddr_storage
+destlen	src/nsock_internal.h	/^  size_t destlen;$/;"	m	struct:writeinfo
+destroy	src/nsock_internal.h	/^  void (*destroy)(struct npool *nsp);$/;"	m	struct:io_engine
+device	src/nsock_internal.h	/^  const char *device;$/;"	m	struct:npool
+do_actual_pcap_read	src/nsock_pcap.c	/^int do_actual_pcap_read(struct nevent *nse) {$/;"	f
+do_actual_read	src/nsock_core.c	/^static int do_actual_read(struct npool *ms, struct nevent *nse) {$/;"	f	file:
+done	src/nsock_proxy.c	/^  int done;$/;"	m	struct:proxy_parser	file:
+dtls_init_common	src/nsock_ssl.c	/^static SSL_CTX *dtls_init_common() {$/;"	f	file:
+engine	src/nsock_internal.h	/^  struct io_engine *engine;$/;"	m	struct:npool	typeref:struct:npool::io_engine
+engine_data	src/nsock_internal.h	/^  void *engine_data;$/;"	m	struct:npool
+engine_epoll	src/engine_epoll.c	/^struct io_engine engine_epoll = {$/;"	v	typeref:struct:io_engine
+engine_hint	src/nsock_engines.c	/^static char *engine_hint;$/;"	v	file:
+engine_iocp	src/engine_iocp.c	/^struct io_engine engine_iocp = {$/;"	v	typeref:struct:io_engine
+engine_kqueue	src/engine_kqueue.c	/^struct io_engine engine_kqueue = {$/;"	v	typeref:struct:io_engine
+engine_poll	src/engine_poll.c	/^struct io_engine engine_poll = {$/;"	v	typeref:struct:io_engine
+engine_select	src/engine_select.c	/^struct io_engine engine_select = {$/;"	v	typeref:struct:io_engine
+entries_removed	src/engine_iocp.c	/^  unsigned long entries_removed;$/;"	m	struct:iocp_engine_info	file:
+eof	src/nsock_internal.h	/^  unsigned int eof: 1;$/;"	m	struct:nevent
+eov	src/engine_iocp.c	/^  struct extended_overlapped *eov;$/;"	m	struct:iocp_engine_info	typeref:struct:iocp_engine_info::extended_overlapped	file:
+eov	src/nsock_internal.h	/^  struct extended_overlapped *eov;$/;"	m	struct:nevent	typeref:struct:nevent::extended_overlapped
+eov_list	src/engine_iocp.c	/^  OVERLAPPED_ENTRY *eov_list;$/;"	m	struct:iocp_engine_info	file:
+eov_received	src/engine_iocp.c	/^  int eov_received;$/;"	m	struct:extended_overlapped	file:
+epfd	src/engine_epoll.c	/^  int epfd;$/;"	m	struct:epoll_engine_info	file:
+epoll_destroy	src/engine_epoll.c	/^void epoll_destroy(struct npool *nsp) {$/;"	f
+epoll_engine_info	src/engine_epoll.c	/^struct epoll_engine_info {$/;"	s	file:
+epoll_init	src/engine_epoll.c	/^int epoll_init(struct npool *nsp) {$/;"	f
+epoll_iod_modify	src/engine_epoll.c	/^int epoll_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+epoll_iod_register	src/engine_epoll.c	/^int epoll_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+epoll_iod_unregister	src/engine_epoll.c	/^int epoll_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+epoll_loop	src/engine_epoll.c	/^int epoll_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+err	src/engine_iocp.c	/^  int err;$/;"	m	struct:extended_overlapped	file:
+errcode	tests/logs.c	/^  int errcode;$/;"	m	struct:log_test_data	file:
+errcode_is_failure	src/engine_iocp.c	/^static int errcode_is_failure(int err) {$/;"	f	file:
+errcode_is_failure	src/nsock_core.c	/^static int errcode_is_failure(int err) {$/;"	f	file:
+errnum	src/nsock_internal.h	/^  int errnum;$/;"	m	struct:nevent
+errnum	src/nsock_internal.h	/^  int errnum;$/;"	m	struct:npool
+ev_ids	examples/nsock_test_timers.c	/^nsock_event_id ev_ids[2048];$/;"	v
+event_delete	src/nsock_event.c	/^void event_delete(struct npool *nsp, struct nevent *nse) {$/;"	f
+event_dispatch_and_delete	src/nsock_event.c	/^void event_dispatch_and_delete(struct npool *nsp, struct nevent *nse, int notify) {$/;"	f
+event_done	src/nsock_internal.h	/^  unsigned int event_done: 1;$/;"	m	struct:nevent
+event_new	src/nsock_event.c	/^struct nevent *event_new(struct npool *nsp, enum nse_type type,$/;"	f
+event_timedout	src/nsock_event.c	/^int event_timedout(struct nevent *nse) {$/;"	f
+events	src/engine_epoll.c	/^  struct epoll_event *events;$/;"	m	struct:epoll_engine_info	typeref:struct:epoll_engine_info::epoll_event	file:
+events	src/engine_kqueue.c	/^  struct kevent *events;$/;"	m	struct:kqueue_engine_info	typeref:struct:kqueue_engine_info::kevent	file:
+events	src/engine_poll.c	/^  POLLFD *events;$/;"	m	struct:poll_engine_info	file:
+events_pending	src/nsock_internal.h	/^  int events_pending;$/;"	m	struct:niod
+events_pending	src/nsock_internal.h	/^  int events_pending;$/;"	m	struct:npool
+evlen	src/engine_epoll.c	/^  int evlen;$/;"	m	struct:epoll_engine_info	file:
+evlen	src/engine_kqueue.c	/^  size_t evlen;$/;"	m	struct:kqueue_engine_info	file:
+evlist_grow	src/engine_poll.c	/^static inline int evlist_grow(struct poll_engine_info *pinfo) {$/;"	f	file:
+exec_prefix	src/Makefile	/^exec_prefix = ${prefix}$/;"	m
+expirable_cmp	src/nsock_pool.c	/^static int expirable_cmp(gh_hnode_t *n1, gh_hnode_t *n2) {$/;"	f	file:
+expirables	src/nsock_internal.h	/^  gh_heap_t expirables;$/;"	m	struct:npool
+expire	src/nsock_internal.h	/^  gh_hnode_t expire;$/;"	m	struct:nevent
+extended_overlapped	src/engine_iocp.c	/^struct extended_overlapped {$/;"	s	file:
+fatal	src/error.c	/^void fatal(char *fmt, ...) {$/;"	f
+fds_master_r	src/engine_select.c	/^  fd_set fds_master_r;$/;"	m	struct:select_engine_info	file:
+fds_master_w	src/engine_select.c	/^  fd_set fds_master_w;$/;"	m	struct:select_engine_info	file:
+fds_master_x	src/engine_select.c	/^  fd_set fds_master_x;$/;"	m	struct:select_engine_info	file:
+fds_results_r	src/engine_select.c	/^  fd_set fds_results_r, fds_results_w, fds_results_x;$/;"	m	struct:select_engine_info	file:
+fds_results_w	src/engine_select.c	/^  fd_set fds_results_r, fds_results_w, fds_results_x;$/;"	m	struct:select_engine_info	file:
+fds_results_x	src/engine_select.c	/^  fd_set fds_results_r, fds_results_w, fds_results_x;$/;"	m	struct:select_engine_info	file:
+file	include/nsock.h	/^  const char *file;$/;"	m	struct:nsock_log_rec
+filespace	src/filespace.h	/^struct filespace {$/;"	s
+filespace_init	src/filespace.c	/^int filespace_init(struct filespace *fs, int initial_size) {$/;"	f
+first	src/gh_list.h	/^  gh_lnode_t *first;$/;"	m	struct:gh_list
+first_connect	src/nsock_internal.h	/^  gh_lnode_t *first_connect;$/;"	m	struct:niod
+first_ev_next	src/nsock_event.c	/^static void first_ev_next(struct nevent *nse, gh_lnode_t **first, int nodeq2) {$/;"	f	file:
+first_pcap_read	src/nsock_internal.h	/^  gh_lnode_t *first_pcap_read;$/;"	m	struct:niod
+first_read	src/nsock_internal.h	/^  gh_lnode_t *first_read;$/;"	m	struct:niod
+first_write	src/nsock_internal.h	/^  gh_lnode_t *first_write;$/;"	m	struct:niod
+force_operation	src/engine_iocp.c	/^static void force_operation(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+forward_event	src/nsock_proxy.c	/^void forward_event(nsock_pool nspool, nsock_event nsevent, void *udata) {$/;"	f
+free_eov	src/engine_iocp.c	/^static void free_eov(struct npool *nsp, struct extended_overlapped *eov) {$/;"	f	file:
+free_eovs	src/engine_iocp.c	/^  gh_list_t free_eovs;$/;"	m	struct:iocp_engine_info	file:
+free_events	src/nsock_internal.h	/^  gh_list_t free_events;$/;"	m	struct:npool
+free_iods	src/nsock_internal.h	/^  gh_list_t free_iods;$/;"	m	struct:npool
+fs_cat	src/filespace.c	/^int fs_cat(struct filespace *fs, const char *str, int len) {$/;"	f
+fs_free	src/filespace.c	/^int fs_free(struct filespace *fs) {$/;"	f
+fs_length	src/filespace.h	/^static inline int fs_length(const struct filespace *fs) {$/;"	f
+fs_str	src/filespace.h	/^static inline char *fs_str(const struct filespace *fs) {$/;"	f
+func	include/nsock.h	/^  const char *func;$/;"	m	struct:nsock_log_rec
+get_addr_string	src/netutils.c	/^static char *get_addr_string(const struct sockaddr_storage *ss, size_t sslen) {$/;"	f	file:
+get_event_id_type	src/nsock_event.c	/^enum nse_type get_event_id_type(nsock_event_id event_id) {$/;"	f
+get_evmask	src/engine_epoll.c	/^static inline int get_evmask(struct epoll_engine_info *einfo, int n) {$/;"	f	file:
+get_evmask	src/engine_kqueue.c	/^static inline int get_evmask(struct niod *nsi, const struct kevent *kev) {$/;"	f	file:
+get_evmask	src/engine_poll.c	/^static inline int get_evmask(struct npool *nsp, struct niod *nsi) {$/;"	f	file:
+get_evmask	src/engine_select.c	/^static inline int get_evmask(const struct npool *nsp, const struct niod *nsi) {$/;"	f	file:
+get_io_engine	src/nsock_engines.c	/^struct io_engine *get_io_engine(void) {$/;"	f
+get_localaddr_string	src/netutils.c	/^char *get_localaddr_string(const struct niod *iod) {$/;"	f
+get_new_event_id	src/nsock_event.c	/^nsock_event_id get_new_event_id(struct npool *ms, enum nse_type type) {$/;"	f
+get_overlapped_result	src/engine_iocp.c	/^static int get_overlapped_result(struct npool *nsp, int fd, const void *buffer, size_t count) {$/;"	f	file:
+get_peeraddr_string	src/netutils.c	/^char *get_peeraddr_string(const struct niod *iod) {$/;"	f
+get_port	src/netutils.c	/^static int get_port(const struct sockaddr_storage *ss) {$/;"	f	file:
+get_test_name	tests/test-common.h	/^static inline const char *get_test_name(const struct test_case *test) {$/;"	f
+get_unixsock_path	src/netutils.c	/^const char *get_unixsock_path(const struct sockaddr_storage *addr) {$/;"	f
+gh_heap	src/gh_heap.h	/^typedef struct gh_heap {$/;"	s
+gh_heap_cmp_t	src/gh_heap.h	/^typedef int (*gh_heap_cmp_t)(gh_hnode_t *hnode1, gh_hnode_t *hnode2);$/;"	t
+gh_heap_count	src/gh_heap.h	/^static inline size_t gh_heap_count(gh_heap_t *heap) {$/;"	f
+gh_heap_find	src/gh_heap.c	/^gh_hnode_t *gh_heap_find(gh_heap_t *heap, unsigned int index) {$/;"	f
+gh_heap_free	src/gh_heap.c	/^void gh_heap_free(gh_heap_t *heap) {$/;"	f
+gh_heap_init	src/gh_heap.c	/^int gh_heap_init(gh_heap_t *heap, gh_heap_cmp_t cmp_op) {$/;"	f
+gh_heap_is_empty	src/gh_heap.h	/^static inline int gh_heap_is_empty(gh_heap_t *heap) {$/;"	f
+gh_heap_min	src/gh_heap.h	/^static inline gh_hnode_t *gh_heap_min(gh_heap_t *heap) {$/;"	f
+gh_heap_pop	src/gh_heap.h	/^static inline gh_hnode_t *gh_heap_pop(gh_heap_t *heap) {$/;"	f
+gh_heap_push	src/gh_heap.c	/^int gh_heap_push(gh_heap_t *heap, gh_hnode_t *hnode) {$/;"	f
+gh_heap_remove	src/gh_heap.c	/^int gh_heap_remove(gh_heap_t *heap, gh_hnode_t *hnode)$/;"	f
+gh_heap_t	src/gh_heap.h	/^} gh_heap_t;$/;"	t	typeref:struct:gh_heap
+gh_hnode_invalidate	src/gh_heap.h	/^static inline void gh_hnode_invalidate(gh_hnode_t *node) {$/;"	f
+gh_hnode_is_valid	src/gh_heap.h	/^static inline int gh_hnode_is_valid(const gh_hnode_t *node) {$/;"	f
+gh_hnode_t	src/gh_heap.h	/^} gh_hnode_t;$/;"	t	typeref:struct:__anon4
+gh_list	src/gh_list.h	/^typedef struct gh_list {$/;"	s
+gh_list_append	src/gh_list.h	/^static inline int gh_list_append(gh_list_t *list, gh_lnode_t *lnode) {$/;"	f
+gh_list_count	src/gh_list.h	/^static inline unsigned int gh_list_count(gh_list_t *list) {$/;"	f
+gh_list_first_elem	src/gh_list.h	/^static inline gh_lnode_t *gh_list_first_elem(gh_list_t *list) {$/;"	f
+gh_list_free	src/gh_list.h	/^static inline int gh_list_free(gh_list_t *list) {$/;"	f
+gh_list_init	src/gh_list.h	/^static inline int gh_list_init(gh_list_t *newlist) {$/;"	f
+gh_list_insert_before	src/gh_list.h	/^static inline int gh_list_insert_before(gh_list_t *list, gh_lnode_t *before,$/;"	f
+gh_list_last_elem	src/gh_list.h	/^static inline gh_lnode_t *gh_list_last_elem(gh_list_t *list) {$/;"	f
+gh_list_move_front	src/gh_list.h	/^static inline int gh_list_move_front(gh_list_t *list, gh_lnode_t *lnode) {$/;"	f
+gh_list_node	src/gh_list.h	/^typedef struct gh_list_node {$/;"	s
+gh_list_pop	src/gh_list.h	/^static inline gh_lnode_t *gh_list_pop(gh_list_t *list) {$/;"	f
+gh_list_prepend	src/gh_list.h	/^static inline int gh_list_prepend(gh_list_t *list, gh_lnode_t *lnode) {$/;"	f
+gh_list_remove	src/gh_list.h	/^static inline int gh_list_remove(gh_list_t *list, gh_lnode_t *lnode) {$/;"	f
+gh_list_t	src/gh_list.h	/^} gh_list_t;$/;"	t	typeref:struct:gh_list
+gh_lnode_next	src/gh_list.h	/^static inline gh_lnode_t *gh_lnode_next(gh_lnode_t *elem) {$/;"	f
+gh_lnode_prev	src/gh_list.h	/^static inline gh_lnode_t *gh_lnode_prev(gh_lnode_t *elem) {$/;"	f
+gh_lnode_t	src/gh_list.h	/^} gh_lnode_t;$/;"	t	typeref:struct:gh_list_node
+ghheap_ordering	tests/ghheaps.c	/^static int ghheap_ordering(void *tdata) {$/;"	f	file:
+ghheap_stress	tests/ghheaps.c	/^static int ghheap_stress(void *tdata) {$/;"	f	file:
+ghlist_stress	tests/ghlists.c	/^static int ghlist_stress(void *tdata) {$/;"	f	file:
+got_dbg	tests/logs.c	/^  unsigned int got_dbg: 1;$/;"	m	struct:log_test_data	file:
+got_dbgfull	tests/logs.c	/^  unsigned int got_dbgfull: 1;$/;"	m	struct:log_test_data	file:
+got_error	tests/logs.c	/^  unsigned int got_error: 1;$/;"	m	struct:log_test_data	file:
+got_info	tests/logs.c	/^  unsigned int got_info: 1;$/;"	m	struct:log_test_data	file:
+handle_connect_result	src/nsock_core.c	/^void handle_connect_result(struct npool *ms, struct nevent *nse, enum nse_status status) {$/;"	f
+handle_pcap_read_result	src/nsock_core.c	/^void handle_pcap_read_result(struct npool *ms, struct nevent *nse, enum nse_status status) {$/;"	f
+handle_read_result	src/nsock_core.c	/^void handle_read_result(struct npool *ms, struct nevent *nse, enum nse_status status) {$/;"	f
+handle_state_initial	src/proxy_http.c	/^static int handle_state_initial(struct npool *nsp, struct nevent *nse, void *udata) {$/;"	f	file:
+handle_state_initial	src/proxy_socks4.c	/^static int handle_state_initial(struct npool *nsp, struct nevent *nse, void *udata) {$/;"	f	file:
+handle_state_tcp_connected	src/proxy_http.c	/^static int handle_state_tcp_connected(struct npool *nsp, struct nevent *nse, void *udata) {$/;"	f	file:
+handle_state_tcp_connected	src/proxy_socks4.c	/^static int handle_state_tcp_connected(struct npool *nsp, struct nevent *nse, void *udata) {$/;"	f	file:
+handle_timer_result	src/nsock_core.c	/^void handle_timer_result(struct npool *ms, struct nevent *nse, enum nse_status status) {$/;"	f
+handle_write_result	src/nsock_core.c	/^void handle_write_result(struct npool *ms, struct nevent *nse, enum nse_status status) {$/;"	f
+handler	src/nsock_internal.h	/^  nsock_ev_handler handler;$/;"	m	struct:nevent
+handler	src/nsock_proxy.h	/^  void (*handler)(nsock_pool nspool, nsock_event nsevent, void *udata);$/;"	m	struct:proxy_op
+heap_grow	src/gh_heap.c	/^static int heap_grow(gh_heap_t *heap) {$/;"	f	file:
+hex_digit_value	src/nsock_proxy.c	/^static int hex_digit_value(char digit) {$/;"	f	file:
+highwm	src/gh_heap.h	/^  unsigned int highwm;$/;"	m	struct:gh_heap
+hnode_down	src/gh_heap.c	/^static int hnode_down(gh_heap_t *heap, gh_hnode_t *hnode)$/;"	f	file:
+hnode_int_cmp	tests/ghheaps.c	/^static int hnode_int_cmp(gh_hnode_t *n1, gh_hnode_t *n2) {$/;"	f	file:
+hnode_ptr	src/gh_heap.c	/^static gh_hnode_t **hnode_ptr(gh_heap_t *heap, unsigned int index) {$/;"	f	file:
+hnode_up	src/gh_heap.c	/^static int hnode_up(gh_heap_t *heap, gh_hnode_t *hnode)$/;"	f	file:
+host	src/nsock_proxy.h	/^  char *host;$/;"	m	struct:uri
+hostname	src/nsock_internal.h	/^  char *hostname;$/;"	m	struct:niod
+id	src/nsock_internal.h	/^  nsock_event_id id;$/;"	m	struct:nevent
+id	src/nsock_internal.h	/^  unsigned long id;$/;"	m	struct:niod
+index	src/gh_heap.h	/^  unsigned int index;$/;"	m	struct:__anon4
+init	src/nsock_internal.h	/^  int (*init)(struct npool *nsp);$/;"	m	struct:io_engine
+initiate_connect	src/engine_iocp.c	/^static void initiate_connect(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+initiate_overlapped_event	src/engine_iocp.c	/^static void initiate_overlapped_event(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+initiate_pcap_read	src/engine_iocp.c	/^static void initiate_pcap_read(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+initiate_read	src/engine_iocp.c	/^static void initiate_read(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+initiate_write	src/engine_iocp.c	/^static void initiate_write(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+io_engine	src/nsock_internal.h	/^struct io_engine {$/;"	s
+io_operations	src/nsock_internal.h	/^  struct io_operations *io_operations;$/;"	m	struct:io_engine	typeref:struct:io_engine::io_operations
+io_operations	src/nsock_internal.h	/^struct io_operations {$/;"	s
+iobuf	src/nsock_internal.h	/^  struct filespace iobuf;$/;"	m	struct:nevent	typeref:struct:nevent::filespace
+iocp	src/engine_iocp.c	/^  HANDLE iocp;$/;"	m	struct:iocp_engine_info	file:
+iocp_destroy	src/engine_iocp.c	/^void iocp_destroy(struct npool *nsp) {$/;"	f
+iocp_engine_info	src/engine_iocp.c	/^struct iocp_engine_info {$/;"	s	file:
+iocp_init	src/engine_iocp.c	/^int iocp_init(struct npool *nsp) {$/;"	f
+iocp_io_operations	src/engine_iocp.c	/^struct io_operations iocp_io_operations = {$/;"	v	typeref:struct:io_operations
+iocp_iod_connect	src/engine_iocp.c	/^int iocp_iod_connect(struct npool *nsp, int sockfd, const struct sockaddr *addr, socklen_t addrlen) {$/;"	f
+iocp_iod_modify	src/engine_iocp.c	/^int iocp_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+iocp_iod_read	src/engine_iocp.c	/^int iocp_iod_read(struct npool *nsp, int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_addr, socklen_t *addrlen) {$/;"	f
+iocp_iod_register	src/engine_iocp.c	/^int iocp_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+iocp_iod_unregister	src/engine_iocp.c	/^int iocp_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+iocp_iod_write	src/engine_iocp.c	/^int iocp_iod_write(struct npool *nsp, int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *dest_addr, socklen_t addrlen) {$/;"	f
+iocp_loop	src/engine_iocp.c	/^int iocp_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+iod	src/nsock_internal.h	/^  struct niod *iod;$/;"	m	struct:nevent	typeref:struct:nevent::niod
+iod_add_event	src/nsock_core.c	/^static int iod_add_event(struct niod *iod, struct nevent *nse) {$/;"	f	file:
+iod_connect	src/nsock_internal.h	/^  int(*iod_connect)(struct npool *nsp, int sockfd, const struct sockaddr *addr, socklen_t addrlen);$/;"	m	struct:io_operations
+iod_modify	src/nsock_internal.h	/^  int (*iod_modify)(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr);$/;"	m	struct:io_engine
+iod_read	src/nsock_internal.h	/^  int(*iod_read)(struct npool *nsp, int sockfd, void *buf, size_t len, int flags,$/;"	m	struct:io_operations
+iod_register	src/nsock_internal.h	/^  int(*iod_register)(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev);$/;"	m	struct:io_engine
+iod_state	src/nsock_internal.h	/^enum iod_state {$/;"	g
+iod_unregister	src/nsock_internal.h	/^  int(*iod_unregister)(struct npool *nsp, struct niod *iod);$/;"	m	struct:io_engine
+iod_write	src/nsock_internal.h	/^  int(*iod_write)(struct npool *nsp, int sockfd, const void *buf, size_t len, int flags,$/;"	m	struct:io_operations
+ipopts	src/nsock_internal.h	/^  void *ipopts;$/;"	m	struct:niod
+ipoptslen	src/nsock_internal.h	/^  int ipoptslen;$/;"	m	struct:niod
+iterate_through_event_lists	src/engine_epoll.c	/^void iterate_through_event_lists(struct npool *nsp, int evcount) {$/;"	f
+iterate_through_event_lists	src/engine_iocp.c	/^void iterate_through_event_lists(struct npool *nsp) {$/;"	f
+iterate_through_event_lists	src/engine_kqueue.c	/^void iterate_through_event_lists(struct npool *nsp, int evcount) {$/;"	f
+iterate_through_event_lists	src/engine_poll.c	/^void iterate_through_event_lists(struct npool *nsp) {$/;"	f
+iterate_through_event_lists	src/engine_select.c	/^void iterate_through_event_lists(struct npool *nsp) {$/;"	f
+kqfd	src/engine_kqueue.c	/^  int kqfd;$/;"	m	struct:kqueue_engine_info	file:
+kqueue_destroy	src/engine_kqueue.c	/^void kqueue_destroy(struct npool *nsp) {$/;"	f
+kqueue_engine_info	src/engine_kqueue.c	/^struct kqueue_engine_info {$/;"	s	file:
+kqueue_init	src/engine_kqueue.c	/^int kqueue_init(struct npool *nsp) {$/;"	f
+kqueue_iod_modify	src/engine_kqueue.c	/^int kqueue_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+kqueue_iod_register	src/engine_kqueue.c	/^int kqueue_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+kqueue_iod_unregister	src/engine_kqueue.c	/^int kqueue_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+kqueue_loop	src/engine_kqueue.c	/^int kqueue_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+l3_offset	src/nsock_pcap.h	/^  int l3_offset;$/;"	m	struct:__anon2
+last	src/gh_list.h	/^  gh_lnode_t *last;$/;"	m	struct:gh_list
+lastproto	src/nsock_internal.h	/^  int lastproto;$/;"	m	struct:niod
+latest_readstdinev	examples/nsock_telnet.c	/^  nsock_event_id latest_readstdinev;$/;"	m	struct:telnet_state	file:
+latest_readtcpev	examples/nsock_telnet.c	/^  nsock_event_id latest_readtcpev;$/;"	m	struct:telnet_state	file:
+len	src/nsock_pcap.h	/^  int len;$/;"	m	struct:__anon3
+level	include/nsock.h	/^  nsock_loglevel_t level;$/;"	m	struct:nsock_log_rec
+line	include/nsock.h	/^  int line;$/;"	m	struct:nsock_log_rec
+lnode	tests/ghlists.c	/^  gh_lnode_t lnode;$/;"	m	struct:testlist	file:
+lnode_nevent	src/nsock_internal.h	/^static inline struct nevent *lnode_nevent(gh_lnode_t *lnode) {$/;"	f
+lnode_nevent2	src/nsock_internal.h	/^static inline struct nevent *lnode_nevent2(gh_lnode_t *lnode) {$/;"	f
+local	src/nsock_internal.h	/^  struct sockaddr_storage local;$/;"	m	struct:niod	typeref:struct:niod::sockaddr_storage
+locallen	src/nsock_internal.h	/^  size_t locallen;$/;"	m	struct:niod
+log_check_err_levels	tests/logs.c	/^static int log_check_err_levels(void *tdata) {$/;"	f	file:
+log_check_std_levels	tests/logs.c	/^static int log_check_std_levels(void *tdata) {$/;"	f	file:
+log_handler	tests/logs.c	/^static void log_handler(const struct nsock_log_rec *rec) {$/;"	f	file:
+log_setup	tests/logs.c	/^static int log_setup(void **tdata) {$/;"	f	file:
+log_teardown	tests/logs.c	/^static int log_teardown(void *tdata) {$/;"	f	file:
+log_test_data	tests/logs.c	/^struct log_test_data {$/;"	s	file:
+loop	src/nsock_internal.h	/^  int (*loop)(struct npool *nsp, int msec_timeout);$/;"	m	struct:io_engine
+lower_max_fd	src/engine_poll.c	/^static inline int lower_max_fd(struct poll_engine_info *pinfo) {$/;"	f	file:
+lowercase	src/nsock_proxy.c	/^static int lowercase(char *s) {$/;"	f	file:
+main	examples/nsock_telnet.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	examples/nsock_test_timers.c	/^int main(int argc, char *argv[]) {$/;"	f
+main	src/config.guess	/^		main()$/;"	f
+main	src/config.guess	/^	main ()$/;"	f
+main	tests/run_tests.sh	/^main() {$/;"	f
+main	tests/tests_main.c	/^int main(int ac, char **av) {$/;"	f
+mandir	src/Makefile	/^mandir = ${datarootdir}\/man$/;"	m
+map_faulty_errors	src/engine_iocp.c	/^static int map_faulty_errors(int err) {$/;"	f	file:
+max_fd	src/engine_poll.c	/^  int max_fd;$/;"	m	struct:poll_engine_info	file:
+max_sd	src/engine_select.c	/^  int max_sd;$/;"	m	struct:select_engine_info	file:
+maxfd	src/engine_kqueue.c	/^  int maxfd;$/;"	m	struct:kqueue_engine_info	file:
+maximize_fdlimit	src/netutils.c	/^int maximize_fdlimit(void) {$/;"	f
+mknode	tests/ghheaps.c	/^static gh_hnode_t *mknode(int val) {$/;"	f	file:
+mknode	tests/ghlists.c	/^static gh_lnode_t *mknode(unsigned int val) {$/;"	f	file:
+mksock_bind_addr	src/nsock_connect.c	/^static int mksock_bind_addr(struct npool *ms, struct niod *iod) {$/;"	f	file:
+mksock_bind_device	src/nsock_connect.c	/^static int mksock_bind_device(struct npool *ms, struct niod *iod) {$/;"	f	file:
+mksock_set_broadcast	src/nsock_connect.c	/^static int mksock_set_broadcast(struct npool *ms, struct niod *iod) {$/;"	f	file:
+mksock_set_ipopts	src/nsock_connect.c	/^static int mksock_set_ipopts(struct npool *ms, struct niod *iod) {$/;"	f	file:
+msg	include/nsock.h	/^  char *msg;$/;"	m	struct:nsock_log_rec
+mspcap	src/nsock_pcap.h	/^} mspcap;$/;"	t	typeref:struct:__anon2
+name	src/nsock_internal.h	/^  const char *name;$/;"	m	struct:io_engine
+netutils_debugging	src/netutils.c	/^static int netutils_debugging = 0;$/;"	v	file:
+nevent	src/nsock_internal.h	/^struct nevent {$/;"	s
+nevent_delete	src/nsock_event.c	/^int nevent_delete(struct npool *nsp, struct nevent *nse, gh_list_t *event_list,$/;"	f
+nevent_unref	src/nsock_core.c	/^static int nevent_unref(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+new_eov	src/engine_iocp.c	/^static struct extended_overlapped *new_eov(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+next	src/gh_list.h	/^  struct gh_list_node *next;$/;"	m	struct:gh_list_node	typeref:struct:gh_list_node::gh_list_node
+next_event_serial	src/nsock_internal.h	/^  unsigned long next_event_serial;$/;"	m	struct:npool
+next_expirable_event	src/nsock_internal.h	/^static inline struct nevent *next_expirable_event(struct npool *nsp) {$/;"	f
+next_iod_serial	src/nsock_internal.h	/^  unsigned long next_iod_serial;$/;"	m	struct:npool
+niod	src/nsock_internal.h	/^struct niod {$/;"	s
+node	tests/ghheaps.c	/^  gh_hnode_t  node;$/;"	m	struct:testitem	file:
+node2int	tests/ghheaps.c	/^static int node2int(gh_hnode_t *hnode) {$/;"	f	file:
+node_delete	src/nsock_proxy.h	/^  void (*node_delete)(struct proxy_node *node);$/;"	m	struct:proxy_op
+node_new	src/nsock_proxy.h	/^  int (*node_new)(struct proxy_node **node, const struct uri *uri);$/;"	m	struct:proxy_op
+nodeq	src/engine_iocp.c	/^  gh_lnode_t nodeq;$/;"	m	struct:extended_overlapped	file:
+nodeq	src/nsock_internal.h	/^  gh_lnode_t nodeq;$/;"	m	struct:niod
+nodeq	src/nsock_proxy.h	/^  gh_lnode_t nodeq;$/;"	m	struct:proxy_node
+nodeq_io	src/nsock_internal.h	/^  gh_lnode_t nodeq_io;$/;"	m	struct:nevent
+nodeq_pcap	src/nsock_internal.h	/^  gh_lnode_t nodeq_pcap;$/;"	m	struct:nevent
+nodes	src/nsock_proxy.h	/^  gh_list_t nodes;$/;"	m	struct:proxy_chain
+nodestr	src/nsock_proxy.h	/^  char *nodestr; \/* used for log messages *\/$/;"	m	struct:proxy_node
+nodeval	tests/ghlists.c	/^static unsigned int nodeval(gh_lnode_t *lnode) {$/;"	f	file:
+nop_handler	tests/logs.c	/^static void nop_handler(nsock_pool nsp, nsock_event nse, void *udata) {$/;"	f	file:
+npool	src/nsock_internal.h	/^struct npool {$/;"	s
+nse	src/engine_iocp.c	/^  struct nevent *nse;$/;"	m	struct:extended_overlapped	typeref:struct:extended_overlapped::nevent	file:
+nse_eof	src/nsock_event.c	/^int nse_eof(nsock_event nse) {$/;"	f
+nse_errorcode	src/nsock_event.c	/^int nse_errorcode(nsock_event nse) {$/;"	f
+nse_id	src/engine_iocp.c	/^  nsock_event_id nse_id;$/;"	m	struct:extended_overlapped	file:
+nse_id	src/nsock_event.c	/^nsock_event_id nse_id(nsock_event nse) {$/;"	f
+nse_iod	src/nsock_event.c	/^nsock_iod nse_iod(nsock_event ms_event) {$/;"	f
+nse_readbuf	src/nsock_event.c	/^char *nse_readbuf(nsock_event nse, int *nbytes) {$/;"	f
+nse_readpcap	src/nsock_pcap.c	/^void nse_readpcap(nsock_event nsev, const unsigned char **l2_data, size_t *l2_len,$/;"	f
+nse_status	include/nsock.h	/^enum nse_status {$/;"	g
+nse_status	src/nsock_event.c	/^enum nse_status nse_status(nsock_event nse) {$/;"	f
+nse_status2str	src/nsock_event.c	/^const char *nse_status2str(enum nse_status status) {$/;"	f
+nse_type	include/nsock.h	/^enum nse_type {$/;"	g
+nse_type	src/nsock_event.c	/^enum nse_type nse_type(nsock_event nse) {$/;"	f
+nse_type2str	src/nsock_event.c	/^const char *nse_type2str(enum nse_type type) {$/;"	f
+nsi	tests/connect.c	/^  nsock_iod  nsi;$/;"	m	struct:connect_test_data	file:
+nsi_set_ssl_session	src/nsock_iod.c	/^void nsi_set_ssl_session(struct niod *iod, SSL_SESSION *sessid) {$/;"	f
+nsi_ssl_post_connect_verify	src/nsock_ssl.c	/^int nsi_ssl_post_connect_verify(const nsock_iod nsockiod) {$/;"	f
+nsock_connect_internal	src/nsock_connect.c	/^void nsock_connect_internal(struct npool *ms, struct nevent *nse, int type, int proto, struct sockaddr_storage *ss, size_t sslen,$/;"	f
+nsock_connect_sctp	src/nsock_connect.c	/^nsock_event_id nsock_connect_sctp(nsock_pool nsp, nsock_iod ms_iod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_connect_ssl	src/nsock_connect.c	/^nsock_event_id nsock_connect_ssl(nsock_pool nsp, nsock_iod nsiod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_connect_tcp	src/nsock_connect.c	/^nsock_event_id nsock_connect_tcp(nsock_pool nsp, nsock_iod ms_iod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_connect_udp	src/nsock_connect.c	/^nsock_event_id nsock_connect_udp(nsock_pool nsp, nsock_iod nsiod, nsock_ev_handler handler, void *userdata,$/;"	f
+nsock_connect_unixsock_datagram	src/nsock_connect.c	/^nsock_event_id nsock_connect_unixsock_datagram(nsock_pool nsp, nsock_iod nsiod, nsock_ev_handler handler,$/;"	f
+nsock_connect_unixsock_stream	src/nsock_connect.c	/^nsock_event_id nsock_connect_unixsock_stream(nsock_pool nsp, nsock_iod nsiod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_del_mode	include/nsock.h	/^enum nsock_del_mode {$/;"	g
+nsock_engine_destroy	src/nsock_internal.h	/^static inline void nsock_engine_destroy(struct npool *nsp) {$/;"	f
+nsock_engine_init	src/nsock_internal.h	/^static inline int nsock_engine_init(struct npool *nsp) {$/;"	f
+nsock_engine_iod_modify	src/nsock_internal.h	/^static inline int nsock_engine_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+nsock_engine_iod_register	src/nsock_internal.h	/^static inline int nsock_engine_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+nsock_engine_iod_unregister	src/nsock_internal.h	/^static inline int nsock_engine_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+nsock_engine_loop	src/nsock_internal.h	/^static inline int nsock_engine_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+nsock_ev_handler	include/nsock.h	/^typedef void (*nsock_ev_handler)(nsock_pool, nsock_event, void *);$/;"	t
+nsock_event	include/nsock.h	/^typedef struct nevent *nsock_event;$/;"	t	typeref:struct:nevent
+nsock_event_cancel	src/nsock_event.c	/^int nsock_event_cancel(nsock_pool ms_pool, nsock_event_id id, int notify) {$/;"	f
+nsock_event_id	include/nsock.h	/^typedef unsigned long nsock_event_id;$/;"	t
+nsock_get_loglevel	src/nsock_log.c	/^nsock_loglevel_t nsock_get_loglevel(void) {$/;"	f
+nsock_gettimeofday	src/nsock_core.c	/^const struct timeval *nsock_gettimeofday() {$/;"	f
+nsock_iod	include/nsock.h	/^typedef struct niod *nsock_iod;$/;"	t	typeref:struct:niod
+nsock_iod_check_ssl	src/nsock_iod.c	/^int nsock_iod_check_ssl(nsock_iod iod) {$/;"	f
+nsock_iod_delete	src/nsock_iod.c	/^void nsock_iod_delete(nsock_iod nsockiod, enum nsock_del_mode pending_response) {$/;"	f
+nsock_iod_get_communication_info	src/nsock_connect.c	/^int nsock_iod_get_communication_info(nsock_iod iod, int *protocol, int *af,$/;"	f
+nsock_iod_get_peerport	src/nsock_iod.c	/^int nsock_iod_get_peerport(nsock_iod iod) {$/;"	f
+nsock_iod_get_read_count	src/nsock_iod.c	/^unsigned long nsock_iod_get_read_count(nsock_iod iod){$/;"	f
+nsock_iod_get_sd	src/nsock_iod.c	/^int nsock_iod_get_sd(nsock_iod iod) {$/;"	f
+nsock_iod_get_ssl	src/nsock_iod.c	/^nsock_ssl nsock_iod_get_ssl(nsock_iod iod) {$/;"	f
+nsock_iod_get_ssl_session	src/nsock_iod.c	/^nsock_ssl_session nsock_iod_get_ssl_session(nsock_iod iod, int inc_ref) {$/;"	f
+nsock_iod_get_udata	src/nsock_iod.c	/^void *nsock_iod_get_udata(nsock_iod iod) {$/;"	f
+nsock_iod_get_write_count	src/nsock_iod.c	/^unsigned long nsock_iod_get_write_count(nsock_iod iod){$/;"	f
+nsock_iod_id	src/nsock_iod.c	/^unsigned long nsock_iod_id(nsock_iod nsockiod) {$/;"	f
+nsock_iod_is_pcap	src/nsock_pcap.c	/^int nsock_iod_is_pcap(nsock_iod iod) {$/;"	f
+nsock_iod_linktype	src/nsock_pcap.c	/^int nsock_iod_linktype(nsock_iod iod) {$/;"	f
+nsock_iod_new	src/nsock_iod.c	/^nsock_iod nsock_iod_new(nsock_pool nsockp, void *userdata) {$/;"	f
+nsock_iod_new2	src/nsock_iod.c	/^nsock_iod nsock_iod_new2(nsock_pool nsockp, int sd, void *userdata) {$/;"	f
+nsock_iod_set_hostname	src/nsock_iod.c	/^int nsock_iod_set_hostname(nsock_iod iod, const char *hostname) {$/;"	f
+nsock_iod_set_ipoptions	src/nsock_iod.c	/^int nsock_iod_set_ipoptions(nsock_iod iod, void *opts, size_t optslen) {$/;"	f
+nsock_iod_set_localaddr	src/nsock_iod.c	/^int nsock_iod_set_localaddr(nsock_iod iod, struct sockaddr_storage *ss,$/;"	f
+nsock_iod_set_udata	src/nsock_iod.c	/^void nsock_iod_set_udata(nsock_iod iod, void *udata) {$/;"	f
+nsock_library_initialize	src/nsock_pool.c	/^void nsock_library_initialize(void) {$/;"	f
+nsock_list_engines	src/nsock_engines.c	/^const char *nsock_list_engines(void) {$/;"	f
+nsock_log_debug	src/nsock_log.h	100;"	d
+nsock_log_debug_all	src/nsock_log.h	95;"	d
+nsock_log_error	src/nsock_log.h	111;"	d
+nsock_log_info	src/nsock_log.h	106;"	d
+nsock_log_rec	include/nsock.h	/^struct nsock_log_rec {$/;"	s
+nsock_logger_t	include/nsock.h	/^typedef void (*nsock_logger_t)(const struct nsock_log_rec *rec);$/;"	t
+nsock_loglevel2str	src/nsock_log.h	/^static inline const char *nsock_loglevel2str(nsock_loglevel_t level)$/;"	f
+nsock_loglevel_t	include/nsock.h	/^} nsock_loglevel_t;$/;"	t	typeref:enum:__anon1
+nsock_loop	src/nsock_core.c	/^enum nsock_loopstatus nsock_loop(nsock_pool nsp, int msec_timeout) {$/;"	f
+nsock_loop_quit	src/nsock_core.c	/^void nsock_loop_quit(nsock_pool nsp) {$/;"	f
+nsock_loopstatus	include/nsock.h	/^enum nsock_loopstatus {$/;"	g
+nsock_make_socket	src/nsock_connect.c	/^static int nsock_make_socket(struct npool *ms, struct niod *iod, int family, int type, int proto) {$/;"	f	file:
+nsock_pcap	src/nsock_pcap.h	/^} nsock_pcap;$/;"	t	typeref:struct:__anon3
+nsock_pcap_get_l3_offset	src/nsock_pcap.c	/^static int nsock_pcap_get_l3_offset(pcap_t *pt, int *dl) {$/;"	f	file:
+nsock_pcap_open	src/nsock_pcap.c	/^int nsock_pcap_open(nsock_pool nsp, nsock_iod nsiod, const char *pcap_device,$/;"	f
+nsock_pcap_read_packet	src/nsock_pcap.c	/^nsock_event_id nsock_pcap_read_packet(nsock_pool nsp, nsock_iod nsiod,$/;"	f
+nsock_pcap_set_filter	src/nsock_pcap.c	/^static int nsock_pcap_set_filter(struct npool *nsp, pcap_t *pt, const char *device,$/;"	f	file:
+nsock_pool	include/nsock.h	/^typedef struct npool *nsock_pool;$/;"	t	typeref:struct:npool
+nsock_pool_add_event	src/nsock_core.c	/^void nsock_pool_add_event(struct npool *nsp, struct nevent *nse) {$/;"	f
+nsock_pool_delete	src/nsock_pool.c	/^void nsock_pool_delete(nsock_pool ms_pool) {$/;"	f
+nsock_pool_dtls_init	src/nsock_ssl.c	/^nsock_ssl_ctx nsock_pool_dtls_init(nsock_pool ms_pool, int flags) {$/;"	f
+nsock_pool_get_error	src/nsock_pool.c	/^int nsock_pool_get_error(nsock_pool nsp) {$/;"	f
+nsock_pool_get_udata	src/nsock_pool.c	/^void *nsock_pool_get_udata(nsock_pool nsp) {$/;"	f
+nsock_pool_new	src/nsock_pool.c	/^nsock_pool nsock_pool_new(void *userdata) {$/;"	f
+nsock_pool_set_broadcast	src/nsock_pool.c	/^void nsock_pool_set_broadcast(nsock_pool nsp, int optval) {$/;"	f
+nsock_pool_set_device	src/nsock_pool.c	/^void nsock_pool_set_device(nsock_pool nsp, const char *device) {$/;"	f
+nsock_pool_set_proxychain	src/nsock_proxy.c	/^int nsock_pool_set_proxychain(nsock_pool nspool, nsock_proxychain chain) {$/;"	f
+nsock_pool_set_udata	src/nsock_pool.c	/^void nsock_pool_set_udata(nsock_pool nsp, void *data) {$/;"	f
+nsock_pool_ssl_init	src/nsock_ssl.c	/^nsock_ssl_ctx nsock_pool_ssl_init(nsock_pool ms_pool, int flags) {$/;"	f
+nsock_pool_ssl_init_helper	src/nsock_ssl.c	/^static nsock_ssl_ctx nsock_pool_ssl_init_helper(struct npool *ms, int flags) {$/;"	f	file:
+nsock_printf	src/nsock_write.c	/^nsock_event_id nsock_printf(nsock_pool ms_pool, nsock_iod ms_iod,$/;"	f
+nsock_proxy_ev_dispatch	src/nsock_proxy.c	/^void nsock_proxy_ev_dispatch(nsock_pool nspool, nsock_event nsevent, void *udata) {$/;"	f
+nsock_proxy_state	src/nsock_proxy.h	/^enum nsock_proxy_state {$/;"	g
+nsock_proxy_type	src/nsock_proxy.h	/^enum nsock_proxy_type {$/;"	g
+nsock_proxychain	include/nsock.h	/^typedef struct proxy_chain *nsock_proxychain;$/;"	t	typeref:struct:proxy_chain
+nsock_proxychain_delete	src/nsock_proxy.c	/^void nsock_proxychain_delete(nsock_proxychain chain) {$/;"	f
+nsock_proxychain_new	src/nsock_proxy.c	/^int nsock_proxychain_new(const char *proxystr, nsock_proxychain *chain, nsock_pool nspool) {$/;"	f
+nsock_read	src/nsock_read.c	/^nsock_event_id nsock_read(nsock_pool nsp, nsock_iod ms_iod,$/;"	f
+nsock_read_types	src/nsock_internal.h	/^enum nsock_read_types {$/;"	g
+nsock_readbytes	src/nsock_read.c	/^nsock_event_id nsock_readbytes(nsock_pool nsp, nsock_iod ms_iod,$/;"	f
+nsock_readlines	src/nsock_read.c	/^nsock_event_id nsock_readlines(nsock_pool nsp, nsock_iod ms_iod,$/;"	f
+nsock_reconnect_ssl	src/nsock_connect.c	/^nsock_event_id nsock_reconnect_ssl(nsock_pool nsp, nsock_iod nsiod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_sendto	src/nsock_write.c	/^nsock_event_id nsock_sendto(nsock_pool ms_pool, nsock_iod ms_iod, nsock_ev_handler handler, int timeout_msecs,$/;"	f
+nsock_set_default_engine	src/nsock_engines.c	/^int nsock_set_default_engine(char *engine) {$/;"	f
+nsock_set_log_function	src/nsock_log.c	/^void nsock_set_log_function(nsock_logger_t logger) {$/;"	f
+nsock_set_loglevel	src/nsock_log.c	/^void nsock_set_loglevel(nsock_loglevel_t loglevel) {$/;"	f
+nsock_setup_udp	src/nsock_connect.c	/^int nsock_setup_udp(nsock_pool nsp, nsock_iod ms_iod, int af) {$/;"	f
+nsock_ssl	include/nsock.h	/^typedef void *nsock_ssl;$/;"	t
+nsock_ssl_ctx	include/nsock.h	/^typedef void *nsock_ssl_ctx;$/;"	t
+nsock_ssl_session	include/nsock.h	/^typedef void *nsock_ssl_session;$/;"	t
+nsock_stderr_logger	src/nsock_log.c	/^void nsock_stderr_logger(const struct nsock_log_rec *rec) {$/;"	f
+nsock_timer_create	src/nsock_timers.c	/^nsock_event_id nsock_timer_create(nsock_pool ms_pool, nsock_ev_handler handler,$/;"	f
+nsock_tod	src/nsock_core.c	/^struct timeval nsock_tod;$/;"	v	typeref:struct:timeval
+nsock_trace_handler_callback	src/nsock_core.c	/^void nsock_trace_handler_callback(struct npool *ms, struct nevent *nse) {$/;"	f
+nsock_write	src/nsock_write.c	/^nsock_event_id nsock_write(nsock_pool ms_pool, nsock_iod ms_iod,$/;"	f
+nsocklib_initialized	src/nsock_pool.c	/^static int nsocklib_initialized = 0;$/;"	v	file:
+nsp	src/nsock_internal.h	/^  struct npool *nsp;$/;"	m	struct:niod	typeref:struct:niod::npool
+nsp	tests/basic.c	/^  nsock_pool nsp;$/;"	m	struct:basic_test_data	file:
+nsp	tests/cancel.c	/^  nsock_pool nsp;$/;"	m	struct:basic_test_data	file:
+nsp	tests/connect.c	/^  nsock_pool nsp;$/;"	m	struct:connect_test_data	file:
+nsp	tests/logs.c	/^  nsock_pool nsp;$/;"	m	struct:log_test_data	file:
+nsp	tests/timer.c	/^  nsock_pool nsp;$/;"	m	struct:timer_test_data	file:
+null	src/proxy_socks4.c	/^    uint8_t  null;$/;"	m	struct:socks4_data	file:
+num	src/nsock_internal.h	/^  int num;$/;"	m	struct:readinfo
+num_ids	examples/nsock_test_timers.c	/^int num_ids = 0;$/;"	v
+ops	src/nsock_proxy.h	/^  const struct proxy_op *ops;$/;"	m	struct:proxy_spec	typeref:struct:proxy_spec::proxy_op
+ov	src/engine_iocp.c	/^  OVERLAPPED ov;$/;"	m	struct:extended_overlapped	file:
+packet	src/nsock_pcap.h	/^  const unsigned char *packet;  \/* caplen bytes *\/$/;"	m	struct:__anon3
+paranoid_list_check	src/gh_list.h	/^static inline void paranoid_list_check(gh_list_t *list) {$/;"	f
+parse_uri	src/nsock_proxy.c	/^static int parse_uri(const char *proxystr, struct uri *uri) {$/;"	f	file:
+pass	src/nsock_proxy.h	/^  char *pass;$/;"	m	struct:uri
+path	src/nsock_proxy.h	/^  char *path;$/;"	m	struct:uri
+pcap	src/nsock_internal.h	/^  void *pcap;$/;"	m	struct:niod
+pcap_desc	src/nsock_pcap.h	/^  int pcap_desc;$/;"	m	struct:__anon2
+pcap_device	src/nsock_pcap.h	/^  char *pcap_device;$/;"	m	struct:__anon2
+pcap_read_events	src/nsock_internal.h	/^  gh_list_t pcap_read_events;$/;"	m	struct:npool
+pcap_read_on_nonselect	src/nsock_core.c	/^int pcap_read_on_nonselect(struct npool *nsp) {$/;"	f
+peer	src/nsock_internal.h	/^  struct sockaddr_storage peer;$/;"	m	struct:niod	typeref:struct:niod::sockaddr_storage
+peerlen	src/nsock_internal.h	/^  size_t peerlen;$/;"	m	struct:niod
+percent_decode	src/nsock_proxy.c	/^static int percent_decode(char *s) {$/;"	f	file:
+pfatal	src/error.c	/^void pfatal(char *fmt, ...) {$/;"	f
+poll_destroy	src/engine_poll.c	/^void poll_destroy(struct npool *nsp) {$/;"	f
+poll_engine_info	src/engine_poll.c	/^struct poll_engine_info {$/;"	s	file:
+poll_init	src/engine_poll.c	/^int poll_init(struct npool *nsp) {$/;"	f
+poll_iod_modify	src/engine_poll.c	/^int poll_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+poll_iod_register	src/engine_poll.c	/^int poll_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+poll_iod_unregister	src/engine_poll.c	/^int poll_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+poll_loop	src/engine_poll.c	/^int poll_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+port	src/nsock_proxy.h	/^  int port;$/;"	m	struct:uri
+port	src/nsock_proxy.h	/^  unsigned short port;$/;"	m	struct:proxy_node
+port	src/proxy_socks4.c	/^    uint16_t port;$/;"	m	struct:socks4_data	file:
+pos	src/filespace.h	/^  char *pos;$/;"	m	struct:filespace
+posix_io_operations	src/nsock_engines.c	/^struct io_operations posix_io_operations = {$/;"	v	typeref:struct:io_operations
+posix_iod_connect	src/nsock_engines.c	/^int posix_iod_connect(struct npool *nsp, int sockfd, const struct sockaddr *addr, socklen_t addrlen) {$/;"	f
+posix_iod_read	src/nsock_engines.c	/^int posix_iod_read(struct npool *nsp, int sockfd, void *buf, size_t len, int flags, struct sockaddr *src_addr, socklen_t *addrlen) {$/;"	f
+posix_iod_write	src/nsock_engines.c	/^int posix_iod_write(struct npool *nsp, int sockfd, const void *buf, size_t len, int flags, const struct sockaddr *dest_addr, socklen_t addrlen) {$/;"	f
+prefix	src/Makefile	/^prefix = \/usr\/local$/;"	m
+prefix	src/nsock_proxy.h	/^  const char *prefix;$/;"	m	struct:proxy_spec
+prev	src/gh_list.h	/^  struct gh_list_node *prev;$/;"	m	struct:gh_list_node	typeref:struct:gh_list_node::gh_list_node
+process_event	src/nsock_core.c	/^void process_event(struct npool *nsp, gh_list_t *evlist, struct nevent *nse, int ev) {$/;"	f
+process_expired_events	src/nsock_core.c	/^void process_expired_events(struct npool *nsp) {$/;"	f
+process_iod_events	src/nsock_core.c	/^void process_iod_events(struct npool *nsp, struct niod *nsi, int ev) {$/;"	f
+prototypes	src/configure	/^   function prototypes and stuff, but not '\\xHH' hex character constants.$/;"	f
+proxy_chain	src/nsock_proxy.h	/^struct proxy_chain {$/;"	s
+proxy_chain_context	src/nsock_proxy.h	/^struct proxy_chain_context {$/;"	s
+proxy_chain_context_delete	src/nsock_proxy.c	/^void proxy_chain_context_delete(struct proxy_chain_context *ctx) {$/;"	f
+proxy_chain_context_new	src/nsock_proxy.c	/^struct proxy_chain_context *proxy_chain_context_new(nsock_pool nspool) {$/;"	f
+proxy_ctx_node_next	src/nsock_proxy.h	/^static inline struct proxy_node *proxy_ctx_node_next(struct proxy_chain_context *ctx) {$/;"	f
+proxy_http_handler	src/proxy_http.c	/^static void proxy_http_handler(nsock_pool nspool, nsock_event nsevent, void *udata) {$/;"	f	file:
+proxy_http_node_delete	src/proxy_http.c	/^static void proxy_http_node_delete(struct proxy_node *node) {$/;"	f	file:
+proxy_http_node_new	src/proxy_http.c	/^static int proxy_http_node_new(struct proxy_node **node, const struct uri *uri) {$/;"	f	file:
+proxy_node	src/nsock_proxy.h	/^struct proxy_node {$/;"	s
+proxy_node_new	src/nsock_proxy.c	/^static struct proxy_node *proxy_node_new(char *proxystr) {$/;"	f	file:
+proxy_op	src/nsock_proxy.h	/^struct proxy_op {$/;"	s
+proxy_parser	src/nsock_proxy.c	/^struct proxy_parser {$/;"	s	file:
+proxy_parser_delete	src/nsock_proxy.c	/^void proxy_parser_delete(struct proxy_parser *parser) {$/;"	f
+proxy_parser_new	src/nsock_proxy.c	/^struct proxy_parser *proxy_parser_new(const char *proxychainstr) {$/;"	f
+proxy_parser_next	src/nsock_proxy.c	/^void proxy_parser_next(struct proxy_parser *parser) {$/;"	f
+proxy_resolve	src/nsock_proxy.c	/^int proxy_resolve(const char *host, struct sockaddr *addr, size_t *addrlen) {$/;"	f
+proxy_socks4_handler	src/proxy_socks4.c	/^static void proxy_socks4_handler(nsock_pool nspool, nsock_event nsevent, void *udata) {$/;"	f	file:
+proxy_socks4_node_delete	src/proxy_socks4.c	/^static void proxy_socks4_node_delete(struct proxy_node *node) {$/;"	f	file:
+proxy_socks4_node_new	src/proxy_socks4.c	/^static int proxy_socks4_node_new(struct proxy_node **node, const struct uri *uri) {$/;"	f	file:
+proxy_spec	src/nsock_proxy.h	/^struct proxy_spec {$/;"	s
+pt	src/nsock_pcap.h	/^  pcap_t *pt;$/;"	m	struct:__anon2
+px_chain	src/nsock_internal.h	/^  struct proxy_chain *px_chain;$/;"	m	struct:npool	typeref:struct:npool::proxy_chain
+px_chain	src/nsock_proxy.h	/^  const struct proxy_chain *px_chain;$/;"	m	struct:proxy_chain_context	typeref:struct:proxy_chain_context::proxy_chain
+px_ctx	src/nsock_internal.h	/^  struct proxy_chain_context *px_ctx;$/;"	m	struct:niod	typeref:struct:niod::proxy_chain_context
+px_current	src/nsock_proxy.h	/^  struct proxy_node *px_current;$/;"	m	struct:proxy_chain_context	typeref:struct:proxy_chain_context::proxy_node
+px_state	src/nsock_proxy.h	/^  enum nsock_proxy_state px_state;$/;"	m	struct:proxy_chain_context	typeref:enum:proxy_chain_context::nsock_proxy_state
+quit	src/nsock_internal.h	/^  int quit;$/;"	m	struct:npool
+read_count	src/nsock_internal.h	/^  unsigned long read_count;$/;"	m	struct:niod
+read_events	src/nsock_internal.h	/^  gh_list_t read_events;$/;"	m	struct:npool
+read_type	src/nsock_internal.h	/^  enum nsock_read_types read_type;$/;"	m	struct:readinfo	typeref:enum:readinfo::nsock_read_types
+readbuf	src/engine_iocp.c	/^  char *readbuf;$/;"	m	struct:extended_overlapped	file:
+readinfo	src/nsock_internal.h	/^  struct readinfo readinfo;$/;"	m	struct:nevent	typeref:struct:nevent::readinfo
+readinfo	src/nsock_internal.h	/^struct readinfo {$/;"	s
+readpcapsd_count	src/nsock_internal.h	/^  int readpcapsd_count;$/;"	m	struct:niod
+readsd_count	src/nsock_internal.h	/^  int readsd_count;$/;"	m	struct:niod
+readsd_count	src/nsock_pcap.h	/^  int readsd_count;$/;"	m	struct:__anon2
+request_timer	examples/nsock_test_timers.c	/^nsock_event_id request_timer(nsock_pool nsp, nsock_ev_handler handler, int timeout_msecs, void *userdata) {$/;"	f
+resolve	examples/nsock_telnet.c	/^int resolve(char *hostname, struct in_addr *ip) {$/;"	f
+sbindir	src/Makefile	/^sbindir = ${exec_prefix}\/sbin$/;"	m
+scheme	src/nsock_proxy.h	/^  char *scheme;$/;"	m	struct:uri
+sd	src/nsock_internal.h	/^  int sd;$/;"	m	struct:niod
+select_destroy	src/engine_select.c	/^void select_destroy(struct npool *nsp) {$/;"	f
+select_engine_info	src/engine_select.c	/^struct select_engine_info {$/;"	s	file:
+select_init	src/engine_select.c	/^int select_init(struct npool *nsp) {$/;"	f
+select_iod_modify	src/engine_select.c	/^int select_iod_modify(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev_set, int ev_clr) {$/;"	f
+select_iod_register	src/engine_select.c	/^int select_iod_register(struct npool *nsp, struct niod *iod, struct nevent *nse, int ev) {$/;"	f
+select_iod_unregister	src/engine_select.c	/^int select_iod_unregister(struct npool *nsp, struct niod *iod) {$/;"	f
+select_loop	src/engine_select.c	/^int select_loop(struct npool *nsp, int msec_timeout) {$/;"	f
+setup_echo_tcp	tests/run_tests.sh	/^setup_echo_tcp() {$/;"	f
+setup_echo_tcpssl	tests/run_tests.sh	/^setup_echo_tcpssl() {$/;"	f
+setup_echo_udp	tests/run_tests.sh	/^setup_echo_udp() {$/;"	f
+should_clear_ev_read	src/nsock_core.c	/^static int should_clear_ev_read(const struct niod *iod, int ev_set) {$/;"	f	file:
+should_clear_ev_write	src/nsock_core.c	/^static int should_clear_ev_write(const struct niod *iod, int ev_set) {$/;"	f	file:
+slots	src/gh_heap.h	/^  gh_hnode_t **slots;$/;"	m	struct:gh_heap
+snaplen	src/nsock_pcap.h	/^  int snaplen;$/;"	m	struct:__anon2
+socket_count_dec_ssl_desire	src/nsock_core.c	/^static int socket_count_dec_ssl_desire(struct nevent *nse) {$/;"	f	file:
+socket_count_read_dec	src/nsock_core.c	/^static int socket_count_read_dec(struct niod *iod) {$/;"	f	file:
+socket_count_read_inc	src/nsock_core.c	/^static int socket_count_read_inc(struct niod *iod) {$/;"	f	file:
+socket_count_readpcap_dec	src/nsock_core.c	/^static int socket_count_readpcap_dec(struct niod *iod) {$/;"	f	file:
+socket_count_readpcap_inc	src/nsock_core.c	/^static int socket_count_readpcap_inc(struct niod *iod) {$/;"	f	file:
+socket_count_write_dec	src/nsock_core.c	/^static int socket_count_write_dec(struct niod *iod) {$/;"	f	file:
+socket_count_write_inc	src/nsock_core.c	/^static int socket_count_write_inc(struct niod *iod) {$/;"	f	file:
+socket_count_zero	src/nsock_core.c	/^int socket_count_zero(struct niod *iod, struct npool *ms) {$/;"	f
+socks4_data	src/proxy_socks4.c	/^struct socks4_data {$/;"	s	file:
+socks4_data_init	src/proxy_socks4.c	/^static inline void socks4_data_init(struct socks4_data *socks4,$/;"	f	file:
+spec	src/nsock_proxy.h	/^  const struct proxy_spec *spec;$/;"	m	struct:proxy_node	typeref:struct:proxy_node::proxy_spec
+srcdir	src/Makefile	/^srcdir = .$/;"	m
+ss	src/nsock_proxy.h	/^  struct sockaddr_storage ss;$/;"	m	struct:proxy_node	typeref:struct:proxy_node::sockaddr_storage
+ssl	src/nsock_internal.h	/^  SSL *ssl;$/;"	m	struct:niod
+ssl	src/nsock_internal.h	/^  char *ssl;$/;"	m	struct:niod
+ssl_desire	src/nsock_ssl.h	/^  int ssl_desire;$/;"	m	struct:sslinfo
+ssl_init_common	src/nsock_ssl.c	/^static SSL_CTX *ssl_init_common() {$/;"	f	file:
+ssl_init_helper	src/nsock_ssl.c	/^static SSL_CTX *ssl_init_helper(const SSL_METHOD *method) {$/;"	f	file:
+ssl_session	examples/nsock_telnet.c	/^  void *ssl_session;$/;"	m	struct:telnet_state	file:
+ssl_session	src/nsock_internal.h	/^  SSL_SESSION *ssl_session;$/;"	m	struct:niod
+sslctx	src/nsock_internal.h	/^  SSL_CTX *sslctx;$/;"	m	struct:npool
+sslen	src/nsock_proxy.h	/^  size_t sslen;$/;"	m	struct:proxy_node
+sslinfo	src/nsock_internal.h	/^  struct sslinfo sslinfo;$/;"	m	struct:nevent	typeref:struct:nevent::sslinfo
+sslinfo	src/nsock_ssl.h	/^struct sslinfo {$/;"	s
+state	src/nsock_internal.h	/^  enum iod_state state;$/;"	m	struct:niod	typeref:enum:niod::iod_state
+status	src/nsock_internal.h	/^  enum nse_status status;$/;"	m	struct:nevent	typeref:enum:nevent::nse_status
+stdin_nsi	examples/nsock_telnet.c	/^  nsock_iod stdin_nsi;$/;"	m	struct:telnet_state	file:
+stop	tests/timer.c	/^  int stop; \/* set to non-zero to stop the test *\/$/;"	m	struct:timer_test_data	file:
+str	src/filespace.h	/^  char *str;$/;"	m	struct:filespace
+str	src/nsock_proxy.c	/^  char *str;$/;"	m	struct:proxy_parser	file:
+t_name	tests/test-common.h	/^  const char *t_name;$/;"	m	struct:test_case
+t_run	tests/test-common.h	/^  int (*t_run)(void *tdata);$/;"	m	struct:test_case
+t_setup	tests/test-common.h	/^  int (*t_setup)(void **tdata);$/;"	m	struct:test_case
+t_teardown	tests/test-common.h	/^  int (*t_teardown)(void *tdata);$/;"	m	struct:test_case
+target_ev_type	src/nsock_proxy.h	/^  enum nse_type target_ev_type;$/;"	m	struct:proxy_chain_context	typeref:enum:proxy_chain_context::nse_type
+target_handler	src/nsock_proxy.h	/^  nsock_ev_handler target_handler;$/;"	m	struct:proxy_chain_context
+target_port	src/nsock_proxy.h	/^  unsigned short target_port;$/;"	m	struct:proxy_chain_context
+target_ss	src/nsock_proxy.h	/^  struct sockaddr_storage target_ss;$/;"	m	struct:proxy_chain_context	typeref:struct:proxy_chain_context::sockaddr_storage
+target_sslen	src/nsock_proxy.h	/^  size_t target_sslen;$/;"	m	struct:proxy_chain_context
+tcp_nsi	examples/nsock_telnet.c	/^  nsock_iod tcp_nsi;$/;"	m	struct:telnet_state	file:
+telnet_event_handler	examples/nsock_telnet.c	/^void telnet_event_handler(nsock_pool nsp, nsock_event nse, void *mydata) {$/;"	f
+telnet_state	examples/nsock_telnet.c	/^struct telnet_state {$/;"	s	file:
+terminate_overlapped_event	src/engine_iocp.c	/^static void terminate_overlapped_event(struct npool *nsp, struct nevent *nse) {$/;"	f	file:
+test_case	tests/test-common.h	/^struct test_case {$/;"	s
+test_case_run	tests/tests_main.c	/^static int test_case_run(const struct test_case *test) {$/;"	f	file:
+test_run	tests/test-common.h	/^static inline int test_run(const struct test_case *test, void *tdata) {$/;"	f
+test_setup	tests/test-common.h	/^static inline int test_setup(const struct test_case *test, void **tdata) {$/;"	f
+test_teardown	tests/test-common.h	/^static inline int test_teardown(const struct test_case *test, void *tdata) {$/;"	f
+testitem	tests/ghheaps.c	/^struct testitem {$/;"	s	file:
+testlist	tests/ghlists.c	/^struct testlist {$/;"	s	file:
+time	include/nsock.h	/^  struct timeval time;$/;"	m	struct:nsock_log_rec	typeref:struct:nsock_log_rec::timeval
+timeout	src/nsock_internal.h	/^  struct timeval timeout;$/;"	m	struct:nevent	typeref:struct:nevent::timeval
+timer_count	tests/timer.c	/^  size_t timer_count;$/;"	m	struct:timer_test_data	file:
+timer_handler	examples/nsock_test_timers.c	/^void timer_handler(nsock_pool nsp, nsock_event nse, void *mydata) {$/;"	f
+timer_handler	tests/timer.c	/^static void timer_handler(nsock_pool nsp, nsock_event nse, void *tdata) {$/;"	f	file:
+timer_list	tests/timer.c	/^  nsock_event_id timer_list[TIMERS_BUFFLEN];$/;"	m	struct:timer_test_data	file:
+timer_setup	tests/timer.c	/^static int timer_setup(void **tdata) {$/;"	f	file:
+timer_teardown	tests/timer.c	/^static int timer_teardown(void *tdata) {$/;"	f	file:
+timer_test_data	tests/timer.c	/^struct timer_test_data {$/;"	s	file:
+timer_totalmess	tests/timer.c	/^static int timer_totalmess(void *tdata) {$/;"	f	file:
+tokens	src/nsock_proxy.c	/^  char *tokens;$/;"	m	struct:proxy_parser	file:
+total	tests/logs.c	/^  unsigned int total;$/;"	m	struct:log_test_data	file:
+try_cancel_timer	examples/nsock_test_timers.c	/^int try_cancel_timer(nsock_pool nsp, int idx, int notify) {$/;"	f
+ts	src/nsock_pcap.h	/^  struct timeval ts;$/;"	m	struct:__anon3	typeref:struct:__anon3::timeval
+type	src/nsock_internal.h	/^  enum nse_type type;$/;"	m	struct:nevent	typeref:enum:nevent::nse_type
+type	src/nsock_proxy.h	/^  enum nsock_proxy_type type;$/;"	m	struct:proxy_spec	typeref:enum:proxy_spec::nsock_proxy_type
+type	src/proxy_socks4.c	/^    uint8_t  type;$/;"	m	struct:socks4_data	file:
+update_events	src/nsock_core.c	/^static void update_events(struct niod * iod, struct npool *ms, struct nevent *nse, int ev_inc, int ev_dec) {$/;"	f	file:
+update_first_events	src/nsock_event.c	/^void update_first_events(struct nevent *nse) {$/;"	f
+uri	src/nsock_proxy.h	/^struct uri {$/;"	s
+uri_free	src/nsock_proxy.c	/^static void uri_free(struct uri *uri) {$/;"	f	file:
+uri_parse_authority	src/nsock_proxy.c	/^static int uri_parse_authority(const char *authority, struct uri *uri) {$/;"	f	file:
+usage	examples/nsock_telnet.c	/^void usage() {$/;"	f
+user	src/nsock_proxy.h	/^  char *user;$/;"	m	struct:uri
+userdata	src/nsock_internal.h	/^  void *userdata;$/;"	m	struct:nevent
+userdata	src/nsock_internal.h	/^  void *userdata;$/;"	m	struct:niod
+userdata	src/nsock_internal.h	/^  void *userdata;$/;"	m	struct:npool
+val	tests/ghheaps.c	/^  int val;$/;"	m	struct:testitem	file:
+val	tests/ghlists.c	/^  unsigned int val;$/;"	m	struct:testlist	file:
+value	src/nsock_proxy.c	/^  struct proxy_node *value;$/;"	m	struct:proxy_parser	typeref:struct:proxy_parser::proxy_node	file:
+version	src/proxy_socks4.c	/^    uint8_t  version;$/;"	m	struct:socks4_data	file:
+watched_events	src/nsock_internal.h	/^  int watched_events;$/;"	m	struct:niod
+win_init	tests/tests_main.c	/^static int win_init(void) {$/;"	f	file:
+write_count	src/nsock_internal.h	/^  unsigned long write_count;$/;"	m	struct:niod
+write_events	src/nsock_internal.h	/^  gh_list_t write_events;$/;"	m	struct:npool
+writeinfo	src/nsock_internal.h	/^  struct writeinfo writeinfo;$/;"	m	struct:nevent	typeref:struct:nevent::writeinfo
+writeinfo	src/nsock_internal.h	/^struct writeinfo {$/;"	s
+writesd_count	src/nsock_internal.h	/^  int writesd_count;$/;"	m	struct:niod
+written_so_far	src/nsock_internal.h	/^  int written_so_far;$/;"	m	struct:writeinfo
+wsabuf	src/engine_iocp.c	/^  WSABUF wsabuf;$/;"	m	struct:extended_overlapped	file:

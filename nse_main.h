@@ -10,7 +10,7 @@ class Target;
 
 int nse_yield(lua_State *);
 
-void nse_restore(lua_State *);
+void nse_restore(lua_State *, int);
 
 
 

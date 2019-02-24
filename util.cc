@@ -4,7 +4,9 @@ Ops o;
 
 Ops::Ops():scripts(0)
 {
+	memset(device, 0, sizeof(device));
 
+	strcpy(device, "eth0");
 }
 
 Ops::~Ops()

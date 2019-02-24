@@ -19,4 +19,18 @@ void nseU_setbfield(lua_State *L, int idx, const char *field, int b);
 void nseU_setsfield(lua_State *L, int idx, const char *field, const char *what);
 
 
+void *nseU_checkudata(lua_State *L, int idx, int upvalue, const char *name);
+
+
+void nseU_checktarget(lua_State *L, int idx, const char **address, const char **targetname);
+
+
+int nseU_success(lua_State *L);
+
+
+unsigned short nseU_checkport(lua_State *L, int idx, const char **protocol);
+
+int nseU_safeerror(lua_State *L, const char *fmt, ...);
+
+
 #endif
