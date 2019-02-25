@@ -1,4 +1,4 @@
-local bin = require "bin"
+--local bin = require "bin"
 local stdnse = require "stdnse"
 local table = require "table"
 _ENV = stdnse.module("wsdd", stdnse.seeall)
@@ -60,11 +60,12 @@ Util = {
   --
   -- @return uuid string containing a uuid
   generateUUID = function()
-    local rnd_bytes = select(2, bin.unpack( "H16", openssl.rand_bytes( 16 ) ) ):lower()
+    --local rnd_bytes = select(2, bin.unpack( "H16", openssl.rand_bytes( 16 ) ) ):lower()
 
-    return ("%s-%s-%s-%s-%s"):format( rnd_bytes:sub(1, 8),
-    rnd_bytes:sub(9, 12), rnd_bytes:sub( 13, 16 ), rnd_bytes:sub( 17, 20 ),
-    rnd_bytes:sub(21, 32) )
+    --return ("%s-%s-%s-%s-%s"):format( rnd_bytes:sub(1, 8),
+    --rnd_bytes:sub(9, 12), rnd_bytes:sub( 13, 16 ), rnd_bytes:sub( 17, 20 ),
+    --rnd_bytes:sub(21, 32) )
+    return "1234-56789-0123456-7890"
   end,
 
   --- Retrieves a probe from the probes table by name
@@ -82,7 +83,7 @@ Util = {
 
   getProbes = function() return probes end,
 
-  sha1sum = function(data) return openssl.sha1(data) end
+  --sha1sum = function(data) return openssl.sha1(data) end
 
 }
 
@@ -171,13 +172,13 @@ Comm = {
     local probedata = self.probe.data:gsub("#uuid#", Util.generateUUID())
 
     if ( self.mcast ) then
-      self.socket = nmap.new_socket("udp")
+      self.socket = nsock.new("udp")
       self.socket:set_timeout(self.timeout)
-    else
-      self.socket = nmap.new_socket()
-      self.socket:set_timeout(self.timeout)
-      status, err = self.socket:connect( self.host, self.port, "udp" )
-      if ( not(status) ) then return err end
+    --else
+      --self.socket = nmap.new_socket()
+      --self.socket:set_timeout(self.timeout)
+      --status, err = self.socket:connect( self.host, self.port, "udp" )
+      --if ( not(status) ) then return err end
     end
 
     for i=1, self.sendcount do
@@ -216,11 +217,11 @@ Comm = {
         end
       end
 
-      local _, ip
-      status, _, _, ip, _ = self.socket:get_info()
-      if( not(status) ) then
-        return false, "ERROR: Failed to get socket info"
-      end
+      --local _, ip
+      --status, _, _, ip, _ = self.socket:get_info()
+      --if( not(status) ) then
+        --return false, "ERROR: Failed to get socket info"
+      --end
 
       -- push the unparsed response to the response table
       local status, response = Decoders[self.probe.name]( data )
@@ -271,7 +272,7 @@ Helper = {
     self.__index = self
     o.host = host
     o.port = port
-    o.mcast = false
+    o.mcast = true
     o.timeout = 5000
     return o
   end,
@@ -281,7 +282,7 @@ Helper = {
   -- @param mcast boolean true if multicast is to be used, false otherwise
   setMulticast = function( self, mcast )
     assert( type(mcast)=="boolean", "mcast has to be either true or false")
-    local family = nmap.address_family()
+    local family = "inet"
     self.mcast = mcast
     self.host = (family=="inet6" and "FF02::C" or "239.255.255.250")
     self.port = 3702
@@ -298,7 +299,7 @@ Helper = {
   -- @return matches table containing responses, suitable for printing using
   --         the <code>stdnse.format_output</code> function
   discoverServices = function( self, probename )
-    if ( not(HAVE_SSL) ) then return false, "The wsdd library requires OpenSSL" end
+    --if ( not(HAVE_SSL) ) then return false, "The wsdd library requires OpenSSL" end
 
     local comm = Comm:new(self.host, self.port, self.mcast)
     local probe = Util.getProbeByName(probename)

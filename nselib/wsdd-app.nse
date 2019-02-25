@@ -1,8 +1,8 @@
 local wsdd = require "wsdd"
 
-action = function(host, port)
+action = function()
 
-	local helper = wsdd.Helper:new(host, port)
+	local helper = wsdd.Helper:new("192.168.0.1", 3702)
 
 	helper:setTimeout(5000)
 
@@ -12,44 +12,7 @@ action = function(host, port)
 	print(result)
 end
 
-function serialize(obj)
-	local lua = ""
-	local t = type(obj)
-
-	if t == "number" then
-		lua = lua .. obj
-		
-	elseif t == "boolean" then
-		lua = lua .. tostring(obj)
-	
-	elseif t == "string" then
-		lua = lua .. string.format("%q", obj)
-
-	elseif t == "table" then
-		lua = lua .. "{\n"
-		for k,v in pairs(obj) do
-			lua = lua .. " [" .. serialize(k) .. "]=" .. serialize(v) .. ",\n"
-		end
-
-		local metatable = getmetatable(obj)
-			if metatable ~= nil and type(metatable.__index) == "table" then
-				for k,v in pairs(metatable.__index) do
-					lua = lua .. " [" .. serialize(k) .. "]" .. serialize(v) .. ",\n"
-				end
-			end
-
-		lua = lua .. "}"	
-	
-	elseif t == "nil" then
-		return nil
-	else
-		error("can not serialize a " .. t .. "type.")
-	end
-	
-	return lua
-end	
 
 
-return _ENV
 
 

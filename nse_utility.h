@@ -33,4 +33,8 @@ unsigned short nseU_checkport(lua_State *L, int idx, const char **protocol);
 int nseU_safeerror(lua_State *L, const char *fmt, ...);
 
 
+
+int nseU_checkinteger(lua_State *L, int arg);
+
+
 #endif

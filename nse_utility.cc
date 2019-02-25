@@ -1,5 +1,5 @@
 #include "nse_utility.h"
-
+#include <math.h>
 
 void nseU_setbfield(lua_State *L, int idx, const char *field, int b)
 {
@@ -111,6 +111,16 @@ int nseU_success(lua_State *L)
 }
 
 
+int nseU_checkinteger(lua_State *L, int arg)
+{
+	lua_Number n = luaL_checknumber(L, arg);
+	int i;
+	
+	if(!lua_numbertointeger(floor(n), &i)){
+		return luaL_error(L, "number cannot be converted to an integer");
+	}
 
+	return i;
+}
 
 

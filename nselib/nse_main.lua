@@ -135,7 +135,7 @@ local function get_chose_scripts(rules)
 
 	print("in get chose scripts\n")
 
-	local nse = assert(loadfile("nselib/dummy.nse"), "load dummy.nse\n")
+	local nse = assert(loadfile("nselib/wsdd-app.nse"), "load wsdd-app.nse\n")
 
 	chosen_scripts[#chosen_scripts + 1] = Script.new(nse)
 
@@ -165,13 +165,13 @@ local function run(threads_iter, hosts)
 		return NSE_YIELD_VALUE
 	end
 
-	_R[WAITING_TO_RUNNING] = function(co, ...)
+	_R[WAITING_TO_RUNNING] = function(co)
 		local base = yielded_base[co] or all[co]
 		if base then
 			co = base.co
 			if waiting[co] then
 				pending[co],waiting[co] = waiting[co], nil
-				pending[co],args = pack(...)
+				--pending[co],args = pack(...)
 			end
 		end
 	end

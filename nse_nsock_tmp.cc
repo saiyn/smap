@@ -456,6 +456,19 @@ static int l_new(lua_State *L)
 	return 1;
 }
 
+static int l_set_timeout(lua_State *L)
+{
+	nse_nsock_udata *nu = check_nsock_udata(L, 1, false);
+	int timeout = nseU_checkinteger(L, 2);
+
+	if(timeout < -1)
+		return luaL_error(L, "negative timeout: %f", timeout);
+
+	nu->timeout = timeout;
+
+	return nseU_success(L);
+}
+
 
 static int l_close(lua_State *L)
 {
@@ -490,6 +503,7 @@ LUALIB_API int luaopen_nsock(lua_State *L)
 		{"send", l_send},
 		{"sendto", l_sendto},
 		{"receive", l_receive},
+		{"set_timeout", l_set_timeout},
 		{NULL, NULL}
 	};
 
