@@ -6,7 +6,7 @@ Ops::Ops():scripts(0)
 {
 	memset(device, 0, sizeof(device));
 
-	strcpy(device, "eth0");
+	strcpy(device, "wlp4s0");
 }
 
 Ops::~Ops()

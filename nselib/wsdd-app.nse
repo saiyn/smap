@@ -2,7 +2,7 @@ local wsdd = require "wsdd"
 
 action = function()
 
-	local helper = wsdd.Helper:new("192.168.0.1", 3702)
+	local helper = wsdd.Helper:new("239.255.255.250", 3702)
 
 	helper:setTimeout(5000)
 

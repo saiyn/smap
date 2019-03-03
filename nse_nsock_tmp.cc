@@ -106,6 +106,7 @@ static void status(lua_State *L, enum nse_status status)
 		case NSE_STATUS_SUCCESS:
 			lua_pushboolean(L, true);
 			nse_restore(L, 1);
+			printf("status: suceess\n");
 			break;
 
 		case NSE_STATUS_KILL:
@@ -117,6 +118,7 @@ static void status(lua_State *L, enum nse_status status)
 		case NSE_STATUS_TIMEOUT:
 			lua_pushnil(L);
 			lua_pushstring(L, nse_status2str(status));
+			printf("status: timeout\n");
 			nse_restore(L, 2);
 			break;
 

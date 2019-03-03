@@ -172,6 +172,7 @@ local function run(threads_iter, hosts)
 			if waiting[co] then
 				pending[co],waiting[co] = waiting[co], nil
 				--pending[co],args = pack(...)
+				print("WAITING TO RUNNING...")
 			end
 		end
 	end
@@ -198,6 +199,8 @@ local function run(threads_iter, hosts)
 
 			if thread:resume() then
 				waiting[co] = thread
+
+				print("put one running to waiting")
 			else
 				all[co] = nil
 			end
