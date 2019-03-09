@@ -128,6 +128,36 @@ static void status(lua_State *L, enum nse_status status)
 	}
 }
 
+static const char *inet_ntop_both(int af, const void *v_addr, char *ipstring)
+{
+	if(af == AF_INET)
+	{
+		inet_ntop(AF_INET, &((struct sockaddr_in *)v_addr)->sin_addr, ipstring, INET6_ADDRSTRLEN);
+
+		return ipstring;
+	}
+	else
+	{
+		return "unknown protocaol";
+	}
+
+}
+
+
+static unsigned short inet_port_both(int af, const void *v_addr)
+{
+	int port;
+
+	if(af == AF_INET)
+	{
+		port = ((struct sockaddr_in *)v_addr)->sin_port;
+	}	
+	else
+		port = 0;
+
+	return ntohs(port);
+}
+
 
 static void callback(nsock_pool nsp, nsock_event nse, void *ud)
 {
@@ -259,6 +289,28 @@ static int l_sendto(lua_State *L)
 
 	return yield(L, nu, "SEND", TO);
 }
+
+static int l_get_info(lua_State *L)
+{
+	nse_nsock_udata *nu = check_nsock_udata(L, 1, true);
+	int proto;
+	int af;
+	struct sockaddr_storage local;
+	struct sockaddr_storage remote;
+	char *ipstring_local = (char *)lua_newuserdata(L, sizeof(char) * INET6_ADDRSTRLEN);
+	char *ipstring_remote = (char *)lua_newuserdata(L, sizeof(char) * INET6_ADDRSTRLEN);
+
+	nsock_iod_get_communication_info(nu->nsiod, &proto, &af, (struct sockaddr*)&local, (struct sockaddr*)&remote, sizeof(struct sockaddr_storage));
+
+	lua_pushboolean(L, true);
+	lua_pushstring(L, inet_ntop_both(af, &local, ipstring_local));
+	lua_pushinteger(L, inet_port_both(af, &local));
+	lua_pushstring(L, inet_ntop_both(af, &remote, ipstring_remote));
+	lua_pushinteger(L, inet_port_both(af, &remote));
+
+	return 5;
+}
+
 
 
 static void receive_callback(nsock_pool nsp, nsock_event nse, void *udata)
@@ -506,6 +558,7 @@ LUALIB_API int luaopen_nsock(lua_State *L)
 		{"sendto", l_sendto},
 		{"receive", l_receive},
 		{"set_timeout", l_set_timeout},
+		{"get_info", l_get_info},
 		{NULL, NULL}
 	};
 

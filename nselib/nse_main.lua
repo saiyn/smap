@@ -135,7 +135,7 @@ local function get_chose_scripts(rules)
 
 	print("in get chose scripts\n")
 
-	local nse = assert(loadfile("nselib/wsdd-app.nse"), "load wsdd-app.nse\n")
+	local nse = assert(loadfile("nselib/dnssd-app.nse"), "load dnssd-app.nse\n")
 
 	chosen_scripts[#chosen_scripts + 1] = Script.new(nse)
 
