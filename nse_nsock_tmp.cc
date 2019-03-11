@@ -275,6 +275,8 @@ static int l_sendto(lua_State *L)
 	int error_id;
 	struct addrinfo *dest;
 
+	printf("sendto: %s- %s - %d\n", addr, targetname, port);
+
 	error_id = getaddrinfo(addr, NULL, NULL, &dest);
 	if(error_id)
 		return nseU_safeerror(L, "getaddrinfo error");
@@ -320,10 +322,15 @@ static void receive_callback(nsock_pool nsp, nsock_event nse, void *udata)
 
 	assert(lua_status(L) == LUA_YIELD);
 
+	printf("receive callback, status: %d\n", nse_status(nse));
+
 	if(nse_status(nse) == NSE_STATUS_SUCCESS)
 	{
 		int len;
 		const char *str = nse_readbuf(nse, &len);
+
+
+		printf("receive callback: %s\n", str);
 		lua_pushboolean(L, true);
 		lua_pushlstring(L, str, len);
 		nse_restore(L, 2);
@@ -340,6 +347,8 @@ static int l_receive(lua_State *L)
 	nse_nsock_udata *nu = check_nsock_udata(L, 1, true);
 
 	NSOCK_UDATA_ENSURE_OPEN(L, nu);
+
+	printf("receive,timeout:%d\n", nu->timeout);
 
 	nsock_read(nsp, nu->nsiod, receive_callback, nu->timeout, nu);
 
@@ -507,6 +516,9 @@ static int l_new(lua_State *L)
 	lua_setmetatable(L, -2);
 	initialize(L, 1, nu, proto, af);
 
+	nsock_set_loglevel(NSOCK_LOG_DBG_ALL);
+
+
 	return 1;
 }
 
@@ -557,6 +569,7 @@ LUALIB_API int luaopen_nsock(lua_State *L)
 		{"send", l_send},
 		{"sendto", l_sendto},
 		{"receive", l_receive},
+		{"close", l_close},
 		{"set_timeout", l_set_timeout},
 		{"get_info", l_get_info},
 		{NULL, NULL}

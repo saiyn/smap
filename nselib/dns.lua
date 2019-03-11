@@ -48,17 +48,17 @@ function newPacket()
 end
 
 
-function addQuestion(ptk, dname, dtype, class)
+function addQuestion(pkt, dname, dtype, class)
 	local class = class or CLASS.IN
 	local q = {}
 	q.dname = dname
 	q.dtype = dtype
 	q.class = class
-	table.insert(pkt.querstions, q)
+	table.insert(pkt.questions, q)
 	return pkt
 end
 
-local function encodeflags(flags)
+local function encodeFlags(flags)
 	local fb = 0
 
 	if flags.QR then fb = fb|0x8000 end
@@ -82,6 +82,13 @@ end
 
 local function encodeAdditional(additional)
 	if type(additional) ~= "table" then return nil end
+	
+	local encA = {}
+	for _,v in ipairs(additional) do
+		encA[#encA + 1] = string.pack(">xI2I2I4s2", v.type, v.class, v.ttl,v.rdata)
+	end
+
+	return table.concat(encA)
 end
 
 local function encodeFQDN(fqdn)
@@ -119,7 +126,7 @@ function encode(pkt)
 
 	if(#pkt.questions > 0) then
 		data = encodeQuestions(pkt.questions)
-		qorzlen = #pkt.querstions
+		qorzlen = #pkt.questions
 		aorulen = 0
 
 	else
@@ -137,7 +144,7 @@ end
 
 local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 	local socket = nsock.new("udp")
-	local response = {}
+	local responses = {}
 
 	socket:set_timeout(timeout)
 
@@ -146,23 +153,29 @@ local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 
 		status, err = socket:sendto(host, port, data)
 
-		if(not(status)) then
-			print("dns sendto fail")
-			return false, err
-		end
+		--if(not(status)) then
+		--	print("dns sendto fail:" .. err)
+			
+		--	return false, err
+		--end
+	end
 
 	local response
 
 	while(true) do
 		status, response = socket:receive()
-		if(not(status)) then
-			print("dns receive rsp fail")
-			break
+		--if(not(status)) then
+		--	print("dns receive rsp fail")
+		--	break
 	
-		end
+		--end
 
 		local status, _, _, ip, _ = socket:get_info()
 		
+		print("receive from:" .. ip)
+
+		print(response)
+
 		table.insert(responses, {data = response, peer = ip})
 	end
 
