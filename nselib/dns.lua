@@ -174,7 +174,6 @@ local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 		
 		print("receive from:" .. ip)
 
-		print(response)
 
 		table.insert(responses, {data = response, peer = ip})
 	end
@@ -245,6 +244,9 @@ function query(dname, options)
 
 
 	if status then
+	
+		print("dns query success")
+
 		local multirsp = {}
 
 		for _, r in ipairs(response) do

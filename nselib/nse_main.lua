@@ -10,6 +10,8 @@ local string = require "string"
 local gsub = string.gsub
 local tabel = require "table"
 local insert = table.insert
+local pack = table.pack
+local unpack = table.unpack
 
 
 print("saiyn:in nse_main.lua\n")
@@ -51,16 +53,25 @@ local ACTION_STARTING = {}
 
 function Thread:resume()
 	
+	print(self.args)
+
 	print("in nse_main.lua resume\n")
 
+	--if self.args then
+	local ok,r1,r2 = resume(self.co, unpack(self.args, 1, self.args.n))
+	--else 
+		--local ok, r1 = resume(self.co)
 
-	local ok,r1 = resume(self.co)
+	--end
+
 	local status = status(self.co)
 
 	print("after nse_main.lua resume\n")
 
 	if ok and r1 == ACTION_STARTING then
 		print("r1 == action_starting\n")
+
+		self.action_started = true
 		return self:resume()
 	elseif not ok then
 		print("saiyn:something wrong\n")
@@ -73,6 +84,11 @@ function Thread:resume()
 			return false
 		end
 	elseif status == "dead" then
+
+		if self.action_started then
+			print(ok,r1,r2)
+
+		end
 		print("saiyn: thread dead\n")
 	end
 end
@@ -82,7 +98,7 @@ function Thread:__index(key)
 end
 
 
-function Script:new_thread()
+function Script:new_thread(...)
 	local function main()
 		yield(ACTION_STARTING)
 
@@ -105,7 +121,8 @@ function Script:new_thread()
 		co = co,
 		identifier = tostring(co),
 		script = self,
-		parent = nil,	
+		parent = nil,
+		args  = pack(...)	
 	}
 
 	thread.parent = thread
@@ -165,13 +182,13 @@ local function run(threads_iter, hosts)
 		return NSE_YIELD_VALUE
 	end
 
-	_R[WAITING_TO_RUNNING] = function(co)
+	_R[WAITING_TO_RUNNING] = function(co, ...)
 		local base = yielded_base[co] or all[co]
 		if base then
 			co = base.co
 			if waiting[co] then
 				pending[co],waiting[co] = waiting[co], nil
-				--pending[co],args = pack(...)
+				pending[co].args = pack(...)
 				print("WAITING TO RUNNING...")
 			end
 		end
@@ -222,7 +239,7 @@ local function main(hosts)
 		for _,script in ipairs(chosen_scripts) do
 			print("in threads iter:")
 			print(script)
-			local thread =  script:new_thread()
+			local thread =  script:new_thread("dummy-args")
 			if thread then
 				print("in threads iter:will yield\n")
 				yield(thread)

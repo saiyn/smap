@@ -64,6 +64,8 @@ static int gc_pool(lua_State *L)
 
 static nsock_pool new_pool(lua_State *L)
 {
+	nsock_set_default_engine("select");
+
 	nsock_pool nsp = nsock_pool_new(NULL);
 	nsock_pool *nspp;
 
@@ -516,7 +518,7 @@ static int l_new(lua_State *L)
 	lua_setmetatable(L, -2);
 	initialize(L, 1, nu, proto, af);
 
-	nsock_set_loglevel(NSOCK_LOG_DBG_ALL);
+	//nsock_set_loglevel(NSOCK_LOG_DBG_ALL);
 
 
 	return 1;
