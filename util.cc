@@ -2,7 +2,7 @@
 
 Ops o;
 
-Ops::Ops():scripts(0)
+Ops::Ops():scripts(0),verbose(0)
 {
 	memset(device, 0, sizeof(device));
 

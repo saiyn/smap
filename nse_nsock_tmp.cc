@@ -234,7 +234,6 @@ static int l_loop(lua_State *L)
 	if(nsock_loop(nsp, tt) == NSOCK_LOOP_ERROR)
 		return luaL_error(L, "a fatal error occurred in nsock_loop");
 	
-	printf("looping...\n");
 
 	return 0;
 }
@@ -518,7 +517,8 @@ static int l_new(lua_State *L)
 	lua_setmetatable(L, -2);
 	initialize(L, 1, nu, proto, af);
 
-	//nsock_set_loglevel(NSOCK_LOG_DBG_ALL);
+	if(o.verbose)
+		nsock_set_loglevel(NSOCK_LOG_DBG_ALL);
 
 
 	return 1;

@@ -24,7 +24,8 @@ class Ops{
 		std::vector<std::string> scripts;
 
 		char device[64];
-
+		
+		int verbose;
 };
 
 

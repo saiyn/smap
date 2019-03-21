@@ -39,7 +39,7 @@ int main(int argc, char *argv[])
 {
 
 	int opt;
-	const char *optstring = "s:";
+	const char *optstring = "s:v";
 
 	while((opt = getopt(argc, argv, optstring)) != -1){
 		switch(opt){
@@ -48,6 +48,10 @@ int main(int argc, char *argv[])
 
 			o.setScripts(optarg);	
 		break;
+
+		case 'v':
+			printf("set verbose\n");
+			o.verbose = 1;
 
 		default:
 			fprintf(stderr, "Uaage: %s [-s scripts]\n", argv[0]);

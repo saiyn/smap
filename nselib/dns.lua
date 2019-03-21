@@ -187,6 +187,143 @@ local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 	return false
 end
 
+function decStr(data, pos)
+	local function dec(data, pos, limit)
+		local partlen
+		local parts = {}
+		local part
+
+		limit = limit or 10
+		if limit < 0 then
+			return pos, nil
+		end
+
+		partlen, pos = string.unpack(">B", data, pos)
+		while(partlen ~= 0) do
+			if(partlen < 64) then
+				if(#data - pos + 1) < partlen then
+					return pos
+				end
+				part, pos = string.unpack("c" .. partlen, data, pos)
+				table.insert(parts,part)
+				partlen, pos = string.unpack(">B", data, pos)
+			else
+				partlen, pos = string.unpack(">I2", data, pos - 1)
+				local _, part = dec(data, partlen - 0xC000 + 1, limit - 1)
+				if part == nil then
+					return pos
+				end
+				table.insert(parts, part)
+				partlen = 0
+			end
+		end
+
+			return pos, table.concat(parts, ".")
+		end
+
+	return dec(data, pos)
+end	
+
+
+
+local decoder = {}
+
+decoder[types.A] = function(entry)
+	print("decode ip: " .. entry.data:sub(1,4))
+end
+
+
+local function decDomain(entry, data, pos)
+	local np = pos - #entry.data
+	local _
+	_,entry.domain = decStr(data, np)
+end
+
+decoder[types.CNAME] = decDomain
+
+
+decoder[types.PTR] = decDomain
+
+
+decoder[types.TXT] =
+function (entry, data, pos)
+
+	local len = entry.data:len()
+	local np = pos - #entry.data
+	local txt_len
+	local txt
+
+	if len > 0 then
+		entry.TXT = {}
+		entry.TXT.text = {}
+	end
+
+	while np < len do
+		txt, np = string.unpack("s1", data, np)
+		table.insert(entry.TXT.text, txt)
+	end
+end
+
+
+decoder[types.SRV] = 
+function(entry, data, pos)
+	local np = pos - #entry.data
+	local _
+	entry.SRV = {}
+	entry.SRV.prio, entry.SRV.weight, entry.SRV.port, np = string.unpack(">I2I2I2", data, np)
+	np, entry.SRV.target = decStr(data, np)
+end
+
+
+local function decodeFlags(flags)
+	local tflags = {}
+	if (flags & 0x8000) ~= 0 then tflags.QR = true end
+	if (flags & 0x4000) ~= 0 then tflags.OC1 = true end
+	if (flags & 0x2000) ~= 0 then tflags.OC2 = true end
+	if (flags & 0x1000) ~= 0 then tflags.OC3 = true end
+	if (flags & 0x0800) ~= 0 then tflags.OC4 = true end
+	if (flags & 0x0400) ~= 0 then tflags.AA = true end
+	if (flags & 0x0200) ~= 0 then tflags.TC = true end
+        if (flags & 0x0100) ~= 0 then tflags.RD = true end
+        if (flags & 0x0080) ~= 0 then tflags.RA = true end
+        if (flags & 0x0008) ~= 0 then tflags.RC1 = true end
+ 	if (flags & 0x0004) ~= 0 then tflags.RC2 = true end
+ 	if (flags & 0x0002) ~= 0 then tflags.RC3 = true end
+ 	if (flags & 0x0001) ~= 0 then tflags.RC4 = true end
+
+	return tflags
+
+end
+
+local function decodeQuestions(data, count, pos)
+	local q = {}
+	for i = 1, count do
+		local currQ = {}
+		pos, currQ.dname = decStr(data, pos)
+		currQ.dtype, currQ.class,pos = string.unpack(">I2I2", data, pos)
+		table.insert(q,currQ)
+	end
+	return pos, q
+end
+
+local function decodeRR(data, count, pos)
+	local ans = {}
+	for i = 1, count do
+		local currRR = {}
+		pos, currRR.dname = decStr(data, pos)
+		currRR.dtype, currRR.class, currRR.ttl, pos = string.unpack(">I2I2I4", data, pos)
+		currRR.data, pos = string.unpack(">s2",data, pos)
+
+		if decoder[currRR.dtype] then
+			decoder[currRR.dtype](currRR, data, pos)
+		end
+
+		table.insert(ans, currRR)
+	end
+	
+	return pos, ans
+end
+
 
 function decode(data)
 	local pos
@@ -196,8 +333,18 @@ function decode(data)
 
 	pkt.id,encFlags,cnt.q,cnt.a,cnt.auth,cnt.add,pos = string.unpack(">I2I2I2I2I2I2", data)
 
-	print("decode rsp, id:")
-	print(pkt.id)
+
+	pkt.flags = decodeFlags(encFlags)
+
+	if(encFlags & 0xF000) == 0xA000 then
+		return pkt
+	else
+		pos,pkt.questions = decodeQuestions(data, cnt.q, pos)
+		pos,pkt.answers = decodeRR(data, cnt.a, pos)
+		pos,pkt.auth = decodeRR(data, cnt.auth,pos)
+		pos,pkt.add = decodeRR(data, cnt.add, pos)
+	end
+
 
 	return pkt
 end
@@ -206,6 +353,21 @@ end
 
 local function processResponse(response, dname, dtype, options)
 	local rpkt = decode(response)
+
+
+	if gotAnswer(rPkt) then
+		if(options.retPkt) then
+			return true, rPkt
+		else
+
+		end
+	elseif (not(options.noauth)) then
+		
+		local next_server = getAuthDns(rPkt)
+
+
+
+
 
 	return true, rpkt
 
