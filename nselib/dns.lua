@@ -350,6 +350,120 @@ function decode(data)
 end
 
 
+local function gotAnswer(rPkt)
+	if #rPkt.answers > 0 then
+
+		-- are those answers not just cnames?
+		if rPkt.questions[1].dtype == types.A then
+			for _,v in ipairs(rPkt.answers) do
+				if v.dtype == types.A then
+					return true
+				end
+			end
+		
+			return false
+		else
+			return true
+		end
+
+	elseif rPkt.flags.RC3 and rPkt.flags.RC4 then
+		return true
+	else 
+
+		return false
+	end
+end 
+	
+
+local answerFetcher = {}
+
+answerFetcher[types.TXT] = function(dec, retAll)
+	local answers = {}
+	
+	for _,v in ipairs(dec.answers) do
+		if v.TXT and v.TXT.text then
+			for _, v in ipairs(v.TXT.text) do
+				table.insert(answers, v)
+			end
+		end
+	end
+
+	if #answers == 0 then
+		return false, "No answers"
+	end
+
+	return true, answers
+end
+
+
+answerFetcher[types.A] = function(dec, retAll)
+	local answers = {}
+	
+	for _, ans in ipairs(dec.answers) do
+		if ans.dtype == types.A then
+			table.insert(answers, ans.ip)
+		end
+	end
+
+	if #answers == 0 then
+		return false, "no answers"
+	end
+
+	return true, answers
+end
+
+
+answerFetcher[types.CNAME] = function(dec, retAll)
+	local answers = {}
+
+	for _, v in ipairs(dec.answers) do
+		if v.domain then table.insert(answers. v.domain) end
+	end
+
+	if #answers == 0 then
+		return false, "no answers"
+
+	return true, answers
+
+end
+
+
+answerFetcher[types.SRV] = function(dec, retAll)
+	local srv,ip,answers = {},{},{}
+
+	for _, ans in ipairs(dec.answers) do
+		if ans.dtypes == types.sRV then
+			table.insert(answers, ("%s:%s:%s:%s"):format(ans.SRV.prio,ans.SRV.weight, ans.SRV.port, ans.SRV.target))
+		end
+	end
+
+	if #answers == 0 then
+		return false, "no answer"
+	end
+
+	return true, answers
+end
+
+
+answerFetcher[types.PTR] = answerFetcher[types.CNAME]
+
+
+
+
+function findNiceAnswer(dtype, dec, retAll)
+	if (#dec.answers > 0) then
+		if answerFetcher[dtype] then
+			return answerFetcher[dtype](dec, retAll)
+		else
+			return false, "unable to handle response"
+		end
+	elseif (dec.flags.RC3 and dec.flags.RC4) then
+		return false, "No such Name"
+	else
+		return false, "No answers"
+	end
+end
+	
 
 local function processResponse(response, dname, dtype, options)
 	local rpkt = decode(response)
@@ -359,17 +473,31 @@ local function processResponse(response, dname, dtype, options)
 		if(options.retPkt) then
 			return true, rPkt
 		else
-
+			return findNiceAnswer(dtype, rPkt, options.retAll)
 		end
 	elseif (not(options.noauth)) then
 		
-		local next_server = getAuthDns(rPkt)
+		--local next_server = getAuthDns(rPkt)
+		
 
+		--if type(next_server) == 'table' and next_server.cname then
+		--	options.tries = options.tries - 1
+		--	return query(next-server.cname, options)
+		--end
+	
+		--if next_server and next_server ~= options.host and options.tries > 1 then
+		--	options.host = next_server
+		--	options.tries = options.tries - 1
+		--	return query(dname, options)
+		--end
 
+	elseif (options.retPkt) then
+		return true, rPkt
+	end	
 
+	
 
-
-	return true, rpkt
+	return false, "No answers"
 
 end
 
