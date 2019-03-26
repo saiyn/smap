@@ -5,6 +5,12 @@ _ENV = stdnse.module("dnssd", stdnse.seeall)
 
 
 Comm = {
+
+
+	queryService = function(host, port, service)
+		local sendCnt, timeout = 1, 5000
+		return dns.query(service, {port = port, host = host, dtype="PTR",retPkt=true,multiple=true,sendCount=sendCnt, timeout=timeout})
+	end,
 	
 	queryAllServices = function(host, port)
 		local sendCnt, timeout = 2, 5000
@@ -47,10 +53,20 @@ Helper = {
 
 		end
 
-
 		
+		for _, v in ipairs(response) do
+			for _,service in ipairs(v.output) do
 
-	
+				status, res = Comm.queryService(host, port, service)
+				
+				table.insert(result, res)
+
+			end
+		end
+
+
+		return true, result
+		
 	end
 
 }

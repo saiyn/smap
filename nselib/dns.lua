@@ -423,6 +423,8 @@ answerFetcher[types.CNAME] = function(dec, retAll)
 	if #answers == 0 then
 		return false, "no answers"
 
+	end
+
 	return true, answers
 
 end
