@@ -164,15 +164,15 @@ local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 
 	while(true) do
 		status, response = socket:receive()
-		--if(not(status)) then
-		--	print("dns receive rsp fail")
-		--	break
+		if(not(status)) then
+			print("dns receive rsp fail")
+			break
 	
-		--end
+		end
 
 		local status, _, _, ip, _ = socket:get_info()
 		
-		print("receive from:" .. ip)
+		print("receive from:" .. ip .. response)
 
 
 		table.insert(responses, {data = response, peer = ip})
@@ -336,6 +336,12 @@ function decode(data)
 
 	pkt.flags = decodeFlags(encFlags)
 
+
+	print("=============================")
+	print("id: " .. pkt.id)
+	print("answer cnt: " .. cnt.a)
+	print("add cnt: " .. cnt.add)
+
 	if(encFlags & 0xF000) == 0xA000 then
 		return pkt
 	else
@@ -343,6 +349,10 @@ function decode(data)
 		pos,pkt.answers = decodeRR(data, cnt.a, pos)
 		pos,pkt.auth = decodeRR(data, cnt.auth,pos)
 		pos,pkt.add = decodeRR(data, cnt.add, pos)
+
+		print(pkt.answers)
+		print(pkt.add)
+		print("===========================")
 	end
 
 
@@ -416,8 +426,10 @@ end
 answerFetcher[types.CNAME] = function(dec, retAll)
 	local answers = {}
 
+	print(dec.answers)
+
 	for _, v in ipairs(dec.answers) do
-		if v.domain then table.insert(answers. v.domain) end
+		if v.domain then table.insert(answers, v.domain) end
 	end
 
 	if #answers == 0 then
@@ -471,11 +483,11 @@ local function processResponse(response, dname, dtype, options)
 	local rpkt = decode(response)
 
 
-	if gotAnswer(rPkt) then
+	if gotAnswer(rpkt) then
 		if(options.retPkt) then
-			return true, rPkt
+			return true, rpkt
 		else
-			return findNiceAnswer(dtype, rPkt, options.retAll)
+			return findNiceAnswer(dtype, rpkt, options.retAll)
 		end
 	elseif (not(options.noauth)) then
 		
@@ -544,6 +556,19 @@ function query(dname, options)
 		for _, r in ipairs(response) do
 			local status, presponse = processResponse(r.data, dname, dtype, options)
 			if(status) then
+
+				
+				print("receive mdns from " .. r.peer)
+
+				print("*********************************")
+				for _, v in ipairs(presponse) do
+					print("domain " .. v)
+				end
+
+				print("***********************************")
+
+
+
 				table.insert(multirsp, {['output']=presponse, ['peer']=r.peer})
 			end
 

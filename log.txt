@@ -1,0 +1,1577 @@
+table: 0x55c091940180
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 1
+add cnt: 0
+table: 0x55c091940ac0
+table: 0x55c09192bd10
+===========================
+table: 0x55c091940ac0
+receive mdns from 10.0.0.8
+*********************************
+domain _smb._tcp.local
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 0
+table: 0x55c091941c00
+table: 0x55c0919421f0
+===========================
+table: 0x55c091941c00
+receive mdns from 10.0.0.8
+*********************************
+domain _smb._tcp.local
+***********************************
+=============================
+id: 1
+answer cnt: 4
+add cnt: 0
+table: 0x55c091942760
+table: 0x55c091943ca0
+===========================
+table: 0x55c091942760
+receive mdns from 10.0.0.17
+*********************************
+domain _smb._tcp.local
+domain _http._tcp.local
+domain _afpovertcp._tcp.local
+domain _device-info._tcp.local
+***********************************
+=============================
+id: 1
+answer cnt: 4
+add cnt: 0
+table: 0x55c0919443a0
+table: 0x55c091945610
+===========================
+table: 0x55c0919443a0
+receive mdns from 10.0.0.17
+*********************************
+domain _smb._tcp.local
+domain _http._tcp.local
+domain _afpovertcp._tcp.local
+domain _device-info._tcp.local
+***********************************
+=============================
+id: 1
+answer cnt: 2
+add cnt: 0
+table: 0x55c091945c00
+table: 0x55c091946610
+===========================
+table: 0x55c091945c00
+receive mdns from 10.0.0.4
+*********************************
+domain _smb._tcp.local
+domain _afpovertcp._tcp.local
+***********************************
+=============================
+id: 1
+answer cnt: 2
+add cnt: 0
+table: 0x55c091946c00
+table: 0x55c091947610
+===========================
+table: 0x55c091946c00
+receive mdns from 10.0.0.4
+*********************************
+domain _smb._tcp.local
+domain _afpovertcp._tcp.local
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09193f0c0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09193f270
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09193f480
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091948a60
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091948cc0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091949300
+table: 0x55c09194aa10
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09194af10
+table: 0x55c09194c5a0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c09194cab0
+table: 0x55c09194d1b0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c091948340
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091948510
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091948740
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09194fbd0
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09194fe30
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091950440
+table: 0x55c091951a40
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091951f00
+table: 0x55c091953500
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919539b0
+table: 0x55c091953fe0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09194f460
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09194f630
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09194f860
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919567f0
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091956b70
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091957210
+table: 0x55c091958810
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091958cd0
+table: 0x55c09195a2d0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c09195a780
+table: 0x55c09195adb0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _http._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c091956030
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919562d0
+in nse_main.lua resume
+
+receive from:10.0.0.17�_http_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �.
+model=DS1819+serial=18B0R5R7J2TFPversion_major=6version_minor=2version_build=23824admin_port=5000secure_admin_port=5001Smac_address=00:11:32:9f:bd:11|00:11:32:9f:bd:12|00:11:32:9f:bd:13|00:11:32:9f:bd:14�.!
+�
+   DiamondRing��<
+��2�����<
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091956500
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09195dfc0
+table: 0x55c09195fae0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+try to query serive: _afpovertcp._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09195d2e0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09195d3e0
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+
+DiamondRing�
+            �4
+�4!
+$
+   DiamondRing��a
+��2�����a
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09195d720
+in nse_main.lua resume
+
+receive from:10.0.0.4�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+liang的Mac Pro�
+                �4!
+$liangdeMac-Pro��4
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�X
+
+�X
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091961190
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091961780
+table: 0x55c091962dc0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919632d0
+table: 0x55c091963900
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _device-info._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c0919536a0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091952530
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _device-info_tcplocal
+                                               �
+
+                                                 
+
+DiamondRing�
+            �5
+
+model=Xserve�5!
+
+ DiamondRing��n
+��2�����n
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919589a0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c0919458b0
+table: 0x55c09192bc00
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09193f830
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09193f620
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919636f0
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091962e70
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09195d2e0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091950000
+table: 0x55c09192be70
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09193dfe0
+table: 0x55c091953dd0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919473a0
+table: 0x55c0919444d0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _http._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c091942fd0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091950500
+in nse_main.lua resume
+
+receive from:10.0.0.17�_http_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �.
+model=DS1819+serial=18B0R5R7J2TFPversion_major=6version_minor=2version_build=23824admin_port=5000secure_admin_port=5001Smac_address=00:11:32:9f:bd:11|00:11:32:9f:bd:12|00:11:32:9f:bd:13|00:11:32:9f:bd:14�.!
+�
+   DiamondRing��<
+��2�����<
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091952360
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09192bfd0
+table: 0x55c0919531c0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+try to query serive: _afpovertcp._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c091959300
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09195aee0
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+
+DiamondRing�
+            �4
+�4!
+$
+   DiamondRing��a
+��2�����a
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09195e6a0
+in nse_main.lua resume
+
+receive from:10.0.0.4�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+liang的Mac Pro�
+                �4!
+$liangdeMac-Pro��4
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�X
+
+�X
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919515f0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09194fe30
+table: 0x55c09194fcd0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c09194ed70
+table: 0x55c091941370
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _device-info._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c0919421c0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091942270
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _device-info_tcplocal
+                                               �
+
+                                                 
+
+DiamondRing�
+            �5
+
+model=Xserve�5!
+
+ DiamondRing��n
+��2�����n
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091940ac0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091960ac0
+table: 0x55c0919301d0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09193d1f0
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919429b0
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091942c80
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091942ec0
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091933880
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091933e90
+table: 0x55c091935390
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091964d20
+table: 0x55c091966220
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919666d0
+table: 0x55c091966cc0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _afpovertcp._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09193cc20
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09193cde0
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+
+DiamondRing�
+            �4
+�4!
+$
+   DiamondRing��a
+��2�����a
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09193d0f0
+in nse_main.lua resume
+
+receive from:10.0.0.4�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+liang的Mac Pro�
+                �4!
+$liangdeMac-Pro��4
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�X
+
+�X
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c0919694b0
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c091969b30
+table: 0x55c09196b130
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c09196b5f0
+table: 0x55c09196bc20
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _smb._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c091968c30
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091968d30
+in nse_main.lua resume
+
+receive from:10.0.0.8�_smb_tcplocal
+                                       �
+
+                                         
+SAIYN-HP-NOTEBOOK�
+                    �-
+�-!
+�saiyn-HP-Notebook��`
+���i�p��`
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091969100
+in nse_main.lua resume
+
+receive from:10.0.0.17�_smb_tcplocal
+                                        �
+
+                                          
+
+DiamondRing�
+            �-
+�-!
+�
+   DiamondRing��Z
+��2�����Z
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09196e310
+in nse_main.lua resume
+
+receive from:10.0.0.4�_smb_tcplocal
+                                        �
+
+                                          
+liang的Mac Pro�
+                �-!
+�liangdeMac-Pro��-
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�Q
+
+�Q
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09196e690
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c09196ed30
+table: 0x55c091970330
+===========================
+receive mdns from 10.0.0.8
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c0919707f0
+table: 0x55c091971df0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919722a0
+table: 0x55c0919728d0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+try to query serive: _afpovertcp._tcp.local
+sendto: 224.0.0.251- 224.0.0.251 - 5353
+after nse_main.lua resume
+
+put one running to waiting
+WAITING TO RUNNING...
+status: suceess
+will call resume
+
+table: 0x55c09196dc50
+in nse_main.lua resume
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09196de10
+in nse_main.lua resume
+
+receive from:10.0.0.17�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+
+DiamondRing�
+            �4
+�4!
+$
+   DiamondRing��a
+��2�����a
+
+
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 1
+receive callback: 
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c09196e120
+in nse_main.lua resume
+
+receive from:10.0.0.4�
+                         _afpovertcp_tcplocal
+                                              �
+
+                                                
+liang的Mac Pro�
+                �4!
+$liangdeMac-Pro��4
+liang的Mac Pro
+               _device-info�
+model=MacPro6,1
+osxvers=18�X
+
+�X
+��7��*ـ
+receive,timeout:5000
+after nse_main.lua resume
+
+put one running to waiting
+receive callback, status: 3
+status: timeout
+WAITING TO RUNNING...
+will call resume
+
+table: 0x55c091975260
+in nse_main.lua resume
+
+dns receive rsp fail
+dns query success
+=============================
+id: 1
+answer cnt: 5
+add cnt: 0
+decode ip: 
+
+table: 0x55c0919758e0
+table: 0x55c091976ee0
+===========================
+receive mdns from 10.0.0.17
+*********************************
+***********************************
+=============================
+id: 1
+answer cnt: 1
+add cnt: 5
+decode ip: 
+
+table: 0x55c0919773a0
+table: 0x55c0919779d0
+===========================
+receive mdns from 10.0.0.4
+*********************************
+***********************************
+dnssd done
+table: 0x55c09193de70
+nil
+after nse_main.lua resume
+
+true	true	nil
+saiyn: thread dead
+

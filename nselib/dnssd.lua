@@ -9,6 +9,9 @@ Comm = {
 
 	queryService = function(host, port, service)
 		local sendCnt, timeout = 1, 5000
+
+		print("try to query serive: " .. service)
+
 		return dns.query(service, {port = port, host = host, dtype="PTR",retPkt=true,multiple=true,sendCount=sendCnt, timeout=timeout})
 	end,
 	

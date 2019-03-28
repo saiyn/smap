@@ -19,8 +19,8 @@ CFLAGS = -g -O2 -Wall  $(CCOPT)
 # CFLAGS = -g -Wall $(DEFS) $(INCLS)
 CPPFLAGS = -I../../libpcap  -I../../nbase $(DEFS) $(INCLS)
 STATIC =
-SHTOOL = ./shtool
-INSTALL = $(SHTOOL) install
+#SHTOOL = ./shtool
+#INSTALL = $(SHTOOL) install
 MAKEDEPEND = @MAKEDEPEND@
 RPMTDIR=$(HOME)/rpmdir
 NBASEDIR=../../nbase
@@ -60,7 +60,7 @@ $(NBASEDIR)/libnbase.a: $(NBASEDIR)/Makefile
 clean-test:
 	cd $(NSOCKTESTDIR) && $(MAKE) clean
 
-clean: clean-test
+clean:
 	rm -f $(OBJS) $(TARGET)
 
 distclean: clean
@@ -86,12 +86,12 @@ config.h: stamp-h
 stamp-h: config.h.in config.status
 	./config.status
 
-Makefile: Makefile.in config.status
-	./config.status
+##Makefile: Makefile.in config.status
+#	./config.status
 
-config.status: configure
-	./config.status --recheck
+#config.status: configure
+#	./config.status --recheck
 
-makefile.dep:
-	$(CC) -MM $(CPPFLAGS) $(SRCS) > $@
--include makefile.dep
+#makefile.dep:
+#	$(CC) -MM $(CPPFLAGS) $(SRCS) > $@
+#-include makefile.dep

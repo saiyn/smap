@@ -12,7 +12,9 @@ LDFLAGS = -lm -lpcap
 
 LUA= $(LIBLUA_PATH)/liblua.a
 
-LIBS= $(LUA) $(LIBNSOCK_PATH)/src/libnsock.a $(LIBNBASE_PATH)/libnbase.a
+NSOCK= $(LIBNSOCK_PATH)/src/libnsock.a
+
+LIBS= $(LUA) $(NSOCK)  $(LIBNBASE_PATH)/libnbase.a
 
 TARGET= saiyn
 
@@ -41,12 +43,16 @@ $(TARGET): $(OBJS) $(LIBS)
 $(LUA):
 	make -C $(LIBLUA_PATH) generic
 
+$(NSOCK):
+	make -C $(LIBNSOCK_PATH)/src
+	
 
 echo:
 	@echo $(LUA)
 
 clean:
 	rm -rf $(LIBLUA_PATH)/*.o $(LIBLUA_PATH)/*.a *.o $(TARGET)
-
+	make -C $(LIBNSOCK_PATH)/src clean
+	make -C $(LIBNBASE_PATH) clean
 
 
