@@ -16,7 +16,7 @@ Comm = {
 	end,
 	
 	queryAllServices = function(host, port)
-		local sendCnt, timeout = 2, 5000
+		local sendCnt, timeout = 1, 5000
 		return dns.query("_services._dns-sd._udp.local", {port = port, host = host, dtype="PTR", retAll=true, multiple=true, sendCount=sendCnt,
 			timeout=timeout } )
 

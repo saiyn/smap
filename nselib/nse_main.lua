@@ -53,20 +53,11 @@ local ACTION_STARTING = {}
 
 function Thread:resume()
 	
-	print(self.args)
-
-	print("in nse_main.lua resume\n")
-
-	--if self.args then
 	local ok,r1,r2 = resume(self.co, unpack(self.args, 1, self.args.n))
-	--else 
-		--local ok, r1 = resume(self.co)
 
-	--end
 
 	local status = status(self.co)
 
-	print("after nse_main.lua resume\n")
 
 	if ok and r1 == ACTION_STARTING then
 		print("r1 == action_starting\n")
@@ -199,7 +190,6 @@ local function run(threads_iter, hosts)
 	end
 
 
-	print("in nse_main.lua run")
 
 	while next(running) or next(waiting) or threads_iter do
 		while threads_iter do
@@ -209,19 +199,16 @@ local function run(threads_iter, hosts)
 				threads_iter = nil
 				break
 			end
-			print("add one thread in running\n")
 			all[thread.co], running[thread.co] = thread, thread
 		end
 
 		for co, thread in pairs(running) do
 			current, running[co] = thread, nil
 
-			print("will call resume\n")
 
 			if thread:resume() then
 				waiting[co] = thread
 
-				print("put one running to waiting")
 			else
 				all[co] = nil
 			end
@@ -241,11 +228,8 @@ local function main(hosts)
 
 	local function threads_iter()
 		for _,script in ipairs(chosen_scripts) do
-			print("in threads iter:")
-			print(script)
 			local thread =  script:new_thread("dummy-args")
 			if thread then
-				print("in threads iter:will yield\n")
 				yield(thread)
 			end
 		end

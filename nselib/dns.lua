@@ -229,6 +229,7 @@ end
 local decoder = {}
 
 decoder[types.A] = function(entry)
+
 	print("decode ip: " .. entry.data:sub(1,4))
 end
 
@@ -262,6 +263,11 @@ function (entry, data, pos)
 		txt, np = string.unpack("s1", data, np)
 		table.insert(entry.TXT.text, txt)
 	end
+
+	print("%%%%%%%%%%%%%%%%%%%%%%")
+	print("decode a TXT Record")
+	print(serialize(entry))
+	print("%%%%%%%%%%%%%%%%%%%")
 end
 
 
@@ -272,6 +278,13 @@ function(entry, data, pos)
 	entry.SRV = {}
 	entry.SRV.prio, entry.SRV.weight, entry.SRV.port, np = string.unpack(">I2I2I2", data, np)
 	np, entry.SRV.target = decStr(data, np)
+
+	print("+++++++++++++++++++")
+	print("decode a SRV Record")
+	print(serialize(entry))
+	print("++++++++++++++++++")
+
+
 end
 
 
@@ -350,8 +363,8 @@ function decode(data)
 		pos,pkt.auth = decodeRR(data, cnt.auth,pos)
 		pos,pkt.add = decodeRR(data, cnt.add, pos)
 
-		print(pkt.answers)
-		print(pkt.add)
+		print(serialize(pkt.answers))
+		print(serialize(pkt.add))
 		print("===========================")
 	end
 
@@ -562,7 +575,7 @@ function query(dname, options)
 
 				print("*********************************")
 				for _, v in ipairs(presponse) do
-					print("domain " .. v)
+					print("domain " .. serialize(v))
 				end
 
 				print("***********************************")
