@@ -8,6 +8,8 @@ local getmetatable = getmetatable
 
 local pack = table.pack
 
+local io = require "io"
+
 
 _ENV = require "strict" {};
 
@@ -33,7 +35,7 @@ end
 
 function serialize(obj)
 	local lua = ""
-	local t = type(obj)
+	local t = io.type(obj)
 
 	if t == "number" then
 		lua = lua .. obj
@@ -62,7 +64,7 @@ function serialize(obj)
 	elseif t == "nil" then
 		return nil
 	else
-		error("can not serialize a " .. t .. "type.")
+		--io.print("can not serialize")
 	end
 	
 	return lua

@@ -1,6 +1,8 @@
 local stdnse = require "stdnse"
 local string = require "string"
 
+local serialize = stdnse.serialize
+
 _ENV = stdnse.module("dns", stdnse.seeall)
 
 

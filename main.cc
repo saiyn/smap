@@ -2,7 +2,7 @@
 #include "util.h"
 #include "nse_utility.h"
 #include "nse_main.h"
-
+#include "network.h"
 
 static void parse_targets(std::vector<Target *> &T, char *ip_str)
 {
@@ -35,11 +35,28 @@ static void parse_targets(std::vector<Target *> &T, char *ip_str)
 	T.push_back(t);
 }
 
+
+void list_if()
+{
+	NetworkInfoHelper::RouteInfo *info = NetworkInfoHelper::GetInstance().GetAllRouteInfo();
+
+	for(NetworkInfoHelper::RouteInfo *entry = info; entry; entry = entry->next)
+	{
+		entry->print();
+	}
+
+	NetworkInfoHelper::GetInstance().free_list(info);
+
+
+
+}
+
+
 int main(int argc, char *argv[])
 {
 
 	int opt;
-	const char *optstring = "s:v";
+	const char *optstring = "s:vl";
 
 	while((opt = getopt(argc, argv, optstring)) != -1){
 		switch(opt){
@@ -52,6 +69,12 @@ int main(int argc, char *argv[])
 		case 'v':
 			printf("set verbose\n");
 			o.verbose = 1;
+		break;
+
+		case 'l':
+			printf("list interface\n");
+			list_if();
+		break;
 
 		default:
 			fprintf(stderr, "Uaage: %s [-s scripts]\n", argv[0]);

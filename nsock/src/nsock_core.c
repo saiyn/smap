@@ -632,7 +632,7 @@ static int do_actual_read(struct npool *ms, struct nevent *nse) {
        * sockets, so peerlen is still sizeof(peer) and peer is junk. Instead,
        * only set this if it's not already set.
        */
-      if (peerlen > 0 && iod->peerlen == 0) {
+      if (peerlen > 0) {
         assert(peerlen <= sizeof(iod->peer));
         memcpy(&iod->peer, &peer, peerlen);
         iod->peerlen = peerlen;
