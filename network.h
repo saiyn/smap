@@ -7,8 +7,10 @@
 #include <string.h>
 #include <iostream>
 #include <netinet/in.h>
+#include <netinet/if_ether.h>
 #include <net/if.h>
-
+#include <sys/socket.h>
+#include <arpa/inet.h>
 
 
 class NetworkInfoHelper
@@ -54,6 +56,22 @@ class NetworkInfoHelper
 					memset(&this->local_ipv6, 0, sizeof(this->local_ipv6));
 					memset(this->local_mac, 0, 6);
 					memset(this->gateway_mac, 0, 6);
+				}
+
+				void print()
+				{
+					char mac[18] = {0};
+					char gmac[18] = {0};
+
+					sprintf(mac, "%02x:%02x:%02x:%02x:%02x:%02x", this->local_mac[0], this->local_mac[1], this->local_mac[2], this->local_mac[3],this-> local_mac[4], this->local_mac[5]);
+					
+					sprintf(gmac, "%02x:%02x:%02x:%02x:%02x:%02x", this->gateway_mac[0], this->gateway_mac[1], this->gateway_mac[2], this->gateway_mac[3], this->gateway_mac[4], this->gateway_mac[5]);
+					
+
+					printf("Adapter Info----------------------------------------------------------------------\r\n");
+					printf("name	|ip		|mac			|gateway ip	|gateway mac		|mask		|index\r\n");
+					printf("%s\t%s\t%s\t%d\t%s\t%d\t%d\r\n", this->adapter_name.c_str(), inet_ntoa(this->local_ipv4), mac, this->gateway_ipv4, gmac, this->mask_ipv4, this->index);
+
 				}
 
 			public:
@@ -146,6 +164,11 @@ class NetworkInfoHelper
 					this->is_wifi = -1;
 				}
 
+				void print()
+				{
+					this->adaptor.print();
+				}
+
 			public:
 				AdapteInfo adaptor;
 				WifiInfo   wifi;
@@ -231,7 +254,7 @@ class NetworkInfoHelper
 
 		void getAdapterInfo();
 
-		void getMac(unsigned int dst_ip, AdapterInfo *, unsigned char mac[],unsigned int timeout);
+		int getMac(unsigned int dst_ip, AdapteInfo *, unsigned char mac[],unsigned int timeout);
 		
 		static int readNlSock(int sock, char *msg, int seq, int pid);
 		

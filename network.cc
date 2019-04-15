@@ -3,6 +3,11 @@
 
 #include <linux/netlink.h>
 #include <linux/rtnetlink.h>
+#include <linux/if_packet.h>
+#include <netinet/if_ether.h>
+#include <sys/time.h>
+#include <net/route.h>
+#include <sys/ioctl.h>
 
 
 #include "network.h"
@@ -21,6 +26,7 @@ NetworkInfoHelper::NetworkInfoHelper()
 {
 	getAdapterInfo();
 
+	m_cur_if.print();
 }
 
 
@@ -201,7 +207,7 @@ int NetworkInfoHelper::GetDefaultGateway(unsigned int &ip, unsigned int &eth_ind
 }
 
 
-void NetworkInfoHelper::getAdapteInfo()
+void NetworkInfoHelper::getAdapterInfo()
 {
 	int fd, interface;
 
@@ -264,9 +270,9 @@ void NetworkInfoHelper::getAdapteInfo()
 		}
 
 		//get gateway info
-		m_cur_if.adaptor.gateway_ipv4 = gateway_ip;
+		m_cur_if.adaptor.gateway_ipv4.s_addr = gateway_ip;
 		
-		getMac(gateway_ip, m_cur_if.adaptor, m_cur_if.adaptor.gateway_mac,1000);
+		getMac(gateway_ip, &m_cur_if.adaptor, m_cur_if.adaptor.gateway_mac,1000);
 
 		break;
 	}
@@ -274,20 +280,78 @@ void NetworkInfoHelper::getAdapteInfo()
 	close(fd);
 }
 
+static int arp_send_recv(int sock, char packet[], size_t sz, int index, unsigned int dst_ip,unsigned char mac[], unsigned int tt)
+{
+	struct sockaddr_ll saddr_ll = {0};
+
+	saddr_ll.sll_ifindex = index;
+	saddr_ll.sll_family = AF_PACKET;
+
+	unsigned char recv_buf[1024] = {0};
+	struct timeval t;
+
+	gettimeofday(&t, NULL);
+
+	unsigned long long start = t.tv_sec * 1000000 + t.tv_usec;
+
+	for(;;)
+	{
+		
+		if(sendto(sock, packet, sz, 0,(struct sockaddr *)&saddr_ll, sizeof(saddr_ll)) < 0)
+		{
+			std::cout << "sendto fail at: " << __FUNCTION__ << std::endl;
+
+			close(sock);
+			return -1;
+		}
+
+		ssize_t recv_sz = recv(sock, recv_buf, sizeof(recv_buf), 0);
+		if(recv_sz >= sz)
+		{
+			struct ether_arp *arp = (struct ether_arp *)(recv_buf + sizeof(struct ether_header));
+			
+			if(*(unsigned int *)(arp->arp_spa) == dst_ip)
+			{
+				memcpy(mac, arp->arp_sha, ETH_ALEN);
+
+				break;
+			}
+			else
+			{
+				std::cout << "discard arp resp from: " << inet_ntoa(*(struct in_addr *)(arp->arp_spa)) << std::endl;
+			}
+		}
+
+		gettimeofday(&t, NULL);
+		unsigned long long current = t.tv_sec * 1000000 + t.tv_usec;
+		if((current - start) > tt*1000)
+		{
+
+			std::cout << "recive arp rsp timeout: " << __LINE__ << std::endl;
+
+			close(sock);
+			return -1;
+		}
+
+	}
 
 
-int NetworkInfoHelper::getMac(unsigned int dst_ip, AdapterInfo *info, unsigned char mac[],unsigned int timeout)
+	close(sock);
+	return 0;
+}
+
+int NetworkInfoHelper::getMac(unsigned int dst_ip, AdapteInfo *info, unsigned char mac[],unsigned int timeout)
 {
 	if(dst_ip == 0) return -1;
 
-	if(info.local_ipv4.s_addr == 0) return -1;
+	if(info->local_ipv4.s_addr == 0) return -1;
 
 	int sock = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ARP));
 	if(sock < 0) return -1;
 
 	struct timeval recv_tt = {0};
 	recv_tt.tv_usec = 100*1000;
-	if(setsockopt(sock, SOL_SOCKET, SO_RECVTIMEO, (const char *)&recv_tt, sizeof(recv_tt)))
+	if(setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char *)&recv_tt, sizeof(recv_tt)))
 	{
 		close(sock);
 		return -1;
@@ -295,15 +359,31 @@ int NetworkInfoHelper::getMac(unsigned int dst_ip, AdapterInfo *info, unsigned c
 
 	struct timeval send_tt = {0};
 	send_tt.tv_usec = 100*1000;
-	if(setsockopt(sock, SOL_SOCKET, SO_SENDTIMEO, (const char *)&send_tt, sizeof(send_tt)))
+	if(setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, (const char *)&send_tt, sizeof(send_tt)))
 	{
 		close(sock);
 		return -1;
 	}
 
-
+	char packet[sizeof(struct ether_header) + sizeof(struct ether_arp)] = {0};
 		
+	struct ether_header *ethHdr = (struct ether_header *)packet;
+	struct ether_arp *arp = (struct ether_arp *)(packet + sizeof(*ethHdr));
 
+	memset(ethHdr->ether_dhost, 0xff, ETH_ALEN);
+	memcpy(ethHdr->ether_shost, info->local_mac, ETH_ALEN);
+	ethHdr->ether_type = htons(ETHERTYPE_ARP);
+
+	memcpy(arp->arp_sha, ethHdr->ether_shost, ETH_ALEN);
+	arp->arp_hrd = htons(ARPHRD_ETHER);
+	arp->arp_pro = htons(ETHERTYPE_IP);
+	arp->arp_hln = ETH_ALEN;
+	arp->arp_pln = 4;
+	arp->arp_op = htons(ARPOP_REQUEST);
+	*(unsigned int *)(arp->arp_spa) = info->local_ipv4.s_addr;
+	*(unsigned int *)(arp->arp_tpa) = dst_ip;
+	
+	return arp_send_recv(sock, packet, sizeof(packet),info->index , dst_ip ,mac, timeout);
 }
 
 
