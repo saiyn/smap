@@ -46,9 +46,20 @@ void list_if()
 	}
 
 	NetworkInfoHelper::GetInstance().free_list(info);
+}
 
+void host_discovery()
+{
+	std::map<std::string, std::string> hosts = NetworkInfoHelper::GetInstance().GetAllNeighborHost();
 
+	std::map<std::string, std::string>::iterator it = hosts.begin();
 
+	printf("Host Discovery---------------------\r\n");
+
+	for(; it != hosts.end(); it++)
+	{
+		std::cout << "mac: " << it->first << " ip: " << it->second << std::endl;
+	}
 }
 
 
@@ -56,7 +67,7 @@ int main(int argc, char *argv[])
 {
 
 	int opt;
-	const char *optstring = "s:vl";
+	const char *optstring = "s:vld";
 
 	while((opt = getopt(argc, argv, optstring)) != -1){
 		switch(opt){
@@ -74,6 +85,11 @@ int main(int argc, char *argv[])
 		case 'l':
 			printf("list interface\n");
 			list_if();
+		break;
+
+		case 'd':
+			printf("host discovery\r\n");
+			host_discovery();
 		break;
 
 		default:

@@ -13,6 +13,49 @@
 #include "network.h"
 
 
+#define SCAN_TOTAL_WAIT_TIME (10*1000)
+#define SCAN_ONE_LOOP_WAIT_TIME   (1000)
+#define SCAN_ONE_DEVICE_WAIT_TIME  (1)
+
+
+
+#define BIT_C_T(n)   (n - ((n >> 1) & 033333333333) - ((n >> 2) & 011111111111))
+#define BIT_COUNT(x) ((((BIT_C_T(x)) + ((BIT_C_T(x)) >> 3)) & 030707070707) % 63)
+
+
+struct arpScanCtx
+{
+	int sock;
+	NetworkInfoHelper::AdapteInfo info;
+};
+
+
+typedef struct
+{
+	union
+	{
+		unsigned int s_addr;
+
+		struct
+		{
+			unsigned char s_b1, s_b2, s_b3, s_b4;
+		}s_b;
+
+		struct
+		{
+			unsigned short s_w1, s_w2;
+		}s_w;
+
+	}s_un;
+
+#define s_host	s_un.s_b.s_b2
+#define s_net	s_un.s_b.s_b1
+#define s_imp	s_un.s_w.s_w2
+#define s_impno	s_un.s_b.s_b4
+#define s_lh	s_un.s_b.s_b3  /* logical host */	
+
+}_in_addr_t;
+
 
 NetworkInfoHelper& NetworkInfoHelper::GetInstance()
 {
@@ -340,6 +383,70 @@ static int arp_send_recv(int sock, char packet[], size_t sz, int index, unsigned
 	return 0;
 }
 
+
+static int make_arp_rawsock()
+{
+	int sock = socket(AF_PACKET, SOCK_RAW, htons(ETH_P_ARP));
+	if(sock < 0)
+	{
+		std::cout << "ceate raw sock fail: " << __FUNCTION__ << std::endl;
+		return -1;
+	}
+
+	struct timeval recv_tt = {0};
+	recv_tt.tv_usec = 100*1000;
+	if(setsockopt(sock, SOL_SOCKET, SO_RCVTIMEO, (const char *)&recv_tt, sizeof(recv_tt)))
+	{
+		close(sock);
+		return -1;
+	}
+
+	struct timeval send_tt = {0};
+	send_tt.tv_usec = 100*1000;
+	if(setsockopt(sock, SOL_SOCKET, SO_SNDTIMEO, (const char *)&send_tt, sizeof(send_tt)))
+	{
+		close(sock);
+		return -1;
+	}
+
+	return sock;
+}
+
+
+/**
+ * dst_ip should be network byte order
+ */
+ 
+static int make_arp_packet(char *p, NetworkInfoHelper::AdapteInfo *info, unsigned int dst_ip)
+{
+	if(!p)
+	{
+		printf("invalid arg p in %s\r\n", __FUNCTION__);
+
+		return -1;
+	}
+
+	struct ether_header *ethHdr = (struct ether_header *)p;
+	struct ether_arp *arp = (struct ether_arp *)(p + sizeof(*ethHdr));
+
+	memset(ethHdr->ether_dhost, 0xff, ETH_ALEN);
+	memcpy(ethHdr->ether_shost, info->local_mac, ETH_ALEN);
+	ethHdr->ether_type = htons(ETHERTYPE_ARP);
+
+	memcpy(arp->arp_sha, ethHdr->ether_shost, ETH_ALEN);
+	arp->arp_hrd = htons(ARPHRD_ETHER);
+	arp->arp_pro = htons(ETHERTYPE_IP);
+	arp->arp_hln = ETH_ALEN;
+	arp->arp_pln = 4;
+	arp->arp_op = htons(ARPOP_REQUEST);
+	*(unsigned int *)(arp->arp_spa) = info->local_ipv4.s_addr;
+	*(unsigned int *)(arp->arp_tpa) = dst_ip;
+
+
+	return 0;
+}
+
+
 int NetworkInfoHelper::getMac(unsigned int dst_ip, AdapteInfo *info, unsigned char mac[],unsigned int timeout)
 {
 	if(dst_ip == 0) return -1;
@@ -387,7 +494,245 @@ int NetworkInfoHelper::getMac(unsigned int dst_ip, AdapteInfo *info, unsigned ch
 }
 
 
+static int arp_ping(int sock, NetworkInfoHelper::AdapteInfo &info, unsigned int dst_ip)
+{
+	char packet[sizeof(struct ether_header) + sizeof(struct ether_arp)] = {0};
 
+	int ret = make_arp_packet(packet, &info, dst_ip);
+
+	if(ret == 0)
+	{
+		struct sockaddr_ll saddr_ll = {0};
+
+		saddr_ll.sll_ifindex = info.index;
+		saddr_ll.sll_family = AF_PACKET;
+
+		return sendto(sock, packet, sizeof(packet), 0, (struct sockaddr *)&saddr_ll, sizeof(saddr_ll));
+	}
+
+	return -1;
+}
+
+
+static std::set<unsigned int> GetNetAllIp(unsigned int ip, unsigned int mask)
+{
+	std::set<unsigned int> ips;
+
+	_in_addr_t masked_ip = {0};
+
+	masked_ip.s_un.s_addr = ip & mask;
+
+	int nb_device = (1 << (32 - BIT_COUNT(mask))) - 2;
+
+	for(int i = 1; i < nb_device + 1; i++)
+	{
+		masked_ip.s_impno += 1;
+
+		ips.insert(masked_ip.s_un.s_addr);
+
+		if(masked_ip.s_impno != 255 || i >= nb_device)
+		{
+			continue;
+		}
+
+		i++;
+
+		masked_ip.s_impno = 0;
+		masked_ip.s_lh += 1;
+		ips.insert(masked_ip.s_un.s_addr);
+		if(masked_ip.s_lh != 255 || i >= nb_device)
+		{
+			continue;
+		}
+
+		i++;
+
+		masked_ip.s_lh = 0;
+		masked_ip.s_host += 1;
+		ips.insert(masked_ip.s_un.s_addr);
+		if(masked_ip.s_host != 255 || i >= nb_device)
+		{
+			continue;
+		}
+
+		i++;
+
+		masked_ip.s_host = 0;
+		masked_ip.s_net += 1;
+		ips.insert(masked_ip.s_un.s_addr);
+	}
+
+	return ips;
+}
+
+
+static void *arp_scan_work(void *arg)
+{
+	arpScanCtx ctx = *(arpScanCtx *)arg;
+
+	std::set<unsigned int> devices = GetNetAllIp(ctx.info.local_ipv4.s_addr, ctx.info.mask_ipv4.s_addr);
+
+	int nb = devices.size();
+
+	if(!nb)
+	{
+		printf("Getnetip fail in %s", __FUNCTION__);
+
+		return NULL;
+	}
+
+	for(int i = 0; i <= SCAN_ONE_LOOP_WAIT_TIME/(SCAN_ONE_DEVICE_WAIT_TIME*nb); i++)
+	{
+		for(std::set<unsigned int>::iterator it = devices.begin(); it!= devices.end(); it++)
+		{
+			
+			arp_ping(ctx.sock, ctx.info, *it);
+
+
+			usleep(SCAN_ONE_DEVICE_WAIT_TIME*1000);
+		}
+	}
+
+
+	return NULL;
+}
+
+
+
+static void *arp_scan_task(void *arg)
+{
+	
+	std::set<pthread_t> tids;
+
+	for(int i = 0; i < SCAN_TOTAL_WAIT_TIME/SCAN_ONE_LOOP_WAIT_TIME; i++)
+	{
+		pthread_t tid;
+
+		int ret = pthread_create(&tid, NULL, arp_scan_work, arg);
+
+		if(ret)
+		{
+			printf("can't create new pthread in:%s\r\n", __FUNCTION__);
+			continue;
+		}
+
+		tids.insert(tid);
+
+		usleep(SCAN_ONE_LOOP_WAIT_TIME*1000);
+	}
+
+
+	for(std::set<pthread_t>::iterator it = tids.begin(); it != tids.end(); it++)
+	{
+		pthread_cancel(*it);
+		pthread_join(*it, NULL);
+	}
+
+
+	delete (arpScanCtx *)arg;
+
+
+	return NULL;
+}	
+
+
+std::string eth_mactoa(unsigned char *mac)
+{
+	char mac_str[20] = {0};
+
+	sprintf(mac_str, "%02x:%02x:%02x:%02x:%02x:%02x", mac[0], mac[1], mac[2], mac[3], mac[4], mac[5]);
+
+	return mac_str;
+}
+
+
+static void parse_arp_response(int sock, NetworkInfoHelper::AdapteInfo &info, std::map<std::string, std::string> &result)
+{
+	unsigned char recv_buf[1024] = {0};
+	struct timeval t;
+	size_t sz = sizeof(struct ether_header) + sizeof(struct ether_arp);
+
+	gettimeofday(&t, NULL);
+	
+	unsigned long long start = t.tv_sec * 1000000 + t.tv_usec;
+	unsigned long long cur;
+	struct in_addr sip;
+
+	for(;;)
+	{
+		ssize_t recv_sz = recv(sock, recv_buf, sizeof(recv_buf), 0);
+		if(recv_sz >= sz)
+		{
+			struct ether_arp *arp = (struct ether_arp *)(recv_buf + sizeof(struct ether_header));
+
+			if((*(unsigned int *)(arp->arp_spa) & info.mask_ipv4.s_addr) == (info.local_ipv4.s_addr & info.mask_ipv4.s_addr) )
+			{
+
+				sip.s_addr = *(unsigned int *)(arp->arp_spa);
+
+				std::string ip(inet_ntoa(sip));
+				
+				std::string mac = eth_mactoa(arp->arp_sha);
+
+				
+				result[mac] = ip;
+
+			}
+		}
+
+		
+		gettimeofday(&t, NULL);
+		cur = t.tv_sec * 1000000 + t.tv_usec;
+
+		if((cur - start) > (SCAN_TOTAL_WAIT_TIME * 1000))
+		{
+			break;
+		}
+
+	}
+
+}
+
+std::map<std::string, std::string> NetworkInfoHelper::GetAllNeighborHost()
+{
+	std::map<std::string, std::string> result;
+
+	if(!m_cur_if.adaptor.gateway_ipv4.s_addr)
+	{
+		std::cout << "can't without gateway ip: " << __FUNCTION__ << std::endl;
+		return result;
+	}
+
+	
+	int rawSock = make_arp_rawsock();
+
+	pthread_t tid;
+
+	arpScanCtx *ctx = new (std::nothrow) arpScanCtx;
+	if(!ctx)
+	{
+		close(rawSock);
+		return result;
+	}
+
+	ctx->info = m_cur_if.adaptor;
+	ctx->sock = rawSock;
+
+	int ret = pthread_create(&tid, NULL, arp_scan_task, ctx);
+	if(ret != 0)
+	{
+		delete ctx;
+		close(rawSock);
+		return result;
+	}
+
+	parse_arp_response(rawSock,m_cur_if.adaptor,result);
+
+	pthread_join(tid, NULL);
+	close(rawSock);
+
+	return result;
+}
 
 
 

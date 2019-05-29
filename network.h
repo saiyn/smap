@@ -11,7 +11,8 @@
 #include <net/if.h>
 #include <sys/socket.h>
 #include <arpa/inet.h>
-
+#include <set>
+#include <map>
 
 class NetworkInfoHelper
 {
@@ -247,6 +248,9 @@ class NetworkInfoHelper
 
 		static interface* GetAllInterface();
 
+
+		std::map<std::string, std::string> GetAllNeighborHost();
+
 	private:
 		NetworkInfoHelper();
 
@@ -264,7 +268,6 @@ class NetworkInfoHelper
 		interface m_cur_if;
 
 };
-
 
 
 

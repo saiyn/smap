@@ -8,7 +8,7 @@ LIBNSOCK_PATH = ./nsock
 
 CPPFLAGS = -I$(LIBLUA_PATH) -I$(LIBNBASE_PATH) -I$(LIBNSOCK_PATH)/include -O0 -g
 
-LDFLAGS = -lm -lpcap
+LDFLAGS = -lm -lpcap -lpthread
 
 LUA= $(LIBLUA_PATH)/liblua.a
 
