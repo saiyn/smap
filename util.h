@@ -13,6 +13,10 @@
 #include <assert.h>
 #include <string.h>
 
+#include <sys/types.h>
+#include <sys/socket.h>
+#include <netdb.h>
+
 class Ops{
 	public:
 		Ops();
@@ -31,5 +35,9 @@ class Ops{
 
 extern Ops o;
 
+
+struct addrinfo *resolve_all(const char *hostname, int pf);
+
+const char *inet_socktop(const struct sockaddr_storage *ss);
 
 #endif

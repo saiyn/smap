@@ -36,6 +36,47 @@ void Ops::setScripts(char *arg)
 	std::cout << "saiyn : set script " << std::string(arg) << std::endl; 
 }
 
+const char *inet_socktop(const struct sockaddr_storage *ss)
+{
+	static char buf[INET6_ADDRSTRLEN + 1];
+	void *addr;
+	
+	if(ss->ss_family == AF_INET)
+		addr = (void *)&((struct sockaddr_in *)ss)->sin_addr;
+	else if(ss->ss_family == AF_INET6)
+		addr = (void *)&((struct sockaddr_in6 *)ss)->sin6_addr;
+	else
+		addr = NULL;
+
+	if(inet_ntop(ss->ss_family, addr, buf, sizeof(buf)) == NULL)
+	{
+		std::cout << "inet_ntop fail: " << __LINE__ << std::endl;
+	}
+
+	return buf;
+}
+
+
+struct addrinfo *resolve_all(const char *hostname, int pf)
+{
+	struct addrinfo hints = {0};
+	struct addrinfo *result;
+	int rc;
+
+	hints.ai_family = pf;
+	hints.ai_socktype = SOCK_DGRAM;
+	rc = getaddrinfo(hostname, NULL, &hints, &result);
+	if(rc != 0)
+	{
+		std::cout << "resolving " << hostname << " fail " << __LINE__ << std::endl;
+		return NULL;
+	}
+	
+	return result;
+}
+
+
+
 
 
 

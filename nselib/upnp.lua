@@ -1,4 +1,5 @@
 local stdnse = require "stdnse"
+local http = require "http"
 
 _ENV = stdnse.module("upnp", stdnse.seeall)
 
@@ -133,11 +134,13 @@ Comm = {
 		local response 
 		local options = {}
 		options['header'] = {}
-		options['header']['Accept'] = "text/xml, application/xml, text/thml"
+		options['header']['Accept'] = "text/xml, application/xml, text/html"
 
 		response = http.get_url(location, options)
 
-		print(response)
+		print(response['body'])
+
+		--stdnse.serialize(response)
 
 		if response ~= nil then
 			local output = {}
@@ -145,11 +148,13 @@ Comm = {
 			for device in string.gmatch(response['body'], "<deviceType>(.-)</UDN>") do
 				local fn, mnf, mdl, nm, ver
 
-				fn = string.match(device, "<friendlyName>(.-)</friendlyName>")
-				mnf = string.match(device, "<manufacturer>(.-)</manufacturer>")
-				mdl = string.match(device, "<modelDescription>(.-)</modelDescription>")
-				nm = string.match(device, "<modelName>(.-)</modelName>")
-				ver = string.match(device, "<modelNumber>(.-)</modelNumber>")
+				print("-----------deive: " .. device)
+
+				fn = string.match(device, "<friendlyName[ ]*>(.-)</friendlyName>")
+				mnf = string.match(device, "<manufacturer[ ]*>(.-)</manufacturer>")
+				mdl = string.match(device, "<modelDescription[ ]*>(.-)</modelDescription>")
+				nm = string.match(device, "<modelName[ ]*>(.-)</modelName>")
+				ver = string.match(device, "<modelNumber[ ]*>(.-)</modelNumber>")
 
 				if fn ~= nil then table.insert(output, "Name: " .. fn) end
 				if mnf ~= nil then table.insert(output, "Manufacturer: " .. mnf) end
@@ -158,7 +163,7 @@ Comm = {
 				if ver ~= nil then table.insert(output, "Model Version: " .. ver) end
 
 
-				print("retrieve result fn: " .. fn .. "mnf: " .. mnf .. "mdl: " .. mdl)
+				print("retrieve result fn: " .. fn .. "mnf: " .. mnf .. "mdl: " .. mdl .. "nm: " .. nm)
 			end
 
 			return true, output
