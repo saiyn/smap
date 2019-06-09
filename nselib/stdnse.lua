@@ -10,6 +10,14 @@ local pack = table.pack
 
 local io = require "io"
 
+local type = type
+
+local string  = require "string"
+
+local os = require "os"
+
+local nsock = nsock
+
 
 _ENV = require "strict" {};
 
@@ -68,7 +76,35 @@ function serialize(obj)
 	end
 	
 	return lua
-end	
+end
+
+local function log(level, nse, ...)
+	if type(level) ~= "number" then
+		return log(1, ...)
+	end
+
+	local cur_level = 3
+
+
+	if level <= cur_level then
+		local prefix = string.format("%.3f", os.clock())
+	
+
+		nsock.log_write("stdout", "[" .. nse .. "]" .. "[" .. prefix .. "]" .. string.format(...))
+	end
+end
+
+function log_info(nse, ...) return log(3, nse, ...) end
+
+function log_warn(nse, ...) return log(2, nse, ...) end
+
+function log_error(nse, ...) return log(1, nse, ...) end
+
+
+
+
+
+
 
 
 return _ENV

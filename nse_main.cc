@@ -1,6 +1,7 @@
 #include "nse_utility.h"
 #include "Target.h"
 #include "util.h"
+#include "log.h"
 
 
 #define NSE_PARALLELISM   "NSE_PARALLELISM"

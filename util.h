@@ -17,6 +17,12 @@
 #include <sys/socket.h>
 #include <netdb.h>
 
+
+#define LOG_STDOUT 1024
+#define LOG_STDERR 2048
+#define LOG_MAX LOG_STDERR
+
+
 class Ops{
 	public:
 		Ops();
@@ -39,5 +45,9 @@ extern Ops o;
 struct addrinfo *resolve_all(const char *hostname, int pf);
 
 const char *inet_socktop(const struct sockaddr_storage *ss);
+
+
+
+void log_write(int logt, const char *fmt, ...);
 
 #endif

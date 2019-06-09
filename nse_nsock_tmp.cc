@@ -8,7 +8,7 @@
 #include "nse_utility.h"
 #include "nse_main.h"
 #include "util.h"
-
+#include "log.h"
 
 #define THREAD_I  1
 #define BUFFER_I  2
@@ -108,7 +108,7 @@ static void status(lua_State *L, enum nse_status status)
 		case NSE_STATUS_SUCCESS:
 			lua_pushboolean(L, true);
 			nse_restore(L, 1);
-			printf("status: suceess\n");
+			LOG_DEBUG("suceess\n");
 			break;
 
 		case NSE_STATUS_KILL:
@@ -120,7 +120,7 @@ static void status(lua_State *L, enum nse_status status)
 		case NSE_STATUS_TIMEOUT:
 			lua_pushnil(L);
 			lua_pushstring(L, nse_status2str(status));
-			printf("status: timeout\n");
+			LOG_WARN("timeout\n");
 			nse_restore(L, 2);
 			break;
 
@@ -276,7 +276,7 @@ static int l_sendto(lua_State *L)
 	int error_id;
 	struct addrinfo *dest;
 
-	printf("sendto: %s- %s - %d\n", addr, targetname, port);
+	LOG_INFO("%s- %s - %d\n", addr, targetname, port);
 
 	error_id = getaddrinfo(addr, NULL, NULL, &dest);
 	if(error_id)
@@ -323,7 +323,7 @@ static void receive_callback(nsock_pool nsp, nsock_event nse, void *udata)
 
 	assert(lua_status(L) == LUA_YIELD);
 
-	printf("receive callback, status: %d\n", nse_status(nse));
+	LOG_DEBUG("receive callback, status: %d\n", nse_status(nse));
 
 	if(nse_status(nse) == NSE_STATUS_SUCCESS)
 	{
@@ -331,7 +331,7 @@ static void receive_callback(nsock_pool nsp, nsock_event nse, void *udata)
 		const char *str = nse_readbuf(nse, &len);
 
 
-		printf("receive callback: %s\n", str);
+		LOG_DEBUG("receive:%s\n", str);
 		lua_pushboolean(L, true);
 		lua_pushlstring(L, str, len);
 		nse_restore(L, 2);
@@ -349,7 +349,7 @@ static int l_receive(lua_State *L)
 
 	NSOCK_UDATA_ENSURE_OPEN(L, nu);
 
-	printf("receive,timeout:%d\n", nu->timeout);
+	LOG_WARN("receive,timeout:%d\n", nu->timeout);
 
 	nsock_read(nsp, nu->nsiod, receive_callback, nu->timeout, nu);
 
@@ -563,6 +563,22 @@ static int nsock_gc(lua_State *L)
 }
 
 
+static int l_log_write(lua_State *L)
+{
+	static const char * const ops[] = {"stdout", "stderr", NULL};
+
+	static const int logs[] = {LOG_STDOUT, LOG_STDERR};
+
+	int log = logs[luaL_checkoption(L, 1, NULL, ops)];
+
+	log_write(log, "%s\n", luaL_checkstring(L, 2));
+
+	//log_flush(log);
+
+	return 0;
+}
+
+
 LUALIB_API int luaopen_nsock(lua_State *L)
 {
 
@@ -581,6 +597,7 @@ LUALIB_API int luaopen_nsock(lua_State *L)
 	static const luaL_Reg l_nsock[] = {
 		{"new", l_new},
 		{"loop", l_loop},
+		{"log_write", l_log_write},
 		{NULL, NULL}
 	};
 

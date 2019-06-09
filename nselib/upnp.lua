@@ -1,6 +1,8 @@
 local stdnse = require "stdnse"
 local http = require "http"
 
+local LOG_INFO = stdnse.log_info
+
 _ENV = stdnse.module("upnp", stdnse.seeall)
 
 Comm = {
@@ -72,7 +74,8 @@ Comm = {
 				return false, "failed to retrieve socket information"
 			end
 
-			print("upnp receive from:" .. ip .. "response" .. response)
+			LOG_INFO("UPNP.LUA", "upnp receive from:%s\n", ip)
+			--print("upnp receive from:" .. ip .. "response" .. response)
 
 			if(not(host_responses[ip])) then
 				local status, output = self:decodeResponse(response)
@@ -89,7 +92,8 @@ Comm = {
 				host_responses[ip] = true
 			else
 
-				print("ignore response: " .. response)
+				LOG_INFO("UPNP.LUA", "ignore response:%s\n", response);
+				--print("ignore response: " .. response)
 			end
 
 
@@ -138,7 +142,7 @@ Comm = {
 
 		response = http.get_url(location, options)
 
-		print(response['body'])
+		--print(response['body'])
 
 		--stdnse.serialize(response)
 
@@ -148,7 +152,9 @@ Comm = {
 			for device in string.gmatch(response['body'], "<deviceType>(.-)</UDN>") do
 				local fn, mnf, mdl, nm, ver
 
-				print("-----------deive: " .. device)
+				
+				LOG_INFO("UPNP.LUA", "device description:%s\n", device)
+				--print("-----------deive: " .. device)
 
 				fn = string.match(device, "<friendlyName[ ]*>(.-)</friendlyName>")
 				mnf = string.match(device, "<manufacturer[ ]*>(.-)</manufacturer>")
@@ -163,7 +169,9 @@ Comm = {
 				if ver ~= nil then table.insert(output, "Model Version: " .. ver) end
 
 
-				print("retrieve result fn: " .. fn .. "mnf: " .. mnf .. "mdl: " .. mdl .. "nm: " .. nm)
+				LOG_INFO("UPNP.LUA", "retrieve result,fn:%s, mnf:%s\n", fn, mnf);
+
+				--print("retrieve result fn: " .. fn .. "mnf: " .. mnf .. "mdl: " .. mdl .. "nm: " .. nm)
 			end
 
 			return true, output

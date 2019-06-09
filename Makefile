@@ -25,7 +25,8 @@ OBJS= main.o		\
      Target.o		\
      util.o		\
      nse_nsock_tmp.o	\
-     network.o
+     network.o		\
+     log.o
 
 
 

@@ -6,7 +6,7 @@ local comm = require "comm"
 
 _ENV = stdnse.module("http", stdnse.seeall)
 
-
+local function LOG_INFO(...) return stdnse.log_info("HTTP.LUA", ...) end
 
 
 local url = {
@@ -554,8 +554,8 @@ local function request(host, port, data, options)
 
 	method = string.match(data, "^(%S+)")
 
-	print("request for " .. data)
-
+	--print("request for " .. data)
+	LOG_INFO("request for:%s\n", data);
 
 	local socket, partial, opts = do_connect(host, port, data, options)
 

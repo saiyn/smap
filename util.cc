@@ -1,4 +1,6 @@
 #include "util.h"
+#include <stdarg.h>
+
 
 Ops o;
 
@@ -76,7 +78,55 @@ struct addrinfo *resolve_all(const char *hostname, int pf)
 }
 
 
+void log_vwrite(int logt, const char *fmt, va_list ap)
+{
+	int logtype;
 
+	for(logtype = 1; logtype <= LOG_MAX; logtype <<= 1)
+	{
+		if(!(logt & logtype))
+			continue;
+
+		switch(logtype){
+			case LOG_STDOUT:
+				vfprintf(stdout, fmt, ap);
+				fflush(stdout);
+			break;
+
+			default:
+				printf("unsupported fd[%d] in [%s]", logt, __FUNCTION__);
+			break;
+			
+		}
+	
+	}
+}
+
+
+
+void log_write(int logt, const char *fmt, ...)
+{
+	va_list ap;
+
+	assert(logt > 0);
+
+	if(!fmt || !*fmt)
+		return;
+
+
+	for(int l = 1; l <= LOG_MAX; l <<= 1)
+	{
+		if(logt & l)
+		{
+			va_start(ap, fmt);
+
+			log_vwrite(l, fmt, ap);
+
+			va_end(ap);
+		}
+	}
+
+}
 
 
 

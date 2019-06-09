@@ -3,6 +3,9 @@ local string = require "string"
 
 local serialize = stdnse.serialize
 
+local LOG_INFO = stdnse.log_info
+local LOG_WARN = stdnse.warn
+
 _ENV = stdnse.module("dns", stdnse.seeall)
 
 
@@ -167,14 +170,14 @@ local function sendPackets(data, host, port, timeout, cnt, multiple, proto)
 	while(true) do
 		status, response = socket:receive()
 		if(not(status)) then
-			print("dns receive rsp fail")
+			LOG_WARN("DNS.LUA","dns receive rsp fail")
 			break
 	
 		end
 
 		local status, _, _, ip, _ = socket:get_info()
 		
-		print("receive from:" .. ip .. response)
+		LOG_INFO("DNS.LUA","receive from:" .. ip .. response)
 
 
 		table.insert(responses, {data = response, peer = ip})
@@ -232,7 +235,7 @@ local decoder = {}
 
 decoder[types.A] = function(entry)
 
-	print("decode ip: " .. entry.data:sub(1,4))
+	LOG_INFO("decode ip: " .. entry.data:sub(1,4))
 end
 
 
@@ -564,7 +567,7 @@ function query(dname, options)
 
 	if status then
 	
-		print("dns query success")
+		LOG_INFO("dns query success")
 
 		local multirsp = {}
 
@@ -573,7 +576,7 @@ function query(dname, options)
 			if(status) then
 
 				
-				print("receive mdns from " .. r.peer)
+				LOG_INFO("receive mdns from " .. r.peer)
 
 				print("*********************************")
 				for _, v in ipairs(presponse) do
@@ -591,7 +594,7 @@ function query(dname, options)
 
 		return true, multirsp
 	else
-		print("dns query fail")
+		LOG_WARN("dns query fail")
 
 		return false, "No answers"
 	end

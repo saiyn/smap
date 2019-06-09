@@ -14,6 +14,8 @@ local pack = table.pack
 local unpack = table.unpack
 
 
+
+
 print("saiyn:in nse_main.lua\n")
 
 
@@ -50,6 +52,12 @@ local Thread = {}
 local ACTION_STARTING = {}
 
 
+local stdnse = require "stdnse"
+
+local function LOG_INFO(...) return stdnse.log_info("NSE_MAIN.LUA", ...) end
+
+
+
 
 function Thread:resume()
 	
@@ -60,27 +68,28 @@ function Thread:resume()
 
 
 	if ok and r1 == ACTION_STARTING then
-		print("r1 == action_starting\n")
+		LOG_INFO("r1 == action_starting\n")
 
 		self.action_started = true
 		return self:resume()
 	elseif not ok then
-		print("saiyn:something wrong\n")
+		LOG_INFO("saiyn:something wrong\n")
 		return false
 	elseif status == "suspended" then
 		if r1 == NSE_YIELD_VALUE then
 			return true
 		else
-			print("saiyn:suspend happen wrong\n")
+			LOG_INFO("saiyn:suspend happen wrong\n")
 			return false
 		end
 	elseif status == "dead" then
 
 		if self.action_started then
-			print(ok,r1,r2)
+			--print(ok,r1,r2)
+			LOG_INFO("OK:%s, r1:%s, r2:%s", ok, r1, r2)
 
 		end
-		print("saiyn: thread dead\n")
+		LOG_INFO("saiyn: thread dead\n")
 	end
 end
 
@@ -104,7 +113,7 @@ function Script:new_thread(...)
 	end
 
 
-	print("in script.new_thread\n")
+	LOG_INFO("in script.new_thread\n")
 
 	local co = create(main)
 
@@ -141,7 +150,7 @@ Script.__index = Script
 local function get_chose_scripts(rules)
 	local chosen_scripts = {}
 
-	print("in get chose scripts\n")
+	LOG_INFO("in get chose scripts\n")
 
 	local nse = assert(loadfile("nselib/upnp-app.nse"), "load upnp-app.nse\n")
 
@@ -151,8 +160,6 @@ local function get_chose_scripts(rules)
 
 	chosen_scripts[#chosen_scripts + 1] = Script.new(nse)
 
-
-	print(#chosen_scripts)
 
 	return chosen_scripts
 
@@ -184,7 +191,7 @@ local function run(threads_iter, hosts)
 			if waiting[co] then
 				pending[co],waiting[co] = waiting[co], nil
 				pending[co].args = pack(...)
-				print("WAITING TO RUNNING...")
+				LOG_INFO("WAITING TO RUNNING...")
 			end
 		end
 	end
@@ -195,7 +202,7 @@ local function run(threads_iter, hosts)
 		while threads_iter do
 			local thread = threads_iter()
 			if not thread then
-				print("thread is nil\n")
+				LOG_INFO("thread is nil\n")
 				threads_iter = nil
 				break
 			end

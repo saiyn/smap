@@ -1,5 +1,7 @@
 local dns = require "dns"
 local stdnse = require "stdnse"
+local LOG_INFO = stdnse.log_info
+local LOG_WARN = stdnse.log_warn
 
 _ENV = stdnse.module("dnssd", stdnse.seeall)
 
@@ -10,7 +12,7 @@ Comm = {
 	queryService = function(host, port, service)
 		local sendCnt, timeout = 1, 5000
 
-		print("try to query serive: " .. service)
+		LOG_INFO("try to query serive: " .. service)
 
 		return dns.query(service, {port = port, host = host, dtype="PTR",retPkt=true,multiple=true,sendCount=sendCnt, timeout=timeout})
 	end,
@@ -47,12 +49,12 @@ Helper = {
 		if(not(service)) then
 			status, response = Comm.queryAllServices(host, port)
 			if(not(status)) then
-				print("query service fail")
+				LOG_WARN("query service fail")
 				return status, response
 			end
 
 		else
-			print("specific service not supported now")
+			LOG_INFO("specific service not supported now")
 
 		end
 
