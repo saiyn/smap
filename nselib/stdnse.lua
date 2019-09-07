@@ -16,7 +16,13 @@ local string  = require "string"
 
 local os = require "os"
 
+local pairs = pairs
+
 local nsock = nsock
+
+local print = print
+
+local tostring = tostring
 
 
 _ENV = require "strict" {};
@@ -43,7 +49,10 @@ end
 
 function serialize(obj)
 	local lua = ""
-	local t = io.type(obj)
+	local t = type(obj)
+
+	print("start to serialize" .. t)
+	
 
 	if t == "number" then
 		lua = lua .. obj
@@ -53,8 +62,10 @@ function serialize(obj)
 	
 	elseif t == "string" then
 		lua = lua .. string.format("%q", obj)
+		print("during, is a string")
 
 	elseif t == "table" then
+		print("during, is a table")
 		lua = lua .. "{\n"
 		for k,v in pairs(obj) do
 			lua = lua .. " [" .. serialize(k) .. "]=" .. serialize(v) .. ",\n"
@@ -71,8 +82,11 @@ function serialize(obj)
 	
 	elseif t == "nil" then
 		return nil
+
+	elseif t == nil then
+		return nil
 	else
-		--io.print("can not serialize")
+		print("can not serialize" .. tostring(t))
 	end
 	
 	return lua

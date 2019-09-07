@@ -4,6 +4,8 @@
 #include "nse_main.h"
 #include "network.h"
 
+#include "log.h"
+
 static void parse_targets(std::vector<Target *> &T, char *ip_str)
 {
 
@@ -67,7 +69,7 @@ int main(int argc, char *argv[])
 {
 
 	int opt;
-	const char *optstring = "s:vld";
+	const char *optstring = "s:vldL:";
 
 	while((opt = getopt(argc, argv, optstring)) != -1){
 		switch(opt){
@@ -90,6 +92,11 @@ int main(int argc, char *argv[])
 		case 'd':
 			printf("host discovery\r\n");
 			host_discovery();
+		break;
+
+		case 'L':
+			printf("set log level to: %s\n", optarg);
+			slog::GetInstance().setLogLevel(atoi(optarg));
 		break;
 
 		default:

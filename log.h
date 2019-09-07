@@ -20,7 +20,10 @@ class slog
 		
 		void output(int, const char *, const char *,const int, const char *, ...);
 
-		int setLogLevel(int level);
+		int setLogLevel(int level)
+		{
+			m_level = level;
+		}
 	
 		int setLogfd(int fd);
 

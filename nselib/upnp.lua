@@ -171,6 +171,8 @@ Comm = {
 
 				LOG_INFO("UPNP.LUA", "retrieve result,fn:%s, mnf:%s\n", fn, mnf);
 
+				LOG_INFO("UPNP.LUA", "xml result:%s\n", stdnse.serialize(output));
+
 				--print("retrieve result fn: " .. fn .. "mnf: " .. mnf .. "mdl: " .. mdl .. "nm: " .. nm)
 			end
 
@@ -215,6 +217,10 @@ Helper = {
 
 		status, response = self.comm:receiveResponse()
 		--self.comm:close()
+		
+
+		LOG_INFO("UPNP.LUA", "status:%s, result:%s\n", tostring(status), stdnse.serialize(response))
+	
 
 		return status, response
 		
